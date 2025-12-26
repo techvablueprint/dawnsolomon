@@ -219,15 +219,11 @@ export function HeroSection() {
         <div className="mt-16 lg:mt-24 hidden md:block">
           <div className="relative h-[280px] bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800/50 flex items-center justify-center">
             {/* AI Handshake Background Image */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
               <img 
                 src={aiHandshake} 
                 alt="AI Human Collaboration" 
-                className="w-[600px] h-auto opacity-40 animate-handshake"
-                style={{ 
-                  maskImage: 'radial-gradient(ellipse at center, black 50%, transparent 80%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse at center, black 50%, transparent 80%)'
-                }}
+                className="w-full h-full object-cover opacity-50 animate-handshake"
               />
             </div>
             {/* Dashed lines - SVG connections for Lead Capturing Flow */}
