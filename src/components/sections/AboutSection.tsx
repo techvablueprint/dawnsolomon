@@ -69,36 +69,40 @@ export function AboutSection() {
 
           {/* Right column - Vision & Goal */}
           <div className="space-y-8">
-            <div className="bg-card rounded-2xl p-6 shadow-card border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center">
-                  <Eye className="w-5 h-5 text-secondary" />
+            <div className="relative bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl p-8 border border-secondary/20 overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-background/50 to-transparent rounded-bl-full" />
+              <div className="relative">
+                <div className="w-16 h-16 rounded-2xl bg-card shadow-sm flex items-center justify-center mb-6 text-secondary">
+                  <Eye className="w-8 h-8" />
                 </div>
-                <h3 className="font-semibold text-lg">My Vision</h3>
+                <h3 className="font-bold text-xl mb-3">My Vision</h3>
+                <EditableText
+                  value={about.vision}
+                  onChange={(v) => updateField("about", "vision", v)}
+                  as="p"
+                  multiline
+                  className="text-muted-foreground leading-relaxed"
+                />
               </div>
-              <EditableText
-                value={about.vision}
-                onChange={(v) => updateField("about", "vision", v)}
-                as="p"
-                multiline
-                className="text-muted-foreground leading-relaxed"
-              />
             </div>
 
-            <div className="bg-card rounded-2xl p-6 shadow-card border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Target className="w-5 h-5 text-primary" />
+            <div className="relative bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl p-8 border border-primary/20 overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-background/50 to-transparent rounded-bl-full" />
+              <div className="relative">
+                <div className="w-16 h-16 rounded-2xl bg-card shadow-sm flex items-center justify-center mb-6 text-primary">
+                  <Target className="w-8 h-8" />
                 </div>
-                <h3 className="font-semibold text-lg">My Goal</h3>
+                <h3 className="font-bold text-xl mb-3">My Goal</h3>
+                <EditableText
+                  value={about.goal}
+                  onChange={(v) => updateField("about", "goal", v)}
+                  as="p"
+                  multiline
+                  className="text-muted-foreground leading-relaxed"
+                />
               </div>
-              <EditableText
-                value={about.goal}
-                onChange={(v) => updateField("about", "goal", v)}
-                as="p"
-                multiline
-                className="text-muted-foreground leading-relaxed"
-              />
             </div>
           </div>
         </div>

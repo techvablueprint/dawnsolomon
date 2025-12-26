@@ -73,15 +73,25 @@ function ProjectCard({
     AI: "bg-primary/10 text-primary border-primary/20",
   };
 
+  const colors = [
+    "from-primary/20 to-primary/5 border-primary/20",
+    "from-secondary/20 to-secondary/5 border-secondary/20",
+    "from-primary/20 to-secondary/10 border-primary/20",
+  ];
+
   return (
     <div
       className={cn(
-        "group bg-card rounded-2xl border border-border overflow-hidden",
-        "card-hover"
+        "group relative bg-gradient-to-br rounded-2xl overflow-hidden",
+        "card-hover",
+        colors[index % colors.length]
       )}
     >
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-background/50 to-transparent rounded-bl-full" />
+
       {/* Header with category */}
-      <div className="p-6 pb-4">
+      <div className="relative p-8 pb-4">
         <Badge
           variant="outline"
           className={cn(
@@ -96,23 +106,23 @@ function ProjectCard({
           value={title}
           onChange={onTitleChange}
           as="h3"
-          className="font-bold text-xl mb-2 group-hover:text-primary transition-colors"
+          className="font-bold text-xl mb-3 group-hover:text-primary transition-colors"
         />
         <EditableText
           value={description}
           onChange={onDescriptionChange}
           as="p"
           multiline
-          className="text-muted-foreground text-sm leading-relaxed"
+          className="text-muted-foreground leading-relaxed"
         />
       </div>
 
       {/* Tags */}
-      <div className="px-6 pb-4 flex flex-wrap gap-2">
+      <div className="relative px-8 pb-4 flex flex-wrap gap-2">
         {tags.map((tag, i) => (
           <span
             key={i}
-            className="text-xs px-2 py-1 rounded-md bg-muted text-muted-foreground"
+            className="text-xs px-2 py-1 rounded-md bg-card/50 text-muted-foreground"
           >
             {tag}
           </span>
@@ -120,7 +130,7 @@ function ProjectCard({
       </div>
 
       {/* Stats */}
-      <div className="border-t border-border bg-muted/30 p-4">
+      <div className="relative border-t border-border/30 bg-card/30 p-4">
         <div className="grid grid-cols-2 gap-4">
           {stats.map((stat, i) => (
             <div key={i} className="text-center">
