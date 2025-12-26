@@ -238,7 +238,7 @@ export const defaultPortfolioData: PortfolioData = {
   },
   social: {
     email: "dawnsolomon482@gmail.com",
-    linkedin: "https://linkedin.com/in/dawnsolomon",
+    linkedin: "https://www.linkedin.com/in/dawn-solomon-automation-engineer-wordpress-seo-ai-visibility/",
     upwork: "https://upwork.com",
   },
 };
