@@ -117,6 +117,12 @@ export const defaultPortfolioData: PortfolioData = {
         description: "Building intelligent workflows with AI integration.",
         icon: "Bot",
       },
+      {
+        id: "skill-4",
+        title: "GEO",
+        description: "AI visibility optimization for LLMs and generative search engines.",
+        icon: "Eye",
+      },
     ],
   },
   services: {
