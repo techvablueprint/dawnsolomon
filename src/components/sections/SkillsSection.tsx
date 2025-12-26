@@ -5,13 +5,13 @@ import { MessageSquare, Search, Laptop, Bot, Zap, Globe, Eye } from "lucide-reac
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, React.ReactNode> = {
-  MessageSquare: <MessageSquare className="w-6 h-6" />,
-  Search: <Search className="w-6 h-6" />,
-  Laptop: <Laptop className="w-6 h-6" />,
-  Bot: <Bot className="w-6 h-6" />,
-  Zap: <Zap className="w-6 h-6" />,
-  Globe: <Globe className="w-6 h-6" />,
-  Eye: <Eye className="w-6 h-6" />,
+  MessageSquare: <MessageSquare className="w-7 h-7" />,
+  Search: <Search className="w-7 h-7" />,
+  Laptop: <Laptop className="w-7 h-7" />,
+  Bot: <Bot className="w-7 h-7" />,
+  Zap: <Zap className="w-7 h-7" />,
+  Globe: <Globe className="w-7 h-7" />,
+  Eye: <Eye className="w-7 h-7" />,
 };
 
 interface SkillCardProps {
@@ -34,26 +34,27 @@ function SkillCard({
   return (
     <div
       className={cn(
-        "group rounded-2xl p-6 border-l-2 border-l-cyan-400 border border-cyan-900/50",
-        "bg-slate-900/80 hover:bg-slate-800/80 transition-all duration-300 cursor-default"
+        "group rounded-2xl p-6",
+        "bg-gradient-to-br from-slate-800/80 to-slate-900/90 border border-slate-700/50",
+        "hover:border-cyan-500/30 transition-all duration-300 cursor-default"
       )}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-4 group-hover:bg-cyan-500/30 transition-colors duration-300">
-        {iconMap[icon] || <Bot className="w-6 h-6" />}
+      <div className="w-14 h-14 rounded-xl bg-slate-900 text-cyan-400 flex items-center justify-center mb-5 group-hover:text-cyan-300 transition-colors duration-300">
+        {iconMap[icon] || <Bot className="w-7 h-7" />}
       </div>
       <EditableText
         value={title}
         onChange={onTitleChange}
         as="h3"
-        className="font-semibold text-lg mb-2"
+        className="font-bold text-xl mb-3 text-foreground"
       />
       <EditableText
         value={description}
         onChange={onDescriptionChange}
         as="p"
         multiline
-        className="text-sm text-muted-foreground"
+        className="text-sm text-muted-foreground leading-relaxed"
       />
     </div>
   );
