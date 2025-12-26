@@ -98,6 +98,19 @@ export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden" style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       
+      {/* AI Handshake Background Image */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <img 
+          src={aiHandshake} 
+          alt="AI Human Collaboration" 
+          className="w-[900px] h-auto opacity-30 animate-handshake"
+          style={{
+            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)'
+          }}
+        />
+      </div>
+
       {/* Animated vertical lines moving upward */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(12)].map((_, i) => (
@@ -218,14 +231,6 @@ export function HeroSection() {
         {/* Floating Workflow Cards Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
           <div className="relative h-[280px] bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800/50 flex items-center justify-center">
-            {/* AI Handshake Background Image */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-              <img 
-                src={aiHandshake} 
-                alt="AI Human Collaboration" 
-                className="w-full h-full object-cover opacity-50 animate-handshake"
-              />
-            </div>
             {/* Dashed lines - SVG connections for Lead Capturing Flow */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
               {/* New Lead -> Qualify Lead */}
