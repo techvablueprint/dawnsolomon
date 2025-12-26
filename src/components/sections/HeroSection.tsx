@@ -95,7 +95,7 @@ export function HeroSection() {
   const { hero } = data;
 
   return (
-    <section id="home" className="relative min-h-screen bg-grid-pattern overflow-hidden">
+    <section id="home" className="relative min-h-screen bg-grid-pattern overflow-hidden" style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       {/* Gradient overlay */}
       <div
         className="absolute inset-0 pointer-events-none"

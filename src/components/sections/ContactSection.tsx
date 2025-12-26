@@ -10,7 +10,7 @@ export function ContactSection() {
   const { contact, about, social } = data;
 
   return (
-    <section id="contact" className="py-20 lg:py-32 text-foreground" style={{ backgroundColor: 'hsl(215 50% 5%)' }}>
+    <section id="contact" className="py-20 lg:py-32 text-foreground" style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
