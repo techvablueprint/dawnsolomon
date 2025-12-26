@@ -103,7 +103,7 @@ export function HeroSection() {
         <img 
           src={aiHandshake} 
           alt="AI Human Collaboration" 
-          className="w-[900px] h-auto opacity-30 animate-handshake"
+          className="w-[900px] h-auto opacity-30"
           style={{
             maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)',
             WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)'
