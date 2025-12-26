@@ -102,35 +102,43 @@ export function ToolsSection() {
         </div>
       </div>
 
-      {/* Custom keyframes for different bounce patterns */}
+      {/* Custom keyframes for different bounce patterns - wide range across entire box */}
       <style>{`
         @keyframes ball-bounce-0 {
           0%, 100% { transform: translate(0, 0); }
-          20% { transform: translate(120px, -80px); }
-          40% { transform: translate(-60px, 60px); }
-          60% { transform: translate(80px, 40px); }
-          80% { transform: translate(-40px, -60px); }
+          15% { transform: translate(350px, -120px); }
+          30% { transform: translate(-200px, 100px); }
+          45% { transform: translate(280px, 80px); }
+          60% { transform: translate(-300px, -80px); }
+          75% { transform: translate(150px, 120px); }
+          90% { transform: translate(-100px, -100px); }
         }
         @keyframes ball-bounce-1 {
           0%, 100% { transform: translate(0, 0); }
-          20% { transform: translate(-100px, 70px); }
-          40% { transform: translate(70px, -50px); }
-          60% { transform: translate(-50px, -80px); }
-          80% { transform: translate(90px, 50px); }
+          15% { transform: translate(-320px, 110px); }
+          30% { transform: translate(250px, -90px); }
+          45% { transform: translate(-180px, -120px); }
+          60% { transform: translate(300px, 70px); }
+          75% { transform: translate(-250px, 90px); }
+          90% { transform: translate(120px, -80px); }
         }
         @keyframes ball-bounce-2 {
           0%, 100% { transform: translate(0, 0); }
-          20% { transform: translate(80px, 90px); }
-          40% { transform: translate(-90px, -40px); }
-          60% { transform: translate(60px, -70px); }
-          80% { transform: translate(-70px, 80px); }
+          15% { transform: translate(280px, 130px); }
+          30% { transform: translate(-350px, -60px); }
+          45% { transform: translate(200px, -110px); }
+          60% { transform: translate(-220px, 100px); }
+          75% { transform: translate(320px, -70px); }
+          90% { transform: translate(-150px, 80px); }
         }
         @keyframes ball-bounce-3 {
           0%, 100% { transform: translate(0, 0); }
-          20% { transform: translate(-80px, -60px); }
-          40% { transform: translate(100px, 80px); }
-          60% { transform: translate(-60px, 50px); }
-          80% { transform: translate(50px, -90px); }
+          15% { transform: translate(-280px, -100px); }
+          30% { transform: translate(330px, 120px); }
+          45% { transform: translate(-200px, 70px); }
+          60% { transform: translate(180px, -130px); }
+          75% { transform: translate(-300px, 50px); }
+          90% { transform: translate(250px, -60px); }
         }
       `}</style>
     </section>
