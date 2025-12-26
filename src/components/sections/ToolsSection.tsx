@@ -68,7 +68,7 @@ export function ToolsSection() {
             {tools.map((tool, index) => (
               <div
                 key={tool.name}
-                className="flex flex-col items-center gap-2"
+                className="flex flex-col items-center"
               >
                 {/* Ball container with bounce */}
                 <div className="relative">
@@ -85,7 +85,7 @@ export function ToolsSection() {
                     )}
                     style={{ 
                       animationDelay: `${bounceDelays[index] * 2}s`,
-                      animationDuration: `${5 + (index % 3) * 1}s`
+                      animationDuration: `${10 + (index % 3) * 2}s`
                     }}
                   >
                     <img 
@@ -99,13 +99,10 @@ export function ToolsSection() {
                     className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-14 md:w-20 h-4 bg-black/50 rounded-full blur-md animate-shadow-pulse"
                     style={{ 
                       animationDelay: `${bounceDelays[index] * 2}s`,
-                      animationDuration: `${5 + (index % 3) * 1}s`
+                      animationDuration: `${10 + (index % 3) * 2}s`
                     }}
                   />
                 </div>
-                <span className="text-xs md:text-sm text-muted-foreground text-center mt-4">
-                  {tool.name}
-                </span>
               </div>
             ))}
           </div>
