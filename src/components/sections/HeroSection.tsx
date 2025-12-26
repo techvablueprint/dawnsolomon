@@ -278,13 +278,12 @@ export function HeroSection() {
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
           
-          <div className="flex animate-scroll-x gap-16 whitespace-nowrap">
+          <div className="flex animate-scroll-x gap-12 whitespace-nowrap">
             {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-16 items-center">
+              <div key={setIndex} className="flex gap-12 items-center">
                 {brandLogos.map((brand) => (
-                  <div key={`${setIndex}-${brand.name}`} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
-                    <span className="text-muted-foreground font-medium text-sm">{brand.name}</span>
+                  <div key={`${setIndex}-${brand.name}`} className="opacity-60 hover:opacity-100 transition-opacity">
+                    <img src={brand.logo} alt={brand.name} className="h-10 w-10 object-contain" />
                   </div>
                 ))}
               </div>
