@@ -5,6 +5,45 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Mail, Bot, Zap, BarChart3, MessageSquare, Database, UserPlus, Filter, Send, FileSpreadsheet } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.png";
 
+// Brand logos
+import clickupLogo from "@/assets/brands/clickup.ico";
+import tallyLogo from "@/assets/brands/tally.svg";
+import jotformLogo from "@/assets/brands/jotform.svg";
+import systemeLogo from "@/assets/brands/systeme.png";
+import quickbooksLogo from "@/assets/brands/quickbooks.png";
+import notionLogo from "@/assets/tools/notion.svg";
+import trelloLogo from "@/assets/brands/trello.svg";
+import slackLogo from "@/assets/brands/slack.svg";
+import zoomLogo from "@/assets/brands/zoom.svg";
+import chatgptLogo from "@/assets/tools/chatgpt.svg";
+import geminiLogo from "@/assets/brands/gemini.png";
+import mailchimpLogo from "@/assets/brands/mailchimp.svg";
+import wordpressLogo from "@/assets/tools/wordpress.png";
+import canvaLogo from "@/assets/brands/canva.ico";
+import shopifyLogo from "@/assets/tools/shopify.svg";
+import zapierLogo from "@/assets/tools/zapier.svg";
+import airtableLogo from "@/assets/tools/airtable.svg";
+
+const brandLogos = [
+  { name: "ClickUp", logo: clickupLogo },
+  { name: "Tally", logo: tallyLogo },
+  { name: "Jotform", logo: jotformLogo },
+  { name: "Systeme.io", logo: systemeLogo },
+  { name: "QuickBooks", logo: quickbooksLogo },
+  { name: "Notion", logo: notionLogo },
+  { name: "Trello", logo: trelloLogo },
+  { name: "Slack", logo: slackLogo },
+  { name: "Zoom", logo: zoomLogo },
+  { name: "ChatGPT", logo: chatgptLogo },
+  { name: "Gemini", logo: geminiLogo },
+  { name: "Mailchimp", logo: mailchimpLogo },
+  { name: "WordPress", logo: wordpressLogo },
+  { name: "Canva", logo: canvaLogo },
+  { name: "Shopify", logo: shopifyLogo },
+  { name: "Zapier", logo: zapierLogo },
+  { name: "Airtable", logo: airtableLogo },
+];
+
 const FloatingCard = ({
   icon: Icon,
   title,
@@ -234,27 +273,20 @@ export function HeroSection() {
         </div>
 
         {/* Scrolling Logo Bar */}
-        <div className="mt-12 overflow-hidden">
-          <div className="flex animate-scroll-x gap-12 whitespace-nowrap">
+        <div className="mt-12 overflow-hidden relative">
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
+          
+          <div className="flex animate-scroll-x gap-16 whitespace-nowrap">
             {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-12 items-center">
-                <span className="text-muted-foreground/60 font-medium text-lg">ClickUp</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Tally</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Jotform</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Systeme.io</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">QuickBooks</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">FlowCRM</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Notion</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Trello</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Slack</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Zoom</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">ChatGPT</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Gemini</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Mailchimp</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">WordPress</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Canva</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">Shopify</span>
-                <span className="text-muted-foreground/60 font-medium text-lg">VAPI</span>
+              <div key={setIndex} className="flex gap-16 items-center">
+                {brandLogos.map((brand) => (
+                  <div key={`${setIndex}-${brand.name}`} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
+                    <span className="text-muted-foreground font-medium text-sm">{brand.name}</span>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
