@@ -9,7 +9,7 @@ import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { CalendlySection } from "@/components/sections/CalendlySection";
 import { ContactSection } from "@/components/sections/ContactSection";
-import { EditModeToggle } from "@/components/EditModeToggle";
+
 
 const Index = () => {
   return (
@@ -45,7 +45,7 @@ const Index = () => {
           <CalendlySection />
           <ContactSection />
         </main>
-        <EditModeToggle />
+        
       </div>
     </PortfolioProvider>
   );
