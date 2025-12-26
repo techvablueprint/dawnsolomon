@@ -10,23 +10,29 @@ const FloatingCard = ({
   title,
   delay,
   color,
+  glowColor,
   position,
 }: {
   icon: React.ElementType;
   title: string;
   delay: number;
   color: string;
+  glowColor: string;
   position: string;
 }) => (
   <div
-    className={`absolute ${position} animate-float`}
+    className={`absolute ${position} animate-float group`}
     style={{ animationDelay: `${delay}s` }}
   >
-    <div className="bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center gap-2 min-w-[100px] border border-gray-100">
-      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${color}`}>
+    <div 
+      className={`bg-slate-800/90 rounded-2xl shadow-lg p-4 flex flex-col items-center gap-2 min-w-[100px] border border-slate-700/50 
+        transition-all duration-300 cursor-pointer
+        hover:scale-110 hover:border-cyan-400/50 ${glowColor}`}
+    >
+      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${color} transition-all duration-300 group-hover:scale-110`}>
         <Icon className="w-5 h-5" />
       </div>
-      <p className="font-medium text-sm text-gray-800">{title}</p>
+      <p className="font-medium text-sm text-foreground">{title}</p>
     </div>
   </div>
 );
@@ -160,14 +166,14 @@ export function HeroSection() {
 
         {/* Floating Workflow Cards Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
-          <div className="relative h-[350px] bg-gradient-to-br from-slate-50/50 to-cyan-50/30 rounded-3xl overflow-hidden">
+          <div className="relative h-[350px] bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800/50">
             {/* Dashed lines - SVG connections */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-              <line x1="18%" y1="55%" x2="35%" y2="25%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
-              <line x1="35%" y1="25%" x2="50%" y2="50%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
-              <line x1="50%" y1="50%" x2="70%" y2="20%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
-              <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
-              <line x1="18%" y1="55%" x2="32%" y2="78%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
+              <line x1="18%" y1="55%" x2="35%" y2="25%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+              <line x1="35%" y1="25%" x2="50%" y2="50%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+              <line x1="50%" y1="50%" x2="70%" y2="20%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+              <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+              <line x1="18%" y1="55%" x2="32%" y2="78%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
             </svg>
             
             {/* Floating Cards */}
@@ -175,42 +181,48 @@ export function HeroSection() {
               icon={Mail} 
               title="Lead Captured" 
               delay={0} 
-              color="bg-green-100 text-green-600"
+              color="bg-green-500/20 text-green-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]"
               position="left-[10%] top-[45%]"
             />
             <FloatingCard 
               icon={Bot} 
               title="AI Analysis" 
               delay={0.3} 
-              color="bg-slate-100 text-slate-600"
+              color="bg-purple-500/20 text-purple-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
               position="left-[28%] top-[15%]"
             />
             <FloatingCard 
               icon={Database} 
               title="CRM Update" 
               delay={0.6} 
-              color="bg-orange-100 text-orange-600"
+              color="bg-orange-500/20 text-orange-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(249,115,22,0.5)]"
               position="left-[25%] top-[68%]"
             />
             <FloatingCard 
               icon={Zap} 
               title="Automation" 
               delay={0.4} 
-              color="bg-yellow-100 text-yellow-600"
+              color="bg-yellow-500/20 text-yellow-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]"
               position="left-[45%] top-[40%]"
             />
             <FloatingCard 
               icon={MessageSquare} 
               title="Follow-up" 
               delay={0.5} 
-              color="bg-pink-100 text-pink-600"
+              color="bg-pink-500/20 text-pink-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(236,72,153,0.5)]"
               position="right-[22%] top-[10%]"
             />
             <FloatingCard 
               icon={BarChart3} 
               title="Analytics" 
               delay={0.7} 
-              color="bg-cyan-100 text-cyan-600"
+              color="bg-cyan-500/20 text-cyan-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]"
               position="right-[18%] top-[60%]"
             />
           </div>
