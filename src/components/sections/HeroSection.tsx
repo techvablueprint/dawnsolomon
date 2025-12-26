@@ -230,8 +230,23 @@ export function HeroSection() {
         </div>
 
         {/* n8n Workflow Section */}
-        <div className="mt-16 lg:mt-24 hidden md:block">
-          <div className="relative bg-white/[0.02] backdrop-blur-[2px] rounded-3xl border border-white/5 p-6">
+        <div className="mt-16 lg:mt-24 hidden md:block relative">
+          {/* Animated vertical lines moving upward - same as About section */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(12)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-[3px] bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up rounded-full"
+                style={{
+                  left: `${8 + i * 8}%`,
+                  height: '150px',
+                  animationDelay: `${i * 0.5}s`,
+                  animationDuration: `${3 + (i % 3)}s`,
+                }}
+              />
+            ))}
+          </div>
+          <div className="relative bg-white/[0.02] backdrop-blur-[2px] rounded-3xl border border-white/5 p-6 z-10">
             <img 
               src={n8nWorkflow} 
               alt="n8n Automation Workflow" 
