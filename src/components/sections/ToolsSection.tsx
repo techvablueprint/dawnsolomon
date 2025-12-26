@@ -1,32 +1,31 @@
 import { cn } from "@/lib/utils";
-import { 
-  Workflow, 
-  Database, 
-  Globe, 
-  MessageSquare, 
-  Calendar,
-  FileSpreadsheet,
-  ShoppingBag,
-  Bot,
-  Layers,
-  Zap,
-  Mail,
-  LayoutGrid
-} from "lucide-react";
+
+import zapierLogo from "@/assets/tools/zapier.svg";
+import makeLogo from "@/assets/tools/make.ico";
+import n8nLogo from "@/assets/tools/n8n.ico";
+import gohighlevelLogo from "@/assets/tools/gohighlevel.ico";
+import hubspotLogo from "@/assets/tools/hubspot.png";
+import notionLogo from "@/assets/tools/notion.svg";
+import airtableLogo from "@/assets/tools/airtable.svg";
+import googleLogo from "@/assets/tools/google.ico";
+import shopifyLogo from "@/assets/tools/shopify.svg";
+import wordpressLogo from "@/assets/tools/wordpress.png";
+import chatgptLogo from "@/assets/tools/chatgpt.svg";
+import mondayLogo from "@/assets/tools/monday.svg";
 
 const tools = [
-  { name: "Zapier", icon: Zap },
-  { name: "Make", icon: Layers },
-  { name: "n8n", icon: Workflow },
-  { name: "GoHighLevel", icon: LayoutGrid },
-  { name: "HubSpot", icon: Database },
-  { name: "Notion", icon: FileSpreadsheet },
-  { name: "Airtable", icon: Database },
-  { name: "Google Workspace", icon: Mail },
-  { name: "Shopify", icon: ShoppingBag },
-  { name: "WordPress", icon: Globe },
-  { name: "ChatGPT", icon: Bot },
-  { name: "Monday.com", icon: Calendar },
+  { name: "Zapier", logo: zapierLogo },
+  { name: "Make", logo: makeLogo },
+  { name: "n8n", logo: n8nLogo },
+  { name: "GoHighLevel", logo: gohighlevelLogo },
+  { name: "HubSpot", logo: hubspotLogo },
+  { name: "Notion", logo: notionLogo },
+  { name: "Airtable", logo: airtableLogo },
+  { name: "Google Workspace", logo: googleLogo },
+  { name: "Shopify", logo: shopifyLogo },
+  { name: "WordPress", logo: wordpressLogo },
+  { name: "ChatGPT", logo: chatgptLogo },
+  { name: "Monday.com", logo: mondayLogo },
 ];
 
 export function ToolsSection() {
@@ -47,20 +46,23 @@ export function ToolsSection() {
             <div
               key={tool.name}
               className="flex flex-col items-center gap-3"
-              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div
                 className={cn(
                   "w-16 h-16 md:w-20 md:h-20 rounded-full",
-                  "bg-slate-800/80 border border-cyan-900/50",
-                  "flex items-center justify-center",
+                  "bg-white/90 border border-cyan-900/50",
+                  "flex items-center justify-center p-3",
                   "hover:bg-cyan-500/20 hover:border-cyan-400/50",
                   "transition-all duration-300",
                   "animate-bounce-slow"
                 )}
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <tool.icon className="w-7 h-7 md:w-8 md:h-8 text-cyan-400" />
+                <img 
+                  src={tool.logo} 
+                  alt={tool.name} 
+                  className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                />
               </div>
               <span className="text-xs md:text-sm text-muted-foreground text-center">
                 {tool.name}
