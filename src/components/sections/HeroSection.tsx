@@ -96,6 +96,22 @@ export function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden" style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      
+      {/* Animated vertical lines moving upward */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-px bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up"
+            style={{
+              left: `${8 + i * 8}%`,
+              height: '120px',
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + (i % 3)}s`,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container mx-auto px-4 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
