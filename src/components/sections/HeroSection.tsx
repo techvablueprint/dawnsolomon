@@ -272,25 +272,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Scrolling Logo Bar - Separate Section */}
-        <div className="mt-8 hidden md:block">
-          <div className="py-6 bg-slate-900/50 rounded-2xl border border-slate-800/50 overflow-hidden">
-            <div className="flex animate-scroll-x gap-16 whitespace-nowrap">
-              {[...Array(2)].map((_, setIndex) => (
-                <div key={setIndex} className="flex gap-16 items-center">
-                  {brandLogos.map((brand) => (
-                    <div key={`${setIndex}-${brand.name}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                      <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
-                      <span className="text-muted-foreground font-medium text-sm">{brand.name}</span>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-
         {/* Motto section */}
         <div className="mt-12 lg:mt-20 flex justify-center">
           <div className="text-center max-w-2xl">
@@ -301,6 +282,22 @@ export function HeroSection() {
               className="text-xl lg:text-2xl font-medium italic text-muted-foreground"
             />
             <p className="mt-2 text-sm text-muted-foreground">— My Motto</p>
+          </div>
+        </div>
+
+        {/* Scrolling Logo Bar - Before About Section */}
+        <div className="mt-16 lg:mt-24 overflow-hidden">
+          <div className="flex animate-scroll-x gap-16 whitespace-nowrap">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex gap-16 items-center">
+                {brandLogos.map((brand) => (
+                  <div key={`${setIndex}-${brand.name}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
+                    <span className="text-muted-foreground font-medium text-sm">{brand.name}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
