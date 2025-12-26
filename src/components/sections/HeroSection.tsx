@@ -205,88 +205,87 @@ export function HeroSection() {
 
         {/* Floating Workflow Cards Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
-          <div className="relative bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800/50">
-            {/* Workflow Cards Area */}
-            <div className="relative h-[350px]">
-              {/* Dashed lines - SVG connections for Lead Capturing Flow */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-                {/* New Lead -> Qualify Lead */}
-                <line x1="15%" y1="35%" x2="32%" y2="35%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
-                {/* Qualify Lead -> Add to CRM */}
-                <line x1="40%" y1="35%" x2="55%" y2="55%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
-                {/* Qualify Lead -> Send Email */}
-                <line x1="40%" y1="35%" x2="55%" y2="20%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
-                {/* Add to CRM -> AI Follow-up */}
-                <line x1="65%" y1="55%" x2="80%" y2="55%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
-                {/* Send Email -> Schedule Task */}
-                <line x1="65%" y1="20%" x2="80%" y2="20%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
-              </svg>
-              
-              {/* Lead Capturing Flow Cards */}
-              <FloatingCard 
-                icon={UserPlus} 
-                title="New Lead" 
-                delay={0} 
-                color="bg-green-500/20 text-green-400"
-                glowColor="hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]"
-                position="left-[5%] top-[25%]"
-              />
-              <FloatingCard 
-                icon={Filter} 
-                title="Qualify Lead" 
-                delay={0.2} 
-                color="bg-purple-500/20 text-purple-400"
-                glowColor="hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
-                position="left-[28%] top-[25%]"
-              />
-              <FloatingCard 
-                icon={Send} 
-                title="Send Email" 
-                delay={0.4} 
-                color="bg-cyan-500/20 text-cyan-400"
-                glowColor="hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]"
-                position="left-[50%] top-[10%]"
-              />
-              <FloatingCard 
-                icon={FileSpreadsheet} 
-                title="Add to CRM" 
-                delay={0.3} 
-                color="bg-orange-500/20 text-orange-400"
-                glowColor="hover:shadow-[0_0_30px_rgba(249,115,22,0.5)]"
-                position="left-[50%] top-[45%]"
-              />
-              <FloatingCard 
-                icon={Bot} 
-                title="AI Follow-up" 
-                delay={0.5} 
-                color="bg-pink-500/20 text-pink-400"
-                glowColor="hover:shadow-[0_0_30px_rgba(236,72,153,0.5)]"
-                position="right-[12%] top-[45%]"
-              />
-              <FloatingCard 
-                icon={Zap} 
-                title="Schedule Task" 
-                delay={0.6} 
-                color="bg-yellow-500/20 text-yellow-400"
-                glowColor="hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]"
-                position="right-[12%] top-[10%]"
-              />
-            </div>
+          <div className="relative h-[350px] bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800/50">
+            {/* Dashed lines - SVG connections for Lead Capturing Flow */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+              {/* New Lead -> Qualify Lead */}
+              <line x1="15%" y1="35%" x2="32%" y2="35%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+              {/* Qualify Lead -> Add to CRM */}
+              <line x1="40%" y1="35%" x2="55%" y2="55%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+              {/* Qualify Lead -> Send Email */}
+              <line x1="40%" y1="35%" x2="55%" y2="20%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+              {/* Add to CRM -> AI Follow-up */}
+              <line x1="65%" y1="55%" x2="80%" y2="55%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+              {/* Send Email -> Schedule Task */}
+              <line x1="65%" y1="20%" x2="80%" y2="20%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.4" />
+            </svg>
             
-            {/* Scrolling Logo Bar - Inside the workflow section */}
-            <div className="py-6 border-t border-slate-800/50 overflow-hidden relative">
-              <div className="flex animate-scroll-x gap-16 whitespace-nowrap">
-                {[...Array(2)].map((_, setIndex) => (
-                  <div key={setIndex} className="flex gap-16 items-center">
-                    {brandLogos.map((brand) => (
-                      <div key={`${setIndex}-${brand.name}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                        <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
-                        <span className="text-muted-foreground font-medium text-sm">{brand.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
+            {/* Lead Capturing Flow Cards */}
+            <FloatingCard 
+              icon={UserPlus} 
+              title="New Lead" 
+              delay={0} 
+              color="bg-green-500/20 text-green-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]"
+              position="left-[5%] top-[25%]"
+            />
+            <FloatingCard 
+              icon={Filter} 
+              title="Qualify Lead" 
+              delay={0.2} 
+              color="bg-purple-500/20 text-purple-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
+              position="left-[28%] top-[25%]"
+            />
+            <FloatingCard 
+              icon={Send} 
+              title="Send Email" 
+              delay={0.4} 
+              color="bg-cyan-500/20 text-cyan-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]"
+              position="left-[50%] top-[10%]"
+            />
+            <FloatingCard 
+              icon={FileSpreadsheet} 
+              title="Add to CRM" 
+              delay={0.3} 
+              color="bg-orange-500/20 text-orange-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(249,115,22,0.5)]"
+              position="left-[50%] top-[45%]"
+            />
+            <FloatingCard 
+              icon={Bot} 
+              title="AI Follow-up" 
+              delay={0.5} 
+              color="bg-pink-500/20 text-pink-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(236,72,153,0.5)]"
+              position="right-[12%] top-[45%]"
+            />
+            <FloatingCard 
+              icon={Zap} 
+              title="Schedule Task" 
+              delay={0.6} 
+              color="bg-yellow-500/20 text-yellow-400"
+              glowColor="hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]"
+              position="right-[12%] top-[10%]"
+            />
+          </div>
+        </div>
+
+        {/* Scrolling Logo Bar - Separate Section */}
+        <div className="mt-8 hidden md:block">
+          <div className="py-6 bg-slate-900/50 rounded-2xl border border-slate-800/50 overflow-hidden">
+            <div className="flex animate-scroll-x gap-16 whitespace-nowrap">
+              {[...Array(2)].map((_, setIndex) => (
+                <div key={setIndex} className="flex gap-16 items-center">
+                  {brandLogos.map((brand) => (
+                    <div key={`${setIndex}-${brand.name}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                      <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
+                      <span className="text-muted-foreground font-medium text-sm">{brand.name}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
