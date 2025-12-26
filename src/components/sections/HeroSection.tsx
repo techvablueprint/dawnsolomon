@@ -231,7 +231,14 @@ export function HeroSection() {
 
         {/* n8n Workflow Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
-          <div className="relative rounded-2xl overflow-hidden border border-slate-700/50">
+          <div 
+            className="relative rounded-2xl overflow-hidden border border-slate-700/50 p-4"
+            style={{ 
+              backgroundImage: "url('/images/background.png')", 
+              backgroundSize: 'cover', 
+              backgroundPosition: 'center' 
+            }}
+          >
             <img 
               src={n8nWorkflow} 
               alt="n8n Automation Workflow" 
