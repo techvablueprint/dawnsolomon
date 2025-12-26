@@ -50,10 +50,10 @@ export function ToolsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Glass container - same style as service cards */}
-        <div className="relative bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 rounded-2xl p-8 md:p-12 overflow-hidden card-hover">
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-background/50 to-transparent rounded-bl-full" />
+        {/* Glass container - dark teal card style */}
+        <div className="relative bg-[#0a2e2e]/80 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-8 md:p-12 overflow-hidden shadow-[0_0_25px_-5px_rgba(6,182,212,0.2)]">
+          {/* Inner gradient glow */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/10 via-transparent to-teal-600/5 pointer-events-none" />
           
           <div className="text-center mb-12 relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
