@@ -231,7 +231,7 @@ export function HeroSection() {
 
         {/* n8n Workflow Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
-          <div className="relative">
+          <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-slate-700/40 p-8">
             <img 
               src={n8nWorkflow} 
               alt="n8n Automation Workflow" 
