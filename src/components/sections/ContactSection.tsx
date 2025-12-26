@@ -30,42 +30,7 @@ export function ContactSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left - CTA */}
-            <div className="space-y-6">
-              <EditableText
-                value={contact.title}
-                onChange={(v) =>
-                  updateData({ contact: { ...contact, title: v } })
-                }
-                as="h2"
-                className="text-3xl lg:text-4xl font-bold"
-              />
-              <EditableText
-                value={contact.subtitle}
-                onChange={(v) =>
-                  updateData({ contact: { ...contact, subtitle: v } })
-                }
-                as="p"
-                className="text-muted-foreground text-lg"
-              />
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-button"
-                asChild
-              >
-                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${about.email}`} target="_blank" rel="noopener noreferrer">
-                  <Mail className="mr-2 w-5 h-5" />
-                  <EditableText
-                    value={contact.ctaText}
-                    onChange={(v) =>
-                      updateData({ contact: { ...contact, ctaText: v } })
-                    }
-                  />
-                </a>
-              </Button>
-            </div>
-
-            {/* Right - Contact info */}
+            {/* Left - Contact info */}
             <div className="space-y-6">
               <h3 className="font-semibold text-lg text-muted-foreground">
                 Get In Touch
@@ -113,6 +78,41 @@ export function ContactSection() {
                   </div>
                 )}
               </div>
+            </div>
+
+            {/* Right - CTA */}
+            <div className="space-y-6">
+              <EditableText
+                value={contact.title}
+                onChange={(v) =>
+                  updateData({ contact: { ...contact, title: v } })
+                }
+                as="h2"
+                className="text-3xl lg:text-4xl font-bold"
+              />
+              <EditableText
+                value={contact.subtitle}
+                onChange={(v) =>
+                  updateData({ contact: { ...contact, subtitle: v } })
+                }
+                as="p"
+                className="text-muted-foreground text-lg"
+              />
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-button"
+                asChild
+              >
+                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${about.email}`} target="_blank" rel="noopener noreferrer">
+                  <Mail className="mr-2 w-5 h-5" />
+                  <EditableText
+                    value={contact.ctaText}
+                    onChange={(v) =>
+                      updateData({ contact: { ...contact, ctaText: v } })
+                    }
+                  />
+                </a>
+              </Button>
             </div>
           </div>
 
