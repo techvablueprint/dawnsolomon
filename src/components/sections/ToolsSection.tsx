@@ -50,58 +50,65 @@ export function ToolsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Tools I Work With
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            I'm fluent in the tools that power modern businesses—so your tech just works.
-          </p>
-        </div>
+        {/* Glass container */}
+        <div className="relative bg-gradient-to-br from-cyan-900/40 via-teal-900/30 to-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-3xl p-8 md:p-12 shadow-[0_0_60px_-15px_rgba(6,182,212,0.3)]">
+          {/* Inner glow effect */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/5 via-transparent to-teal-400/5 pointer-events-none" />
+          
+          <div className="text-center mb-12 relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Tools I Work With
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              I'm fluent in the tools that power modern businesses—so your tech just works.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 max-w-4xl mx-auto">
-          {tools.map((tool, index) => (
-            <div
-              key={tool.name}
-              className="flex flex-col items-center gap-2"
-            >
-              {/* Ball container with bounce */}
-              <div className="relative">
-                <div
-                  className={cn(
-                    "w-16 h-16 md:w-20 md:h-20 rounded-full",
-                    tool.color,
-                    "border-2 shadow-lg",
-                    "flex items-center justify-center",
-                    "hover:scale-110",
-                    "transition-transform duration-300",
-                    "animate-ball-bounce"
-                  )}
-                  style={{ 
-                    animationDelay: `${bounceDelays[index]}s`,
-                    animationDuration: `${1.2 + (index % 3) * 0.2}s`
-                  }}
-                >
-                  <img 
-                    src={tool.logo} 
-                    alt={tool.name} 
-                    className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 max-w-4xl mx-auto relative z-10">
+            {tools.map((tool, index) => (
+              <div
+                key={tool.name}
+                className="flex flex-col items-center gap-2"
+              >
+                {/* Ball container with bounce */}
+                <div className="relative">
+                  <div
+                    className={cn(
+                      "w-16 h-16 md:w-20 md:h-20 rounded-full",
+                      tool.color,
+                      "border-2 shadow-xl",
+                      "flex items-center justify-center",
+                      "hover:scale-110",
+                      "transition-transform duration-300",
+                      "animate-ball-bounce",
+                      "shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+                    )}
+                    style={{ 
+                      animationDelay: `${bounceDelays[index] * 2}s`,
+                      animationDuration: `${5 + (index % 3) * 1}s`
+                    }}
+                  >
+                    <img 
+                      src={tool.logo} 
+                      alt={tool.name} 
+                      className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+                    />
+                  </div>
+                  {/* Shadow underneath */}
+                  <div 
+                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-14 md:w-20 h-4 bg-black/50 rounded-full blur-md animate-shadow-pulse"
+                    style={{ 
+                      animationDelay: `${bounceDelays[index] * 2}s`,
+                      animationDuration: `${5 + (index % 3) * 1}s`
+                    }}
                   />
                 </div>
-                {/* Shadow underneath */}
-                <div 
-                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 md:w-16 h-3 bg-black/30 rounded-full blur-sm animate-shadow-pulse"
-                  style={{ 
-                    animationDelay: `${bounceDelays[index]}s`,
-                    animationDuration: `${1.2 + (index % 3) * 0.2}s`
-                  }}
-                />
+                <span className="text-xs md:text-sm text-muted-foreground text-center mt-4">
+                  {tool.name}
+                </span>
               </div>
-              <span className="text-xs md:text-sm text-muted-foreground text-center mt-2">
-                {tool.name}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
