@@ -71,9 +71,9 @@ export interface PortfolioData {
 export const defaultPortfolioData: PortfolioData = {
   hero: {
     badge: "Open for Freelance Projects",
-    headline: "I Automate Your",
-    headlineAccent: "Workflows",
-    headlineSuffix: "So You Can Scale.",
+    headline: "Automation That Saves",
+    headlineAccent: "Time, Money,",
+    headlineSuffix: "and Focus.",
     description:
       "Automation That Saves Time, Money, and Focus.",
     ctaText: "Hire Me",
