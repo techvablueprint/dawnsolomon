@@ -102,10 +102,10 @@ export function HeroSection() {
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-px bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up"
+            className="absolute w-[3px] bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up rounded-full"
             style={{
               left: `${8 + i * 8}%`,
-              height: '120px',
+              height: '150px',
               animationDelay: `${i * 0.5}s`,
               animationDuration: `${3 + (i % 3)}s`,
             }}
