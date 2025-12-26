@@ -5,12 +5,12 @@ import { Zap, Globe, Eye, Bot, Search, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, React.ReactNode> = {
-  Zap: <Zap className="w-7 h-7" />,
-  Globe: <Globe className="w-7 h-7" />,
-  Eye: <Eye className="w-7 h-7" />,
-  Bot: <Bot className="w-7 h-7" />,
-  Search: <Search className="w-7 h-7" />,
-  Settings: <Settings className="w-7 h-7" />,
+  Zap: <Zap className="w-8 h-8" />,
+  Globe: <Globe className="w-8 h-8" />,
+  Eye: <Eye className="w-8 h-8" />,
+  Bot: <Bot className="w-8 h-8" />,
+  Search: <Search className="w-8 h-8" />,
+  Settings: <Settings className="w-8 h-8" />,
 };
 
 interface ServiceCardProps {
@@ -30,31 +30,41 @@ function ServiceCard({
   onTitleChange,
   onDescriptionChange,
 }: ServiceCardProps) {
+  const colors = [
+    "from-primary/20 to-primary/5 border-primary/20",
+    "from-secondary/20 to-secondary/5 border-secondary/20",
+    "from-primary/20 to-secondary/10 border-primary/20",
+  ];
+
   return (
     <div
       className={cn(
-        "group rounded-2xl p-6",
-        "bg-gradient-to-br from-slate-800/80 to-slate-900/90 border border-slate-700/50",
-        "hover:border-cyan-500/30 transition-all duration-300 cursor-default"
+        "group relative bg-gradient-to-br rounded-2xl p-8 border overflow-hidden",
+        "card-hover",
+        colors[index % colors.length]
       )}
-      style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className="w-14 h-14 rounded-xl bg-slate-900 text-cyan-400 flex items-center justify-center mb-5 group-hover:text-cyan-300 transition-colors duration-300">
-        {iconMap[icon] || <Zap className="w-7 h-7" />}
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-background/50 to-transparent rounded-bl-full" />
+
+      <div className="relative">
+        <div className="w-16 h-16 rounded-2xl bg-card shadow-sm flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+          {iconMap[icon] || <Zap className="w-8 h-8" />}
+        </div>
+        <EditableText
+          value={title}
+          onChange={onTitleChange}
+          as="h3"
+          className="font-bold text-xl mb-3"
+        />
+        <EditableText
+          value={description}
+          onChange={onDescriptionChange}
+          as="p"
+          multiline
+          className="text-muted-foreground leading-relaxed"
+        />
       </div>
-      <EditableText
-        value={title}
-        onChange={onTitleChange}
-        as="h3"
-        className="font-bold text-xl mb-3 text-foreground"
-      />
-      <EditableText
-        value={description}
-        onChange={onDescriptionChange}
-        as="p"
-        multiline
-        className="text-sm text-muted-foreground leading-relaxed"
-      />
     </div>
   );
 }
