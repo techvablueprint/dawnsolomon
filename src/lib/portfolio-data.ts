@@ -75,7 +75,7 @@ export const defaultPortfolioData: PortfolioData = {
     headlineAccent: "Time, Money,",
     headlineSuffix: "and Focus.",
     description:
-      "Automation That Saves Time, Money, and Focus.",
+      "Your Partner in AI & Business Automation.",
     ctaText: "Hire Me",
     ctaLink: "https://mail.google.com/mail/?view=cm&fs=1&to=dawnsolomon482@gmail.com",
     secondaryCtaText: "View My Work",
