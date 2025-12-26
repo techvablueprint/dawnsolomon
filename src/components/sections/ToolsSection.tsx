@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import toolsBackground from "@/assets/tools-background.png";
 import zapierLogo from "@/assets/tools/zapier.svg";
 import makeLogo from "@/assets/tools/make.ico";
 import n8nLogo from "@/assets/tools/n8n.ico";
@@ -32,7 +31,7 @@ const bounceDelays = [0, 0.3, 0.1, 0.5, 0.2, 0.4, 0.15, 0.35, 0.25, 0.45, 0.05, 
 
 export function ToolsSection() {
   return (
-    <section className="relative py-20 overflow-hidden" style={{ backgroundImage: `url(${toolsBackground})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section className="relative py-20 overflow-hidden">
       {/* Animated vertical lines moving upward */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(12)].map((_, i) => (
