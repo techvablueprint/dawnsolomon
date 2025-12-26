@@ -50,10 +50,8 @@ export function ToolsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Dark teal gradient container like the AI Automation card */}
-        <div className="relative bg-gradient-to-b from-[#0d3a3a] via-[#0a2f2f] to-[#072525] border border-cyan-500/30 rounded-2xl p-8 md:p-12 overflow-hidden">
-          {/* Subtle inner glow */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-transparent via-cyan-900/10 to-cyan-800/20 pointer-events-none" />
+        {/* Transparent container - no box */}
+        <div className="relative p-8 md:p-12">
           
           <div className="text-center mb-12 relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
