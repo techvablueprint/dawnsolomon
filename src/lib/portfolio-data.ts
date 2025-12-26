@@ -77,7 +77,7 @@ export const defaultPortfolioData: PortfolioData = {
     description:
       "I'm an Automation Engineer focused on building AI-driven workflows and business automation systems that help brands scale faster, work smarter, and operate seamlessly.",
     ctaText: "Hire Me",
-    ctaLink: "mailto:dawnsolomon482@gmail.com",
+    ctaLink: "https://mail.google.com/mail/?view=cm&fs=1&to=dawnsolomon482@gmail.com",
     secondaryCtaText: "View My Work",
     ctaNote: "Let's transform your manual workflows into smart systems.",
     motto: "Automate today. Scale tomorrow.",
