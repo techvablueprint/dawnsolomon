@@ -2,50 +2,47 @@ import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, ExternalLink } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail, Bot, Zap, BarChart3, MessageSquare, Database } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.png";
 
-const WorkflowNode = ({
-  icon,
+const FloatingCard = ({
+  icon: Icon,
   title,
-  subtitle,
   delay,
   color,
+  position,
 }: {
-  icon: string;
+  icon: React.ElementType;
   title: string;
-  subtitle: string;
   delay: number;
   color: string;
+  position: string;
 }) => (
   <div
-    className="workflow-node animate-float flex items-center gap-3 min-w-[200px]"
+    className={`absolute ${position} animate-float`}
     style={{ animationDelay: `${delay}s` }}
   >
-    <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg ${color}`}>
-      {icon}
-    </div>
-    <div>
-      <p className="font-medium text-sm text-foreground">{title}</p>
-      <p className="text-xs text-muted-foreground">{subtitle}</p>
+    <div className="bg-white rounded-2xl shadow-lg p-4 flex flex-col items-center gap-2 min-w-[100px] border border-gray-100">
+      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${color}`}>
+        <Icon className="w-5 h-5" />
+      </div>
+      <p className="font-medium text-sm text-gray-800">{title}</p>
     </div>
   </div>
 );
 
-const WorkflowConnector = () => (
-  <div className="flex flex-col items-center py-2">
-    <div className="w-0.5 h-6 bg-border" />
-    <div className="w-2 h-2 rounded-full bg-primary" />
-    <div className="w-0.5 h-6 bg-border" />
-  </div>
-);
-
-const WorkflowConnectorHorizontal = () => (
-  <div className="flex items-center px-2">
-    <div className="h-0.5 w-8 bg-border" />
-    <div className="w-2 h-2 rounded-full bg-primary" />
-    <div className="h-0.5 w-8 bg-border" />
-  </div>
+const DashedConnector = ({ from, to }: { from: string; to: string }) => (
+  <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+    <line
+      x1={from.split(',')[0]}
+      y1={from.split(',')[1]}
+      x2={to.split(',')[0]}
+      y2={to.split(',')[1]}
+      stroke="#94a3b8"
+      strokeWidth="2"
+      strokeDasharray="6 4"
+    />
+  </svg>
 );
 
 export function HeroSection() {
@@ -161,18 +158,61 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Horizontal Workflow Section */}
-        <div className="mt-16 lg:mt-24">
-          <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 border border-border">
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-0">
-              <WorkflowNode icon="📊" title="Google Sheet" subtitle="New Row Added" delay={0} color="bg-green-100 text-green-600" />
-              <WorkflowConnectorHorizontal />
-              <WorkflowNode icon="🔍" title="Filter" subtitle="Qualify Lead" delay={0.5} color="bg-purple-100 text-purple-600" />
-              <WorkflowConnectorHorizontal />
-              <WorkflowNode icon="🤖" title="AI Agent" subtitle="Process Data" delay={1} color="bg-blue-100 text-blue-600" />
-              <WorkflowConnectorHorizontal />
-              <WorkflowNode icon="📧" title="Email" subtitle="Send Notification" delay={1.5} color="bg-orange-100 text-orange-600" />
-            </div>
+        {/* Floating Workflow Cards Section */}
+        <div className="mt-16 lg:mt-24 hidden md:block">
+          <div className="relative h-[350px] bg-gradient-to-br from-slate-50/50 to-cyan-50/30 rounded-3xl overflow-hidden">
+            {/* Dashed lines - SVG connections */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+              <line x1="18%" y1="55%" x2="35%" y2="25%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
+              <line x1="35%" y1="25%" x2="50%" y2="50%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
+              <line x1="50%" y1="50%" x2="70%" y2="20%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
+              <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
+              <line x1="18%" y1="55%" x2="32%" y2="78%" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6 4" />
+            </svg>
+            
+            {/* Floating Cards */}
+            <FloatingCard 
+              icon={Mail} 
+              title="Lead Captured" 
+              delay={0} 
+              color="bg-green-100 text-green-600"
+              position="left-[10%] top-[45%]"
+            />
+            <FloatingCard 
+              icon={Bot} 
+              title="AI Analysis" 
+              delay={0.3} 
+              color="bg-slate-100 text-slate-600"
+              position="left-[28%] top-[15%]"
+            />
+            <FloatingCard 
+              icon={Database} 
+              title="CRM Update" 
+              delay={0.6} 
+              color="bg-orange-100 text-orange-600"
+              position="left-[25%] top-[68%]"
+            />
+            <FloatingCard 
+              icon={Zap} 
+              title="Automation" 
+              delay={0.4} 
+              color="bg-yellow-100 text-yellow-600"
+              position="left-[45%] top-[40%]"
+            />
+            <FloatingCard 
+              icon={MessageSquare} 
+              title="Follow-up" 
+              delay={0.5} 
+              color="bg-pink-100 text-pink-600"
+              position="right-[22%] top-[10%]"
+            />
+            <FloatingCard 
+              icon={BarChart3} 
+              title="Analytics" 
+              delay={0.7} 
+              color="bg-cyan-100 text-cyan-600"
+              position="right-[18%] top-[60%]"
+            />
           </div>
         </div>
 
