@@ -55,9 +55,9 @@ export function HeroSection() {
       <div className="container mx-auto px-4 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left column - Content */}
-          <div className="space-y-8 animate-slide-up">
+          <div className="space-y-8 animate-slide-up flex flex-col items-center lg:items-start">
             {/* Profile Photo */}
-            <div className="relative w-24 h-24 md:w-28 md:h-28">
+            <div className="relative w-32 h-32 md:w-36 md:h-36">
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-card shadow-card">
                 <img
                   src={profilePhoto}
@@ -65,7 +65,7 @@ export function HeroSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-xs">
+              <div className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground w-7 h-7 rounded-full flex items-center justify-center text-sm">
                 ✓
               </div>
             </div>
