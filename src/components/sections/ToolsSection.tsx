@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import zapierLogo from "@/assets/tools/zapier.svg";
 import makeLogo from "@/assets/tools/make.ico";
 import n8nLogo from "@/assets/tools/n8n.ico";
-import gohighlevelLogo from "@/assets/tools/gohighlevel.ico";
+import gohighlevelLogo from "@/assets/tools/gohighlevel.png";
 import hubspotLogo from "@/assets/tools/hubspot.png";
 import notionLogo from "@/assets/tools/notion.svg";
 import airtableLogo from "@/assets/tools/airtable.svg";
@@ -11,7 +11,7 @@ import googleLogo from "@/assets/tools/google.ico";
 import shopifyLogo from "@/assets/tools/shopify.svg";
 import wordpressLogo from "@/assets/tools/wordpress.png";
 import chatgptLogo from "@/assets/tools/chatgpt.svg";
-import mondayLogo from "@/assets/tools/monday.svg";
+import lovableLogo from "@/assets/tools/lovable.ico";
 
 const tools = [
   { name: "Zapier", logo: zapierLogo },
@@ -25,7 +25,7 @@ const tools = [
   { name: "Shopify", logo: shopifyLogo },
   { name: "WordPress", logo: wordpressLogo },
   { name: "ChatGPT", logo: chatgptLogo },
-  { name: "Monday.com", logo: mondayLogo },
+  { name: "Lovable", logo: lovableLogo },
 ];
 
 export function ToolsSection() {
