@@ -80,7 +80,7 @@ export const defaultPortfolioData: PortfolioData = {
     ctaLink: "https://mail.google.com/mail/?view=cm&fs=1&to=dawnsolomon482@gmail.com",
     secondaryCtaText: "View My Work",
     ctaNote: "Let's transform your manual workflows into smart systems.",
-    motto: "Automate today. Scale tomorrow.",
+    motto: "Better systems. Bigger impact.",
   },
   about: {
     sectionLabel: "THE ARCHITECT BEHIND THE AUTOMATION",
