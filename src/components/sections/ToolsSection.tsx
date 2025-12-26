@@ -50,10 +50,10 @@ export function ToolsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Glass container */}
-        <div className="relative bg-gradient-to-br from-cyan-900/40 via-teal-900/30 to-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-3xl p-8 md:p-12 shadow-[0_0_60px_-15px_rgba(6,182,212,0.3)]">
+        {/* Glass container - dark teal */}
+        <div className="relative bg-gradient-to-b from-[#0a2a2a]/80 via-[#0d3535]/70 to-[#0a2525]/80 backdrop-blur-sm border border-cyan-600/30 rounded-3xl p-8 md:p-12 shadow-[inset_0_1px_0_0_rgba(6,182,212,0.2),0_0_40px_-10px_rgba(6,182,212,0.3)]">
           {/* Inner glow effect */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/5 via-transparent to-teal-400/5 pointer-events-none" />
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-cyan-500/5 via-transparent to-cyan-600/5 pointer-events-none" />
           
           <div className="text-center mb-12 relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
