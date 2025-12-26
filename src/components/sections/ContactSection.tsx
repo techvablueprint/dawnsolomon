@@ -107,7 +107,7 @@ export function ContactSection() {
                     </a>
                   )}
                   <a
-                    href="https://www.facebook.com/DawnSolomon.AutomationEngineer"
+                    href="https://www.facebook.com/DawnSolomon.AutomationEngineer/about"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:text-primary/80 transition-colors"
