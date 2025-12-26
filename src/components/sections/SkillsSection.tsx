@@ -34,12 +34,12 @@ function SkillCard({
   return (
     <div
       className={cn(
-        "group bg-card rounded-2xl p-6 border border-border",
-        "card-hover cursor-default"
+        "group rounded-2xl p-6 border-l-2 border-l-cyan-400 border border-cyan-900/50",
+        "bg-slate-900/80 hover:bg-slate-800/80 transition-all duration-300 cursor-default"
       )}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+      <div className="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-4 group-hover:bg-cyan-500/30 transition-colors duration-300">
         {iconMap[icon] || <Bot className="w-6 h-6" />}
       </div>
       <EditableText
