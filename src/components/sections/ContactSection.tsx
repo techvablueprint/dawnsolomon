@@ -95,31 +95,24 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                {social.linkedin && (
-                  <div className="flex items-center gap-3">
-                    <Linkedin className="w-5 h-5 text-primary" />
+                <div className="flex items-center gap-4">
+                  {social.linkedin && (
                     <a
                       href={social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                      className="text-primary hover:text-primary/80 transition-colors"
                     >
-                      View Profile
-                      <ExternalLink className="w-3 h-3" />
+                      <Linkedin className="w-6 h-6" />
                     </a>
-                  </div>
-                )}
-
-                <div className="flex items-center gap-3">
-                  <Facebook className="w-5 h-5 text-primary" />
+                  )}
                   <a
                     href="https://www.facebook.com/DawnSolomon.AutomationEngineer"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                    className="text-primary hover:text-primary/80 transition-colors"
                   >
-                    View Profile
-                    <ExternalLink className="w-3 h-3" />
+                    <Facebook className="w-6 h-6" />
                   </a>
                 </div>
               </div>
