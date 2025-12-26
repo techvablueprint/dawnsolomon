@@ -9,7 +9,7 @@ export function ContactSection() {
   const { contact, about, social } = data;
 
   return (
-    <section id="contact" className="py-20 lg:py-32 bg-foreground text-background">
+    <section id="contact" className="py-20 lg:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -29,7 +29,7 @@ export function ContactSection() {
                   updateData({ contact: { ...contact, subtitle: v } })
                 }
                 as="p"
-                className="text-background/70 text-lg"
+                className="text-muted-foreground text-lg"
               />
               <Button
                 size="lg"
@@ -50,7 +50,7 @@ export function ContactSection() {
 
             {/* Right - Contact info */}
             <div className="space-y-6">
-              <h3 className="font-semibold text-lg text-background/80">
+              <h3 className="font-semibold text-lg text-muted-foreground">
                 Get In Touch
               </h3>
 
@@ -59,7 +59,7 @@ export function ContactSection() {
                   <MapPin className="w-5 h-5 text-primary mt-0.5" />
                   <div>
                     <p className="font-medium">Address</p>
-                    <p className="text-background/70">{about.location}</p>
+                    <p className="text-muted-foreground">{about.location}</p>
                   </div>
                 </div>
 
@@ -69,7 +69,7 @@ export function ContactSection() {
                     <p className="font-medium">Email</p>
                     <a
                       href={`mailto:${about.email}`}
-                      className="text-background/70 hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       {about.email}
                     </a>
@@ -85,7 +85,7 @@ export function ContactSection() {
                         href={social.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-background/70 hover:text-primary transition-colors flex items-center gap-1"
+                        className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
                       >
                         View Profile
                         <ExternalLink className="w-3 h-3" />
@@ -98,8 +98,8 @@ export function ContactSection() {
           </div>
 
           {/* Footer */}
-          <div className="mt-16 pt-8 border-t border-background/10 text-center">
-            <p className="text-background/50 text-sm">
+          <div className="mt-16 pt-8 border-t border-border text-center">
+            <p className="text-muted-foreground text-sm">
               Copyright © {new Date().getFullYear()} {about.name}. All rights
               reserved.
             </p>
