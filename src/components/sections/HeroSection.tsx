@@ -3,7 +3,7 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, ExternalLink } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const WorkflowNode = ({
   icon,
