@@ -3,6 +3,7 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoImage from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -39,13 +40,12 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">
-              D
-            </div>
-            <span className="font-bold text-lg hidden sm:block">
-              {data.about.name.split(" ")[0]}
-            </span>
+          <a href="#home" className="flex items-center">
+            <img 
+              src={logoImage} 
+              alt="Dawn Solomon Logo" 
+              className="h-10 lg:h-12 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}
