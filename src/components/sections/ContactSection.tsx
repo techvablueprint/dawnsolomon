@@ -10,8 +10,24 @@ export function ContactSection() {
   const { contact, about, social } = data;
 
   return (
-    <section id="contact" className="py-20 lg:py-32 text-foreground" style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="container mx-auto px-4">
+    <section id="contact" className="relative py-20 lg:py-32 text-foreground overflow-hidden" style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      {/* Animated vertical lines moving upward */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-[3px] bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up rounded-full"
+            style={{
+              left: `${8 + i * 8}%`,
+              height: '150px',
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + (i % 3)}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left - CTA */}
