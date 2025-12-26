@@ -49,8 +49,8 @@ export function ToolsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Transparent container - no box */}
-        <div className="relative p-8 md:p-12">
+        {/* Dark teal gradient box like service cards */}
+        <div className="relative bg-gradient-to-b from-[#0d3a3a] via-[#0a2f2f] to-[#072525] border border-cyan-500/30 rounded-2xl p-8 md:p-12 overflow-hidden">
           
           <div className="text-center mb-12 relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
