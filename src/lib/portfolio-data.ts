@@ -101,24 +101,18 @@ export const defaultPortfolioData: PortfolioData = {
     items: [
       {
         id: "skill-1",
-        title: "Verbal Communication",
-        description: "Clear, professional communication with clients and teams.",
-        icon: "MessageSquare",
-      },
-      {
-        id: "skill-2",
         title: "WordPress SEO Optimization",
         description: "Technical SEO, keyword research, and on-page optimization.",
         icon: "Search",
       },
       {
-        id: "skill-3",
+        id: "skill-2",
         title: "Technical Virtual Assistant",
         description: "Reliable support for technical and administrative tasks.",
         icon: "Laptop",
       },
       {
-        id: "skill-4",
+        id: "skill-3",
         title: "AI Automation",
         description: "Building intelligent workflows with AI integration.",
         icon: "Bot",
