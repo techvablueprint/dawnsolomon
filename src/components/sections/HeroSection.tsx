@@ -233,6 +233,33 @@ export function HeroSection() {
           </div>
         </div>
 
+        {/* Scrolling Logo Bar */}
+        <div className="mt-12 overflow-hidden">
+          <div className="flex animate-scroll-x gap-12 whitespace-nowrap">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex gap-12 items-center">
+                <span className="text-muted-foreground/60 font-medium text-lg">ClickUp</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Tally</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Jotform</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Systeme.io</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">QuickBooks</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">FlowCRM</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Notion</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Trello</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Slack</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Zoom</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">ChatGPT</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Gemini</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Mailchimp</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">WordPress</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Canva</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">Shopify</span>
+                <span className="text-muted-foreground/60 font-medium text-lg">VAPI</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Motto section */}
         <div className="mt-12 lg:mt-20 flex justify-center">
           <div className="text-center max-w-2xl">
