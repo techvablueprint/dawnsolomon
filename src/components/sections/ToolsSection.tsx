@@ -43,34 +43,45 @@ export function ToolsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 max-w-4xl mx-auto">
           {tools.map((tool, index) => (
             <div
               key={tool.name}
-              className="flex flex-col items-center gap-3"
+              className="flex flex-col items-center gap-2"
             >
-              <div
-                className={cn(
-                  "w-16 h-16 md:w-20 md:h-20 rounded-full",
-                  tool.color,
-                  "border-2 shadow-lg",
-                  "flex items-center justify-center p-3",
-                  "hover:scale-110 hover:shadow-xl",
-                  "transition-all duration-300",
-                  "animate-bounce-varied"
-                )}
-                style={{ 
-                  animationDelay: `${bounceDelays[index]}s`,
-                  animationDuration: `${1.5 + (index % 3) * 0.3}s`
-                }}
-              >
-                <img 
-                  src={tool.logo} 
-                  alt={tool.name} 
-                  className="w-8 h-8 md:w-10 md:h-10 object-contain"
+              {/* Ball container with bounce */}
+              <div className="relative">
+                <div
+                  className={cn(
+                    "w-16 h-16 md:w-20 md:h-20 rounded-full",
+                    tool.color,
+                    "border-2 shadow-lg",
+                    "flex items-center justify-center",
+                    "hover:scale-110",
+                    "transition-transform duration-300",
+                    "animate-ball-bounce"
+                  )}
+                  style={{ 
+                    animationDelay: `${bounceDelays[index]}s`,
+                    animationDuration: `${1.2 + (index % 3) * 0.2}s`
+                  }}
+                >
+                  <img 
+                    src={tool.logo} 
+                    alt={tool.name} 
+                    className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+                  />
+                </div>
+                {/* Shadow underneath */}
+                <div 
+                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 md:w-16 h-3 bg-black/30 rounded-full blur-sm animate-shadow-pulse"
+                  style={{ 
+                    animationDelay: `${bounceDelays[index]}s`,
+                    animationDuration: `${1.2 + (index % 3) * 0.2}s`
+                  }}
                 />
               </div>
-              <span className="text-xs md:text-sm text-muted-foreground text-center">
+              <span className="text-xs md:text-sm text-muted-foreground text-center mt-2">
                 {tool.name}
               </span>
             </div>

@@ -103,6 +103,14 @@ export default {
           "50%": { transform: "translateY(-6px) scale(1)" },
           "75%": { transform: "translateY(-10px) scale(1.01)" },
         },
+        "ball-bounce": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "shadow-pulse": {
+          "0%, 100%": { transform: "translateX(-50%) scaleX(1)", opacity: "0.3" },
+          "50%": { transform: "translateX(-50%) scaleX(0.6)", opacity: "0.15" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -112,6 +120,8 @@ export default {
         float: "float 6s ease-in-out infinite",
         "bounce-slow": "bounce-slow 2s ease-in-out infinite",
         "bounce-varied": "bounce-varied 2s ease-in-out infinite",
+        "ball-bounce": "ball-bounce 1.2s ease-in-out infinite",
+        "shadow-pulse": "shadow-pulse 1.2s ease-in-out infinite",
       },
     },
   },
