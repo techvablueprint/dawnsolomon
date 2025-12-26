@@ -2,7 +2,7 @@ import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Mail, Bot, Zap, BarChart3, MessageSquare, Database, UserPlus, Filter, Send, FileSpreadsheet } from "lucide-react";
+import { ArrowRight, CheckCircle, Code, Globe, Timer, GitBranch, FileSpreadsheet, Play, Braces } from "lucide-react";
 import aiHandshake from "@/assets/ai-handshake.png";
 import profilePhoto from "@/assets/profile-photo.png";
 
@@ -228,71 +228,93 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Floating Workflow Cards Section */}
+        {/* n8n Workflow Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
-          <div className="relative h-[280px] bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800/50 flex items-center justify-center">
-            {/* Dashed lines - SVG connections for Lead Capturing Flow */}
+          <div className="relative h-[200px] bg-slate-900/80 rounded-2xl overflow-hidden border border-slate-700/50 flex items-center justify-center px-8">
+            {/* Workflow connection lines */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-              {/* New Lead -> Qualify Lead */}
-              <line x1="18%" y1="50%" x2="30%" y2="50%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" />
-              {/* Qualify Lead -> Send Email (top branch) */}
-              <line x1="38%" y1="50%" x2="48%" y2="30%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" />
-              {/* Qualify Lead -> Add to CRM (bottom branch) */}
-              <line x1="38%" y1="50%" x2="48%" y2="70%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" />
-              {/* Send Email -> Schedule Task */}
-              <line x1="58%" y1="30%" x2="70%" y2="30%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" />
-              {/* Add to CRM -> AI Follow-up */}
-              <line x1="58%" y1="70%" x2="70%" y2="70%" stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" />
+              {/* Execute -> Code */}
+              <line x1="8%" y1="50%" x2="15%" y2="50%" stroke="#64748b" strokeWidth="2" />
+              {/* Code -> HTTP Request */}
+              <line x1="22%" y1="50%" x2="29%" y2="50%" stroke="#64748b" strokeWidth="2" />
+              {/* HTTP Request -> Wait */}
+              <line x1="36%" y1="50%" x2="43%" y2="50%" stroke="#64748b" strokeWidth="2" />
+              {/* Wait -> HTTP Request1 */}
+              <line x1="50%" y1="50%" x2="57%" y2="50%" stroke="#64748b" strokeWidth="2" />
+              {/* HTTP Request1 -> If */}
+              <line x1="64%" y1="50%" x2="71%" y2="50%" stroke="#64748b" strokeWidth="2" />
+              {/* If -> Switch (true) */}
+              <line x1="78%" y1="50%" x2="85%" y2="35%" stroke="#22c55e" strokeWidth="2" />
+              {/* If -> Code (false) - loops back */}
+              <line x1="78%" y1="50%" x2="85%" y2="65%" stroke="#ef4444" strokeWidth="2" />
+              {/* Loop back line from Code to HTTP Request */}
+              <path d="M 92% 65% Q 95% 80%, 50% 80% Q 15% 80%, 15% 55%" fill="none" stroke="#64748b" strokeWidth="1.5" strokeDasharray="4 3" />
             </svg>
             
-            {/* Lead Capturing Flow Cards - Centered */}
+            {/* n8n style workflow nodes */}
             <FloatingCard 
-              icon={UserPlus} 
-              title="New Lead" 
+              icon={Play} 
+              title="Execute" 
               delay={0} 
-              color="bg-green-500/20 text-green-400"
-              glowColor="hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]"
-              position="left-[8%] top-[50%] -translate-y-1/2"
+              color="bg-slate-600/40 text-slate-300"
+              glowColor="hover:shadow-[0_0_20px_rgba(100,116,139,0.4)]"
+              position="left-[3%] top-[50%] -translate-y-1/2"
             />
             <FloatingCard 
-              icon={Filter} 
-              title="Qualify Lead" 
+              icon={Braces} 
+              title="Code" 
+              delay={0.1} 
+              color="bg-orange-500/30 text-orange-400"
+              glowColor="hover:shadow-[0_0_20px_rgba(249,115,22,0.5)]"
+              position="left-[15%] top-[50%] -translate-y-1/2"
+            />
+            <FloatingCard 
+              icon={Globe} 
+              title="HTTP Request" 
               delay={0.2} 
-              color="bg-purple-500/20 text-purple-400"
-              glowColor="hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
-              position="left-[28%] top-[50%] -translate-y-1/2"
+              color="bg-indigo-500/30 text-indigo-400"
+              glowColor="hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]"
+              position="left-[29%] top-[50%] -translate-y-1/2"
             />
             <FloatingCard 
-              icon={Send} 
-              title="Send Email" 
+              icon={Timer} 
+              title="Wait" 
+              delay={0.3} 
+              color="bg-pink-500/30 text-pink-400"
+              glowColor="hover:shadow-[0_0_20px_rgba(236,72,153,0.5)]"
+              position="left-[43%] top-[50%] -translate-y-1/2"
+            />
+            <FloatingCard 
+              icon={Globe} 
+              title="HTTP Request" 
               delay={0.4} 
-              color="bg-cyan-500/20 text-cyan-400"
-              glowColor="hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]"
-              position="left-[48%] top-[30%] -translate-y-1/2"
+              color="bg-indigo-500/30 text-indigo-400"
+              glowColor="hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]"
+              position="left-[57%] top-[50%] -translate-y-1/2"
+            />
+            <FloatingCard 
+              icon={GitBranch} 
+              title="If" 
+              delay={0.5} 
+              color="bg-emerald-500/30 text-emerald-400"
+              glowColor="hover:shadow-[0_0_20px_rgba(16,185,129,0.5)]"
+              position="left-[71%] top-[50%] -translate-y-1/2"
+            />
+            <FloatingCard 
+              icon={GitBranch} 
+              title="Switch" 
+              delay={0.6} 
+              color="bg-emerald-500/30 text-emerald-400"
+              glowColor="hover:shadow-[0_0_20px_rgba(16,185,129,0.5)]"
+              position="left-[85%] top-[35%] -translate-y-1/2"
             />
             <FloatingCard 
               icon={FileSpreadsheet} 
-              title="Add to CRM" 
-              delay={0.3} 
-              color="bg-orange-500/20 text-orange-400"
-              glowColor="hover:shadow-[0_0_30px_rgba(249,115,22,0.5)]"
-              position="left-[48%] top-[70%] -translate-y-1/2"
-            />
-            <FloatingCard 
-              icon={Zap} 
-              title="Schedule Task" 
-              delay={0.6} 
-              color="bg-yellow-500/20 text-yellow-400"
-              glowColor="hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]"
-              position="left-[70%] top-[30%] -translate-y-1/2"
-            />
-            <FloatingCard 
-              icon={Bot} 
-              title="AI Follow-up" 
-              delay={0.5} 
-              color="bg-pink-500/20 text-pink-400"
-              glowColor="hover:shadow-[0_0_30px_rgba(236,72,153,0.5)]"
-              position="left-[70%] top-[70%] -translate-y-1/2"
+              title="Google Sheets" 
+              delay={0.7} 
+              color="bg-green-500/30 text-green-400"
+              glowColor="hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
+              position="left-[85%] top-[65%] -translate-y-1/2"
             />
           </div>
         </div>
