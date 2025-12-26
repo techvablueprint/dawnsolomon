@@ -72,9 +72,44 @@ export function ToolsSection() {
               >
                 {/* Ball container with bounce */}
                 <div className="relative">
+                  {/* Trail shadows - rocket effect */}
                   <div
                     className={cn(
-                      "w-16 h-16 md:w-20 md:h-20 rounded-full",
+                      "absolute w-16 h-16 md:w-20 md:h-20 rounded-full",
+                      tool.color,
+                      "opacity-20 blur-sm animate-ball-bounce"
+                    )}
+                    style={{ 
+                      animationDelay: `${bounceDelays[index] * 2 + 0.15}s`,
+                      animationDuration: `${10 + (index % 3) * 2}s`
+                    }}
+                  />
+                  <div
+                    className={cn(
+                      "absolute w-16 h-16 md:w-20 md:h-20 rounded-full",
+                      tool.color,
+                      "opacity-30 blur-[2px] animate-ball-bounce"
+                    )}
+                    style={{ 
+                      animationDelay: `${bounceDelays[index] * 2 + 0.08}s`,
+                      animationDuration: `${10 + (index % 3) * 2}s`
+                    }}
+                  />
+                  <div
+                    className={cn(
+                      "absolute w-16 h-16 md:w-20 md:h-20 rounded-full",
+                      tool.color,
+                      "opacity-50 animate-ball-bounce"
+                    )}
+                    style={{ 
+                      animationDelay: `${bounceDelays[index] * 2 + 0.04}s`,
+                      animationDuration: `${10 + (index % 3) * 2}s`
+                    }}
+                  />
+                  {/* Main ball */}
+                  <div
+                    className={cn(
+                      "relative w-16 h-16 md:w-20 md:h-20 rounded-full",
                       tool.color,
                       "border-2 shadow-xl",
                       "flex items-center justify-center",
@@ -94,7 +129,7 @@ export function ToolsSection() {
                       className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
                     />
                   </div>
-                  {/* Shadow underneath */}
+                  {/* Ground shadow */}
                   <div 
                     className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-14 md:w-20 h-4 bg-black/50 rounded-full blur-md animate-shadow-pulse"
                     style={{ 
