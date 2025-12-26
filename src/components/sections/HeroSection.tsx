@@ -3,6 +3,7 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Mail, Bot, Zap, BarChart3, MessageSquare, Database, UserPlus, Filter, Send, FileSpreadsheet } from "lucide-react";
+import aiHandshake from "@/assets/ai-handshake.png";
 import profilePhoto from "@/assets/profile-photo.png";
 
 // Brand logos
@@ -217,6 +218,19 @@ export function HeroSection() {
         {/* Floating Workflow Cards Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
           <div className="relative h-[280px] bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800/50 flex items-center justify-center">
+            {/* AI Handshake Background Image */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <img 
+                src={aiHandshake} 
+                alt="AI Human Collaboration" 
+                className="w-[400px] h-auto opacity-30 animate-pulse-slow"
+                style={{ 
+                  filter: 'blur(1px)',
+                  maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)'
+                }}
+              />
+            </div>
             {/* Dashed lines - SVG connections for Lead Capturing Flow */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
               {/* New Lead -> Qualify Lead */}
