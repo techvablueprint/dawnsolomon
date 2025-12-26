@@ -50,10 +50,10 @@ export function ToolsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Glass container - frosted teal */}
-        <div className="relative bg-gradient-to-br from-[#0f3d3d]/60 via-[#134a4a]/50 to-[#0f3838]/60 backdrop-blur-md border border-cyan-400/40 rounded-3xl p-8 md:p-12 shadow-[0_0_30px_-5px_rgba(34,211,238,0.25),inset_0_1px_0_0_rgba(34,211,238,0.15)]">
-          {/* Inner glow effect */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/10 via-transparent to-teal-500/10 pointer-events-none" />
+        {/* Glass container - matching the card style */}
+        <div className="relative bg-[#0c3535]/70 backdrop-blur-md border border-cyan-400/50 rounded-2xl p-8 md:p-12 shadow-[0_0_20px_0px_rgba(34,211,238,0.15)]">
+          {/* Inner gradient overlay */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 via-transparent to-transparent pointer-events-none" />
           
           <div className="text-center mb-12 relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
