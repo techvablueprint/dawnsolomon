@@ -231,11 +231,11 @@ export function HeroSection() {
 
         {/* n8n Workflow Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
-          <div className="relative bg-slate-900/40 backdrop-blur-md rounded-3xl border border-white/10 p-6 shadow-2xl">
+          <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-2xl">
             <img 
               src={n8nWorkflow} 
               alt="n8n Automation Workflow" 
-              className="w-full h-auto object-contain opacity-90 mix-blend-lighten"
+              className="w-full h-auto object-contain opacity-85 mix-blend-lighten"
             />
           </div>
         </div>
