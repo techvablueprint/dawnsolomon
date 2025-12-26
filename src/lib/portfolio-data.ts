@@ -75,7 +75,7 @@ export const defaultPortfolioData: PortfolioData = {
     headlineAccent: "Workflows",
     headlineSuffix: "So You Can Scale.",
     description:
-      "I'm an Automation Engineer focused on building AI-driven workflows and business automation systems that help brands scale faster, work smarter, and operate seamlessly.",
+      "Automation That Saves Time, Money, and Focus.",
     ctaText: "Hire Me",
     ctaLink: "https://mail.google.com/mail/?view=cm&fs=1&to=dawnsolomon482@gmail.com",
     secondaryCtaText: "View My Work",
