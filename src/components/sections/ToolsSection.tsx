@@ -64,85 +64,75 @@ export function ToolsSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 max-w-4xl mx-auto relative z-10">
-            {tools.map((tool, index) => (
-              <div
-                key={tool.name}
-                className="flex flex-col items-center"
-              >
-                {/* Ball container with bounce */}
-                <div className="relative">
-                  {/* Trail shadows - rocket effect */}
-                  <div
-                    className={cn(
-                      "absolute w-16 h-16 md:w-20 md:h-20 rounded-full",
-                      tool.color,
-                      "opacity-20 blur-sm animate-ball-bounce"
-                    )}
-                    style={{ 
-                      animationDelay: `${bounceDelays[index] * 2 + 0.15}s`,
-                      animationDuration: `${10 + (index % 3) * 2}s`
-                    }}
-                  />
-                  <div
-                    className={cn(
-                      "absolute w-16 h-16 md:w-20 md:h-20 rounded-full",
-                      tool.color,
-                      "opacity-30 blur-[2px] animate-ball-bounce"
-                    )}
-                    style={{ 
-                      animationDelay: `${bounceDelays[index] * 2 + 0.08}s`,
-                      animationDuration: `${10 + (index % 3) * 2}s`
-                    }}
-                  />
-                  <div
-                    className={cn(
-                      "absolute w-16 h-16 md:w-20 md:h-20 rounded-full",
-                      tool.color,
-                      "opacity-50 animate-ball-bounce"
-                    )}
-                    style={{ 
-                      animationDelay: `${bounceDelays[index] * 2 + 0.04}s`,
-                      animationDuration: `${10 + (index % 3) * 2}s`
-                    }}
-                  />
-                  {/* Main ball */}
-                  <div
-                    className={cn(
-                      "relative w-16 h-16 md:w-20 md:h-20 rounded-full",
-                      tool.color,
-                      "border-2 shadow-xl",
-                      "flex items-center justify-center",
-                      "hover:scale-110",
-                      "transition-transform duration-300",
-                      "animate-ball-bounce",
-                      "shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
-                    )}
-                    style={{ 
-                      animationDelay: `${bounceDelays[index] * 2}s`,
-                      animationDuration: `${10 + (index % 3) * 2}s`
-                    }}
-                  >
-                    <img 
-                      src={tool.logo} 
-                      alt={tool.name} 
-                      className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
-                    />
-                  </div>
-                  {/* Ground shadow */}
-                  <div 
-                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-14 md:w-20 h-4 bg-black/50 rounded-full blur-md animate-shadow-pulse"
-                    style={{ 
-                      animationDelay: `${bounceDelays[index] * 2}s`,
-                      animationDuration: `${10 + (index % 3) * 2}s`
-                    }}
+          {/* Bouncing balls container */}
+          <div className="relative h-[300px] md:h-[350px] w-full max-w-4xl mx-auto z-10 overflow-hidden">
+            {tools.map((tool, index) => {
+              // Random starting positions within the container
+              const startX = 10 + (index % 6) * 15;
+              const startY = 20 + Math.floor(index / 6) * 40;
+              
+              return (
+                <div
+                  key={tool.name}
+                  className={cn(
+                    "absolute w-16 h-16 md:w-20 md:h-20 rounded-full",
+                    tool.color,
+                    "border-2 shadow-xl",
+                    "flex items-center justify-center",
+                    "hover:scale-110 hover:z-50",
+                    "transition-transform duration-300",
+                    "shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+                  )}
+                  style={{ 
+                    left: `${startX}%`,
+                    top: `${startY}%`,
+                    animation: `ball-bounce-${index % 4} ${12 + (index % 5) * 2}s ease-in-out infinite`,
+                    animationDelay: `${index * 0.5}s`
+                  }}
+                >
+                  <img 
+                    src={tool.logo} 
+                    alt={tool.name} 
+                    className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
                   />
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
+
+      {/* Custom keyframes for different bounce patterns */}
+      <style>{`
+        @keyframes ball-bounce-0 {
+          0%, 100% { transform: translate(0, 0); }
+          20% { transform: translate(120px, -80px); }
+          40% { transform: translate(-60px, 60px); }
+          60% { transform: translate(80px, 40px); }
+          80% { transform: translate(-40px, -60px); }
+        }
+        @keyframes ball-bounce-1 {
+          0%, 100% { transform: translate(0, 0); }
+          20% { transform: translate(-100px, 70px); }
+          40% { transform: translate(70px, -50px); }
+          60% { transform: translate(-50px, -80px); }
+          80% { transform: translate(90px, 50px); }
+        }
+        @keyframes ball-bounce-2 {
+          0%, 100% { transform: translate(0, 0); }
+          20% { transform: translate(80px, 90px); }
+          40% { transform: translate(-90px, -40px); }
+          60% { transform: translate(60px, -70px); }
+          80% { transform: translate(-70px, 80px); }
+        }
+        @keyframes ball-bounce-3 {
+          0%, 100% { transform: translate(0, 0); }
+          20% { transform: translate(-80px, -60px); }
+          40% { transform: translate(100px, 80px); }
+          60% { transform: translate(-60px, 50px); }
+          80% { transform: translate(50px, -90px); }
+        }
+      `}</style>
     </section>
   );
 }
