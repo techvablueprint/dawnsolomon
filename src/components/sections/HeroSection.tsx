@@ -56,6 +56,20 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left column - Content */}
           <div className="space-y-8 animate-slide-up">
+            {/* Profile Photo */}
+            <div className="relative w-24 h-24 md:w-28 md:h-28">
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-card shadow-card">
+                <img
+                  src={profilePhoto}
+                  alt="Dawn Solomon"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-xs">
+                ✓
+              </div>
+            </div>
+
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
@@ -151,20 +165,8 @@ export function HeroSection() {
         </div>
 
         {/* Motto section */}
-        <div className="mt-20 lg:mt-32 flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-          <div className="relative">
-            <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden border-4 border-card shadow-card">
-              <img
-                src={profilePhoto}
-                alt="Dawn Solomon"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center">
-              ✓
-            </div>
-          </div>
-          <div className="text-center lg:text-left">
+        <div className="mt-20 lg:mt-32 flex justify-center">
+          <div className="text-center max-w-2xl">
             <EditableText
               value={hero.motto}
               onChange={(v) => updateField("hero", "motto", v)}
