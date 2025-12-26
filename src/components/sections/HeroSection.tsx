@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Code, Globe, Timer, GitBranch, FileSpreadsheet, Play, Braces } from "lucide-react";
 import aiHandshake from "@/assets/ai-handshake.png";
 import profilePhoto from "@/assets/profile-photo.png";
-import n8nWorkflow from "@/assets/n8n-workflow-clear.png";
+import n8nWorkflow from "@/assets/n8n-workflow.png";
 
 // Brand logos
 import clickupLogo from "@/assets/brands/clickup.ico";
@@ -231,11 +231,11 @@ export function HeroSection() {
 
         {/* n8n Workflow Section */}
         <div className="mt-16 lg:mt-24 hidden md:block">
-          <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-slate-700/40 p-8">
+          <div className="relative bg-slate-900/40 backdrop-blur-md rounded-3xl border border-white/10 p-6 shadow-2xl">
             <img 
               src={n8nWorkflow} 
               alt="n8n Automation Workflow" 
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain opacity-90 mix-blend-lighten"
             />
           </div>
         </div>
