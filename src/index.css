@@ -9,45 +9,45 @@
 
 @layer base {
   :root {
-    /* Core palette - LinkedIn blue theme */
-    --background: 0 0% 99%;
-    --foreground: 222 47% 11%;
+    /* Core palette - Dark blue tech theme */
+    --background: 215 50% 8%;
+    --foreground: 200 100% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 215 45% 12%;
+    --card-foreground: 200 100% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 215 45% 12%;
+    --popover-foreground: 200 100% 95%;
 
-    /* LinkedIn blue as primary */
-    --primary: 201 89% 48%;
-    --primary-foreground: 0 0% 100%;
+    /* Cyan/teal accent like the reference */
+    --primary: 180 100% 50%;
+    --primary-foreground: 215 50% 8%;
 
-    /* Soft teal/mint secondary */
-    --secondary: 172 67% 45%;
+    /* Soft cyan secondary */
+    --secondary: 195 80% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 215 40% 18%;
+    --muted-foreground: 200 30% 65%;
 
-    --accent: 172 67% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 215 50% 8%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 201 89% 48%;
+    --border: 215 40% 20%;
+    --input: 215 40% 20%;
+    --ring: 180 100% 50%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(201 89% 48% / 0.1), hsl(172 67% 45% / 0.1));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
-    --shadow-card: 0 4px 24px -4px hsl(222 47% 11% / 0.08);
-    --shadow-card-hover: 0 12px 32px -8px hsl(222 47% 11% / 0.12);
-    --shadow-button: 0 4px 16px -4px hsl(201 89% 48% / 0.4);
+    --gradient-hero: linear-gradient(135deg, hsl(215 50% 6%), hsl(215 60% 12%), hsl(220 50% 8%));
+    --gradient-card: linear-gradient(180deg, hsl(215 45% 14%), hsl(215 45% 10%));
+    --shadow-card: 0 4px 24px -4px hsl(180 100% 50% / 0.15);
+    --shadow-card-hover: 0 12px 32px -8px hsl(180 100% 50% / 0.25);
+    --shadow-button: 0 4px 16px -4px hsl(180 100% 50% / 0.5);
 
     /* Typography */
     --font-heading: 'Sora', system-ui, sans-serif;
@@ -68,38 +68,38 @@
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    --background: 215 50% 6%;
+    --foreground: 200 100% 95%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 45% 10%;
+    --card-foreground: 200 100% 95%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 45% 10%;
+    --popover-foreground: 200 100% 95%;
 
-    --primary: 201 89% 48%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 215 50% 8%;
 
-    --secondary: 172 67% 40%;
+    --secondary: 195 80% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 215 40% 15%;
+    --muted-foreground: 200 30% 60%;
 
-    --accent: 172 67% 40%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 215 50% 8%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 201 89% 48%;
+    --border: 215 40% 18%;
+    --input: 215 40% 18%;
+    --ring: 180 100% 50%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(201 89% 48% / 0.15), hsl(172 67% 45% / 0.1));
-    --gradient-card: linear-gradient(180deg, hsl(222 47% 10%), hsl(222 47% 8%));
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
-    --shadow-card-hover: 0 12px 32px -8px hsl(0 0% 0% / 0.4);
+    --gradient-hero: linear-gradient(135deg, hsl(215 50% 5%), hsl(215 60% 10%), hsl(220 50% 6%));
+    --gradient-card: linear-gradient(180deg, hsl(215 45% 12%), hsl(215 45% 8%));
+    --shadow-card: 0 4px 24px -4px hsl(180 100% 50% / 0.2);
+    --shadow-card-hover: 0 12px 32px -8px hsl(180 100% 50% / 0.3);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -134,8 +134,8 @@
   /* Grid pattern background */
   .bg-grid-pattern {
     background-image: 
-      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+      linear-gradient(to right, hsl(180 100% 50% / 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(180 100% 50% / 0.08) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
@@ -200,7 +200,7 @@
   /* Text gradient */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    background-image: linear-gradient(135deg, hsl(180 100% 50%), hsl(195 80% 60%));
   }
 
   /* Card hover effect */
@@ -226,10 +226,10 @@
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(201 89% 48% / 0.3);
+    box-shadow: 0 0 20px hsl(180 100% 50% / 0.3);
   }
   50% {
-    box-shadow: 0 0 40px hsl(201 89% 48% / 0.5);
+    box-shadow: 0 0 40px hsl(180 100% 50% / 0.5);
   }
 }
 
