@@ -2,7 +2,7 @@ import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Linkedin, Facebook, ExternalLink } from "lucide-react";
 import logoImage from "@/assets/logo.png";
 
 export function ContactSection() {
@@ -96,22 +96,32 @@ export function ContactSection() {
                 </div>
 
                 {social.linkedin && (
-                  <div className="flex items-start gap-3">
-                    <Linkedin className="w-5 h-5 text-primary mt-0.5" />
-                    <div>
-                      <p className="font-medium">LinkedIn</p>
-                      <a
-                        href={social.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
-                      >
-                        View Profile
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                    </div>
+                  <div className="flex items-center gap-3">
+                    <Linkedin className="w-5 h-5 text-primary" />
+                    <a
+                      href={social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                    >
+                      View Profile
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                 )}
+
+                <div className="flex items-center gap-3">
+                  <Facebook className="w-5 h-5 text-primary" />
+                  <a
+                    href="https://www.facebook.com/DawnSolomon.AutomationEngineer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                  >
+                    View Profile
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
