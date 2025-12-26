@@ -56,19 +56,6 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left column - Content */}
           <div className="space-y-8 animate-slide-up flex flex-col items-center lg:items-start">
-            {/* Profile Photo */}
-            <div className="relative w-32 h-32 md:w-36 md:h-36">
-              <div className="w-full h-full rounded-full overflow-hidden border-4 border-card shadow-card">
-                <img
-                  src={profilePhoto}
-                  alt="Dawn Solomon"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground w-7 h-7 rounded-full flex items-center justify-center text-sm">
-                ✓
-              </div>
-            </div>
 
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30">
@@ -149,17 +136,19 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right column - Workflow visualization */}
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl" />
-            <div className="relative p-8 flex flex-col items-center">
-              <WorkflowNode icon="📊" title="Google Sheet" subtitle="New Row Added" delay={0} color="bg-green-100 text-green-600" />
-              <WorkflowConnector />
-              <WorkflowNode icon="🔍" title="Filter" subtitle="Qualify Lead" delay={0.5} color="bg-purple-100 text-purple-600" />
-              <WorkflowConnector />
-              <WorkflowNode icon="🤖" title="AI Agent" subtitle="Process Data" delay={1} color="bg-blue-100 text-blue-600" />
-              <WorkflowConnector />
-              <WorkflowNode icon="📧" title="Email" subtitle="Send Notification" delay={1.5} color="bg-orange-100 text-orange-600" />
+          {/* Right column - Profile Photo */}
+          <div className="relative hidden lg:flex items-center justify-center">
+            <div className="relative w-72 h-72 xl:w-80 xl:h-80">
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl">
+                <img
+                  src={profilePhoto}
+                  alt="Dawn Solomon"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg">
+                ✓
+              </div>
             </div>
           </div>
         </div>
