@@ -5,6 +5,45 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Brand logos
+import clickupLogo from "@/assets/brands/clickup.ico";
+import tallyLogo from "@/assets/brands/tally.svg";
+import jotformLogo from "@/assets/brands/jotform.svg";
+import systemeLogo from "@/assets/brands/systeme.png";
+import quickbooksLogo from "@/assets/brands/quickbooks.png";
+import notionLogo from "@/assets/tools/notion.svg";
+import trelloLogo from "@/assets/brands/trello.svg";
+import slackLogo from "@/assets/brands/slack.svg";
+import zoomLogo from "@/assets/brands/zoom.svg";
+import chatgptLogo from "@/assets/tools/chatgpt.svg";
+import geminiLogo from "@/assets/brands/gemini.png";
+import mailchimpLogo from "@/assets/brands/mailchimp.svg";
+import wordpressLogo from "@/assets/tools/wordpress.png";
+import canvaLogo from "@/assets/brands/canva.ico";
+import shopifyLogo from "@/assets/tools/shopify.svg";
+import zapierLogo from "@/assets/tools/zapier.svg";
+import airtableLogo from "@/assets/tools/airtable.svg";
+
+const brandLogos = [
+  { name: "ClickUp", logo: clickupLogo },
+  { name: "Tally", logo: tallyLogo },
+  { name: "Jotform", logo: jotformLogo },
+  { name: "Systeme.io", logo: systemeLogo },
+  { name: "QuickBooks", logo: quickbooksLogo },
+  { name: "Notion", logo: notionLogo },
+  { name: "Trello", logo: trelloLogo },
+  { name: "Slack", logo: slackLogo },
+  { name: "Zoom", logo: zoomLogo },
+  { name: "ChatGPT", logo: chatgptLogo },
+  { name: "Gemini", logo: geminiLogo },
+  { name: "Mailchimp", logo: mailchimpLogo },
+  { name: "WordPress", logo: wordpressLogo },
+  { name: "Canva", logo: canvaLogo },
+  { name: "Shopify", logo: shopifyLogo },
+  { name: "Zapier", logo: zapierLogo },
+  { name: "Airtable", logo: airtableLogo },
+];
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -154,6 +193,22 @@ export function ProjectsSection() {
               }
             />
           ))}
+        </div>
+
+        {/* Scrolling Logo Bar */}
+        <div className="mt-16 lg:mt-24 overflow-hidden">
+          <div className="flex animate-scroll-x gap-16 whitespace-nowrap">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex gap-16 items-center">
+                {brandLogos.map((brand) => (
+                  <div key={`${setIndex}-${brand.name}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
+                    <span className="text-muted-foreground font-medium text-sm">{brand.name}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

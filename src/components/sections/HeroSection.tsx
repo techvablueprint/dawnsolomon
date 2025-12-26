@@ -285,21 +285,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Scrolling Logo Bar - Before About Section */}
-        <div className="mt-16 lg:mt-24 overflow-hidden">
-          <div className="flex animate-scroll-x gap-16 whitespace-nowrap">
-            {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-16 items-center">
-                {brandLogos.map((brand) => (
-                  <div key={`${setIndex}-${brand.name}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                    <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
-                    <span className="text-muted-foreground font-medium text-sm">{brand.name}</span>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
