@@ -3,6 +3,7 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { MessageSquare, Search, Laptop, Bot, Zap, Globe, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useColorCycle } from "@/hooks/useColorCycle";
 
 const iconMap: Record<string, React.ReactNode> = {
   MessageSquare: <MessageSquare className="w-8 h-8" />,
@@ -73,6 +74,7 @@ function SkillCard({
 export function SkillsSection() {
   const { data, updateData } = usePortfolio();
   const { skills } = data;
+  const colorClass = useColorCycle(1500);
 
   const updateSkillItem = (
     id: string,
@@ -107,12 +109,9 @@ export function SkillsSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <EditableText
-            value={skills.title}
-            onChange={(v) => updateData({ skills: { ...skills, title: v } })}
-            as="h2"
-            className="text-3xl lg:text-4xl font-bold mb-4"
-          />
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            My Skills & <span className={`transition-all duration-500 ${colorClass}`}>Competencies</span>
+          </h2>
           <EditableText
             value={skills.subtitle}
             onChange={(v) => updateData({ skills: { ...skills, subtitle: v } })}

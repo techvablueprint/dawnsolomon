@@ -3,6 +3,7 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Zap, Globe, Eye, Bot, Search, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useColorCycle } from "@/hooks/useColorCycle";
 
 const iconMap: Record<string, React.ReactNode> = {
   Zap: <Zap className="w-8 h-8" />,
@@ -72,6 +73,7 @@ function ServiceCard({
 export function ServicesSection() {
   const { data, updateData } = usePortfolio();
   const { services } = data;
+  const colorClass = useColorCycle(1500);
 
   const updateServiceItem = (
     id: string,
@@ -106,12 +108,9 @@ export function ServicesSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <EditableText
-            value={services.title}
-            onChange={(v) => updateData({ services: { ...services, title: v } })}
-            as="h2"
-            className="text-3xl lg:text-4xl font-bold mb-4"
-          />
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            My <span className={`transition-all duration-500 ${colorClass}`}>Services</span>
+          </h2>
           <EditableText
             value={services.subtitle}
             onChange={(v) => updateData({ services: { ...services, subtitle: v } })}
