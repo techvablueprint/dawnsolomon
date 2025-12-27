@@ -222,10 +222,10 @@ export function HeroSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Facebook-style verified badge */}
-              <div className="absolute -bottom-2 -right-2 w-10 h-10">
+              {/* Verified badge - cyan color, positioned on circle edge */}
+              <div className="absolute bottom-4 -right-1 w-10 h-10">
                 <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-lg">
-                  <circle cx="12" cy="12" r="12" fill="#1877F2" />
+                  <circle cx="12" cy="12" r="12" fill="#00D9FF" />
                   <path
                     d="M10.5 15.5L7.5 12.5L8.5 11.5L10.5 13.5L15.5 8.5L16.5 9.5L10.5 15.5Z"
                     fill="white"
