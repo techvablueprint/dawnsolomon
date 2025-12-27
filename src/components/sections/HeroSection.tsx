@@ -159,24 +159,22 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Badge */}
-            <div className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30">
-              {/* Left sparkles */}
-              <span className="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style={{ animationDuration: '1.5s' }} />
-              <span className="absolute -left-3 top-1/4 w-1.5 h-1.5 bg-cyan-300 rounded-full animate-ping" style={{ animationDuration: '2s', animationDelay: '0.3s' }} />
-              <span className="absolute -left-2 bottom-1 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDuration: '1.8s', animationDelay: '0.6s' }} />
+            {/* Badge with rotating glow */}
+            <div className="relative">
+              {/* Rotating glow ring - same as profile photo */}
+              <div className="absolute -inset-1 rounded-full animate-spin-slow" style={{ animationDuration: '6s' }}>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-transparent to-cyan-400 opacity-70 blur-sm" />
+              </div>
               
-              {/* Right sparkles */}
-              <span className="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style={{ animationDuration: '1.5s', animationDelay: '0.2s' }} />
-              <span className="absolute -right-3 top-1/4 w-1.5 h-1.5 bg-cyan-300 rounded-full animate-ping" style={{ animationDuration: '2s', animationDelay: '0.5s' }} />
-              <span className="absolute -right-2 bottom-1 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDuration: '1.8s', animationDelay: '0.8s' }} />
-              
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              <EditableText
-                value={hero.badge}
-                onChange={(v) => updateField("hero", "badge", v)}
-                className="text-sm font-medium text-secondary"
-              />
+              {/* Badge content */}
+              <div className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 border border-cyan-400/50 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                <EditableText
+                  value={hero.badge}
+                  onChange={(v) => updateField("hero", "badge", v)}
+                  className="text-sm font-medium text-secondary"
+                />
+              </div>
             </div>
 
             {/* Headline */}
