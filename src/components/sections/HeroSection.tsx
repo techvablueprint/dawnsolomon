@@ -104,11 +104,16 @@ export function HeroSection() {
   const { data, updateField } = usePortfolio();
   const { hero } = data;
   const [colorIndex, setColorIndex] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setColorIndex((prev) => (prev + 1) % colorStyles.length);
-    }, 1500);
+      setIsFlipping(true);
+      setTimeout(() => {
+        setColorIndex((prev) => (prev + 1) % colorStyles.length);
+        setIsFlipping(false);
+      }, 400);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -200,7 +205,10 @@ export function HeroSection() {
                 onChange={(v) => updateField("hero", "headline", v)}
                 className="text-foreground"
               />{" "}
-              <span className={`transition-all duration-500 ${colorStyles[colorIndex]}`}>
+              <span 
+                className={`inline-block ${colorStyles[colorIndex]} ${isFlipping ? 'animate-flip-out' : 'animate-flip-in'}`}
+                style={{ perspective: '1000px' }}
+              >
                 {hero.headlineAccent}
               </span>
               <br />

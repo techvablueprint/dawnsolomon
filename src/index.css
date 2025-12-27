@@ -322,25 +322,35 @@
   animation: line-up 4s linear infinite;
 }
 
-/* Color cycling animation for Time/Money text */
-@keyframes color-cycle {
-  0%, 100% {
-    color: hsl(180 100% 50%); /* Cyan - current */
+/* Flip animation for color cycling text */
+@keyframes flip-in {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
   }
-  25% {
-    color: hsl(50 100% 50%); /* Yellow */
-  }
-  50% {
-    background: linear-gradient(135deg, hsl(180 100% 50%), hsl(195 80% 60%));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  75% {
-    color: hsl(200 100% 55%); /* Neon blue */
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
   }
 }
 
-.animate-color-cycle {
-  animation: color-cycle 4s ease-in-out infinite;
+@keyframes flip-out {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+.animate-flip-in {
+  animation: flip-in 0.4s ease-out forwards;
+  transform-origin: center bottom;
+}
+
+.animate-flip-out {
+  animation: flip-out 0.4s ease-in forwards;
+  transform-origin: center top;
 }
