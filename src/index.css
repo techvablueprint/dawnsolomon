@@ -321,3 +321,26 @@
 .animate-line-up {
   animation: line-up 4s linear infinite;
 }
+
+/* Color cycling animation for Time/Money text */
+@keyframes color-cycle {
+  0%, 100% {
+    color: hsl(180 100% 50%); /* Cyan - current */
+  }
+  25% {
+    color: hsl(50 100% 50%); /* Yellow */
+  }
+  50% {
+    background: linear-gradient(135deg, hsl(180 100% 50%), hsl(195 80% 60%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  75% {
+    color: hsl(200 100% 55%); /* Neon blue */
+  }
+}
+
+.animate-color-cycle {
+  animation: color-cycle 4s ease-in-out infinite;
+}
