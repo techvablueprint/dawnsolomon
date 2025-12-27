@@ -215,15 +215,22 @@ export function HeroSection() {
           {/* Right column - Profile Photo */}
           <div className="relative hidden lg:flex items-center justify-center">
             <div className="relative w-72 h-72 xl:w-80 xl:h-80">
-              <div className="w-full h-full rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl">
+              {/* Rotating glow ring around profile */}
+              <div className="absolute inset-0 rounded-full animate-spin-slow" style={{ animationDuration: '8s' }}>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-transparent to-cyan-400 opacity-60 blur-sm" />
+              </div>
+              <div className="absolute inset-1 rounded-full bg-background" />
+              
+              <div className="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl">
                 <img
                   src={profilePhoto}
                   alt="Dawn Solomon"
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Verified badge - cyan color, positioned on circle edge */}
-              <div className="absolute bottom-4 -right-1 w-10 h-10">
+              
+              {/* Verified badge - cyan color, positioned on right edge */}
+              <div className="absolute bottom-12 -right-3 w-12 h-12">
                 <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-lg">
                   <circle cx="12" cy="12" r="12" fill="#00D9FF" />
                   <path
