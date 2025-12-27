@@ -205,10 +205,7 @@ export function HeroSection() {
                 onChange={(v) => updateField("hero", "headline", v)}
                 className="text-foreground"
               />{" "}
-              <span 
-                className={`inline-block ${colorStyles[colorIndex]} ${isFlipping ? 'animate-flip-out' : 'animate-flip-in'}`}
-                style={{ perspective: '1000px' }}
-              >
+              <span className={`transition-all duration-500 ${colorStyles[colorIndex]}`}>
                 {hero.headlineAccent}
               </span>
               <br />
