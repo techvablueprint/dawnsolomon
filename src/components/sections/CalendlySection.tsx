@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Calendar } from "lucide-react";
+import { useColorCycle } from "@/hooks/useColorCycle";
 
 declare global {
   interface Window {
@@ -8,6 +9,8 @@ declare global {
 }
 
 export const CalendlySection = () => {
+  const colorClass = useColorCycle(1500);
+  
   useEffect(() => {
     // Load Calendly widget script
     const script = document.createElement("script");
@@ -55,7 +58,7 @@ export const CalendlySection = () => {
             <span className="text-sm font-medium text-primary">Book a Call</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Schedule a <span className="text-gradient">Meeting</span>
+            Schedule a <span className={`transition-all duration-500 ${colorClass}`}>Meeting</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Ready to discuss your project? Book a free consultation call and let's explore how I can help automate your business processes.
