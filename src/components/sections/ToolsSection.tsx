@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { useColorCycle } from "@/hooks/useColorCycle";
 import zapierLogo from "@/assets/tools/zapier.svg";
 import makeLogo from "@/assets/tools/make.ico";
 import n8nLogo from "@/assets/tools/n8n.ico";
@@ -31,8 +30,6 @@ const tools = [
 const bounceDelays = [0, 0.3, 0.1, 0.5, 0.2, 0.4, 0.15, 0.35, 0.25, 0.45, 0.05, 0.55];
 
 export function ToolsSection() {
-  const colorClass = useColorCycle(1500);
-  
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Animated vertical lines moving upward */}
@@ -57,7 +54,7 @@ export function ToolsSection() {
           
           <div className="text-center mb-12 relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Tools I <span className={`transition-all duration-500 ${colorClass}`}>Work</span> With
+              Tools I <span className="text-primary">Work</span> With
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               I'm fluent in the tools that power modern businesses—so your tech just works.
