@@ -131,6 +131,10 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -143,6 +147,7 @@ export default {
         "ball-bounce": "ball-bounce 12s ease-in-out infinite",
         "shadow-pulse": "shadow-pulse 12s ease-in-out infinite",
         "scroll-x": "scroll-x 20s linear infinite",
+        "spin-slow": "spin-slow 8s linear infinite",
       },
     },
   },
