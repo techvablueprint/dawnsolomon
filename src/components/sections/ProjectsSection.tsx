@@ -4,7 +4,6 @@ import { EditableText } from "@/components/EditableText";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useColorCycle } from "@/hooks/useColorCycle";
 
 // Brand logos
 import clickupLogo from "@/assets/brands/clickup.ico";
@@ -160,7 +159,6 @@ function ProjectCard({
 export function ProjectsSection() {
   const { data, updateData } = usePortfolio();
   const { projects } = data;
-  const colorClass = useColorCycle(1500);
 
   const updateProjectItem = (
     id: string,
@@ -196,7 +194,7 @@ export function ProjectsSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            <span className={`transition-all duration-500 ${colorClass}`}>Featured</span> Projects
+            <span className="text-primary">Featured</span> Projects
           </h2>
           <EditableText
             value={projects.subtitle}
