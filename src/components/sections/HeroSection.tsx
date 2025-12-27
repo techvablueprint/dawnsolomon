@@ -161,9 +161,9 @@ export function HeroSection() {
 
             {/* Badge with rotating glow */}
             <div className="relative">
-              {/* Rotating glow ring - same as profile photo */}
-              <div className="absolute -inset-1 rounded-full animate-spin-slow" style={{ animationDuration: '6s' }}>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-transparent to-cyan-400 opacity-70 blur-sm" />
+              {/* Static glow ring */}
+              <div className="absolute -inset-1 rounded-full">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-cyan-400/50 to-cyan-400 opacity-70 blur-sm" />
               </div>
               
               {/* Badge content */}
