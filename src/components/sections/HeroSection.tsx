@@ -133,6 +133,32 @@ export function HeroSection() {
           {/* Left column - Content */}
           <div className="space-y-8 animate-slide-up flex flex-col items-center lg:items-start">
 
+            {/* Mobile Profile Photo */}
+            <div className="lg:hidden relative w-40 h-40 mb-4">
+              {/* Rotating glow ring */}
+              <div className="absolute inset-0 rounded-full animate-spin-slow">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-transparent to-cyan-400 opacity-60 blur-sm" />
+              </div>
+              <div className="absolute inset-1 rounded-full bg-background" />
+              <div className="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full overflow-hidden border-3 border-primary/50 shadow-2xl">
+                <img
+                  src={profilePhoto}
+                  alt="Dawn Solomon"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Verified badge */}
+              <div className="absolute bottom-6 -right-1 w-9 h-9">
+                <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-lg">
+                  <circle cx="12" cy="12" r="12" fill="#00D9FF" />
+                  <path
+                    d="M10.5 15.5L7.5 12.5L8.5 11.5L10.5 13.5L15.5 8.5L16.5 9.5L10.5 15.5Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </div>
+
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
