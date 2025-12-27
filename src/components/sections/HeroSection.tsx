@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
@@ -92,9 +92,25 @@ const DashedConnector = ({ from, to }: { from: string; to: string }) => (
   </svg>
 );
 
+// Color cycling styles for Time and Money
+const colorStyles = [
+  'text-primary', // Cyan - current
+  'text-yellow-400', // Yellow
+  'text-gradient', // Gradient
+  'text-blue-400', // Neon blue
+];
+
 export function HeroSection() {
   const { data, updateField } = usePortfolio();
   const { hero } = data;
+  const [colorIndex, setColorIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setColorIndex((prev) => (prev + 1) % colorStyles.length);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden" style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -184,11 +200,9 @@ export function HeroSection() {
                 onChange={(v) => updateField("hero", "headline", v)}
                 className="text-foreground"
               />{" "}
-              <EditableText
-                value={hero.headlineAccent}
-                onChange={(v) => updateField("hero", "headlineAccent", v)}
-                className="text-primary"
-              />
+              <span className={`transition-all duration-500 ${colorStyles[colorIndex]}`}>
+                {hero.headlineAccent}
+              </span>
               <br />
               <EditableText
                 value={hero.headlineSuffix}
