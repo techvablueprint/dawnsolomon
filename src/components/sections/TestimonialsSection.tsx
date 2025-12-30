@@ -9,20 +9,6 @@ const testimonials = [
     review:
       "Working with Dawn was a pleasure, she took my site performance from a 35% to a 100% in just a few days. Dawn was also able to complete on-site and off-site SEO for my clients, while willing to learn and adapt to new tasks. Absolutely recommend her expertise.",
   },
-  {
-    name: "Sarah Mitchell",
-    date: "November 5, 2024",
-    initial: "S",
-    review:
-      "Dawn transformed our workflow automation completely. Her expertise in n8n and Make saved us countless hours every week. She's professional, responsive, and delivers beyond expectations.",
-  },
-  {
-    name: "Marcus Chen",
-    date: "December 12, 2024",
-    initial: "M",
-    review:
-      "Exceptional work on our WordPress site optimization and automation setup. Dawn's attention to detail and technical knowledge made the entire process smooth. Highly recommended for any automation needs.",
-  },
 ];
 
 export function TestimonialsSection() {
