@@ -1,91 +1,27 @@
 import React from "react";
-import { usePortfolio } from "@/contexts/PortfolioContext";
-import { EditableText } from "@/components/EditableText";
-import { Zap, Globe, Eye, Bot, Search, Settings } from "lucide-react";
-import { cn } from "@/lib/utils";
+import aiAutomationImg from "@/assets/services/ai-automation.png";
+import wordpressSeoImg from "@/assets/services/wordpress-seo.png";
+import aiVisibilityImg from "@/assets/services/ai-visibility.png";
 
-const iconMap: Record<string, React.ReactNode> = {
-  Zap: <Zap className="w-8 h-8" />,
-  Globe: <Globe className="w-8 h-8" />,
-  Eye: <Eye className="w-8 h-8" />,
-  Bot: <Bot className="w-8 h-8" />,
-  Search: <Search className="w-8 h-8" />,
-  Settings: <Settings className="w-8 h-8" />,
-};
-
-interface ServiceCardProps {
-  title: string;
-  description: string;
-  icon: string;
-  index: number;
-  onTitleChange: (v: string) => void;
-  onDescriptionChange: (v: string) => void;
-}
-
-function ServiceCard({
-  title,
-  description,
-  icon,
-  index,
-  onTitleChange,
-  onDescriptionChange,
-}: ServiceCardProps) {
-  const colors = [
-    "from-primary/20 to-primary/5 border-primary/20",
-    "from-secondary/20 to-secondary/5 border-secondary/20",
-    "from-primary/20 to-secondary/10 border-primary/20",
-  ];
-
-  return (
-    <div
-      className={cn(
-        "group relative bg-gradient-to-br rounded-2xl p-8 border overflow-hidden",
-        "card-hover",
-        colors[index % colors.length]
-      )}
-    >
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-background/50 to-transparent rounded-bl-full" />
-
-      <div className="relative">
-        <div className="w-16 h-16 rounded-2xl bg-card shadow-sm flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
-          {iconMap[icon] || <Zap className="w-8 h-8" />}
-        </div>
-        <EditableText
-          value={title}
-          onChange={onTitleChange}
-          as="h3"
-          className="font-bold text-xl mb-3"
-        />
-        <EditableText
-          value={description}
-          onChange={onDescriptionChange}
-          as="p"
-          multiline
-          className="text-muted-foreground leading-relaxed"
-        />
-      </div>
-    </div>
-  );
-}
+const services = [
+  {
+    id: "1",
+    title: "AI Automation Engineer",
+    image: aiAutomationImg,
+  },
+  {
+    id: "2",
+    title: "WordPress Optimization SEO",
+    image: wordpressSeoImg,
+  },
+  {
+    id: "3",
+    title: "AI Visibility",
+    image: aiVisibilityImg,
+  },
+];
 
 export function ServicesSection() {
-  const { data, updateData } = usePortfolio();
-  const { services } = data;
-
-  const updateServiceItem = (
-    id: string,
-    field: "title" | "description",
-    value: string
-  ) => {
-    const newItems = services.items.map((item) =>
-      item.id === id ? { ...item, [field]: value } : item
-    );
-    updateData({
-      services: { ...services, items: newItems },
-    });
-  };
-
   return (
     <section id="services" className="relative py-20 lg:py-32 bg-muted/30 overflow-hidden">
       {/* Animated vertical lines moving upward */}
@@ -109,25 +45,23 @@ export function ServicesSection() {
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             My <span className="text-primary">Services</span>
           </h2>
-          <EditableText
-            value={services.subtitle}
-            onChange={(v) => updateData({ services: { ...services, subtitle: v } })}
-            as="p"
-            className="text-muted-foreground max-w-2xl mx-auto"
-          />
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Comprehensive solutions to automate and optimize your business
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.items.map((service, index) => (
-            <ServiceCard
+          {services.map((service) => (
+            <div
               key={service.id}
-              {...service}
-              index={index}
-              onTitleChange={(v) => updateServiceItem(service.id, "title", v)}
-              onDescriptionChange={(v) =>
-                updateServiceItem(service.id, "description", v)
-              }
-            />
+              className="group relative rounded-2xl overflow-hidden border border-border/50 bg-card hover:border-primary/30 transition-all duration-300 card-hover"
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full aspect-square object-cover"
+              />
+            </div>
           ))}
         </div>
       </div>
