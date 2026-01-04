@@ -6,10 +6,22 @@ interface Position {
   y: number;
 }
 
+interface Spark {
+  id: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  color: string;
+  size: number;
+}
+
 export function CursorGlow() {
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
-  const [trail, setTrail] = useState<Position[]>([]);
+  const [sparks, setSparks] = useState<Spark[]>([]);
+  const [sparkId, setSparkId] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -17,10 +29,25 @@ export function CursorGlow() {
       setPosition(newPos);
       setIsVisible(true);
       
-      setTrail((prev) => {
-        const newTrail = [newPos, ...prev.slice(0, 12)];
-        return newTrail;
-      });
+      // Create new sparks at rocket tail
+      const colors = ['#ff6b35', '#ff9500', '#ffcc00', '#fff', '#00d4ff', '#ff4757'];
+      const newSparks: Spark[] = [];
+      
+      for (let i = 0; i < 3; i++) {
+        newSparks.push({
+          id: sparkId + i,
+          x: newPos.x + 20,
+          y: newPos.y + 35,
+          vx: (Math.random() - 0.5) * 4,
+          vy: Math.random() * 3 + 2,
+          life: 1,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          size: Math.random() * 4 + 2,
+        });
+      }
+      
+      setSparkId(prev => prev + 3);
+      setSparks(prev => [...prev.slice(-40), ...newSparks]);
     };
 
     const handleMouseLeave = () => {
@@ -40,101 +67,107 @@ export function CursorGlow() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
     };
+  }, [sparkId]);
+
+  // Animate sparks
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSparks(prev => 
+        prev
+          .map(spark => ({
+            ...spark,
+            x: spark.x + spark.vx,
+            y: spark.y + spark.vy,
+            vy: spark.vy + 0.1, // gravity
+            life: spark.life - 0.03,
+          }))
+          .filter(spark => spark.life > 0)
+      );
+    }, 30);
+
+    return () => clearInterval(interval);
   }, []);
 
   if (!isVisible) return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
-      {/* Rocket flame trail */}
-      {trail.map((pos, index) => (
+      {/* Firework sparks */}
+      {sparks.map((spark) => (
         <div
-          key={index}
+          key={spark.id}
           className="absolute rounded-full"
           style={{
-            left: pos.x + 20,
-            top: pos.y + 28,
-            width: 8 - index * 0.5,
-            height: 12 - index * 0.8,
-            opacity: 0.8 - index * 0.06,
-            background: index < 4 
-              ? `linear-gradient(to bottom, #ff6b35, #ff9500, #ffcc00)` 
-              : `linear-gradient(to bottom, hsl(var(--primary) / ${0.6 - index * 0.04}), transparent)`,
-            filter: `blur(${index * 0.5}px)`,
-            borderRadius: '50%',
+            left: spark.x,
+            top: spark.y,
+            width: spark.size * spark.life,
+            height: spark.size * spark.life,
+            backgroundColor: spark.color,
+            opacity: spark.life,
+            boxShadow: `0 0 ${spark.size * 2}px ${spark.color}, 0 0 ${spark.size * 4}px ${spark.color}`,
           }}
         />
       ))}
       
-      {/* Main glow behind rocket */}
+      {/* Main rocket flame */}
+      <div
+        className="absolute pointer-events-none animate-pulse"
+        style={{
+          left: position.x + 8,
+          top: position.y + 30,
+          width: 20,
+          height: 40,
+          background: `linear-gradient(to bottom, #ff6b35, #ff9500, #ffcc00, transparent)`,
+          filter: 'blur(3px)',
+          borderRadius: '50% 50% 50% 50%',
+          transform: 'scaleX(0.6)',
+        }}
+      />
+      
+      {/* Inner bright flame */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          left: position.x + 12,
+          top: position.y + 32,
+          width: 12,
+          height: 25,
+          background: `linear-gradient(to bottom, #fff, #ffcc00, #ff6b35, transparent)`,
+          filter: 'blur(2px)',
+          borderRadius: '50%',
+          transform: 'scaleX(0.5)',
+        }}
+      />
+      
+      {/* Rocket glow */}
       <div
         className="absolute rounded-full pointer-events-none"
         style={{
-          left: position.x - 30,
-          top: position.y - 30,
-          width: 100,
-          height: 100,
-          background: `radial-gradient(circle, hsl(var(--primary) / 0.25) 0%, hsl(var(--primary) / 0.08) 40%, transparent 70%)`,
+          left: position.x - 15,
+          top: position.y - 15,
+          width: 70,
+          height: 70,
+          background: `radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%)`,
         }}
       />
       
-      {/* Rocket flame glow */}
+      {/* Rocket */}
       <div
-        className="absolute rounded-full pointer-events-none animate-pulse"
+        className="absolute pointer-events-none"
         style={{
-          left: position.x + 10,
-          top: position.y + 25,
-          width: 24,
-          height: 30,
-          background: `radial-gradient(ellipse, rgba(255, 150, 50, 0.6) 0%, rgba(255, 100, 30, 0.3) 50%, transparent 80%)`,
-          filter: 'blur(4px)',
-        }}
-      />
-      
-      {/* AI Rocket Guide */}
-      <div
-        className="absolute pointer-events-none transition-all duration-75 ease-out"
-        style={{
-          left: position.x + 8,
-          top: position.y + 8,
+          left: position.x,
+          top: position.y,
         }}
       >
-        <div className="relative">
-          {/* Rocket container with glow */}
-          <div 
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-primary via-cyan-400 to-primary shadow-xl"
-            style={{
-              boxShadow: `0 0 20px hsl(var(--primary) / 0.7), 0 0 40px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.2)`,
-              transform: 'rotate(-45deg)',
-            }}
-          >
-            <Rocket className="w-5 h-5 text-background" style={{ transform: 'rotate(45deg)' }} />
-          </div>
-          
-          {/* Sparkle particles */}
-          <div 
-            className="absolute w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"
-            style={{
-              top: 24,
-              left: 20,
-              animationDuration: '1s',
-            }}
-          />
-          <div 
-            className="absolute w-1 h-1 rounded-full bg-orange-400 animate-ping"
-            style={{
-              top: 28,
-              left: 14,
-              animationDuration: '1.5s',
-            }}
-          />
-          <div 
-            className="absolute w-1 h-1 rounded-full bg-cyan-400 animate-ping"
-            style={{
-              top: 30,
-              left: 22,
-              animationDuration: '0.8s',
-            }}
+        <div 
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-primary via-cyan-400 to-cyan-300"
+          style={{
+            boxShadow: `0 0 25px hsl(var(--primary) / 0.8), 0 0 50px hsl(var(--primary) / 0.5)`,
+          }}
+        >
+          <Rocket 
+            className="w-6 h-6 text-background" 
+            style={{ transform: 'rotate(135deg)' }} 
           />
         </div>
       </div>
