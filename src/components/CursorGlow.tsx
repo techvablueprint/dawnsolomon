@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Bot } from "lucide-react";
+import { Rocket } from "lucide-react";
 
 interface Position {
   x: number;
@@ -18,7 +18,7 @@ export function CursorGlow() {
       setIsVisible(true);
       
       setTrail((prev) => {
-        const newTrail = [newPos, ...prev.slice(0, 5)];
+        const newTrail = [newPos, ...prev.slice(0, 12)];
         return newTrail;
       });
     };
@@ -46,70 +46,94 @@ export function CursorGlow() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
-      {/* Trail particles */}
+      {/* Rocket flame trail */}
       {trail.map((pos, index) => (
         <div
           key={index}
-          className="absolute rounded-full bg-primary/40 blur-sm"
+          className="absolute rounded-full"
           style={{
-            left: pos.x + 15,
-            top: pos.y + 15,
-            width: 6 - index * 0.8,
-            height: 6 - index * 0.8,
-            opacity: 0.6 - index * 0.1,
+            left: pos.x + 20,
+            top: pos.y + 28,
+            width: 8 - index * 0.5,
+            height: 12 - index * 0.8,
+            opacity: 0.8 - index * 0.06,
+            background: index < 4 
+              ? `linear-gradient(to bottom, #ff6b35, #ff9500, #ffcc00)` 
+              : `linear-gradient(to bottom, hsl(var(--primary) / ${0.6 - index * 0.04}), transparent)`,
+            filter: `blur(${index * 0.5}px)`,
+            borderRadius: '50%',
           }}
         />
       ))}
       
-      {/* Glow behind robot */}
+      {/* Main glow behind rocket */}
       <div
-        className="absolute rounded-full pointer-events-none transition-all duration-150 ease-out"
+        className="absolute rounded-full pointer-events-none"
         style={{
-          left: position.x - 20,
-          top: position.y - 20,
-          width: 80,
-          height: 80,
-          background: `radial-gradient(circle, hsl(var(--primary) / 0.2) 0%, hsl(var(--primary) / 0.05) 50%, transparent 70%)`,
+          left: position.x - 30,
+          top: position.y - 30,
+          width: 100,
+          height: 100,
+          background: `radial-gradient(circle, hsl(var(--primary) / 0.25) 0%, hsl(var(--primary) / 0.08) 40%, transparent 70%)`,
         }}
       />
       
-      {/* AI Robot Guide */}
+      {/* Rocket flame glow */}
       <div
-        className="absolute pointer-events-none transition-all duration-100 ease-out"
+        className="absolute rounded-full pointer-events-none animate-pulse"
         style={{
-          left: position.x + 12,
-          top: position.y + 12,
+          left: position.x + 10,
+          top: position.y + 25,
+          width: 24,
+          height: 30,
+          background: `radial-gradient(ellipse, rgba(255, 150, 50, 0.6) 0%, rgba(255, 100, 30, 0.3) 50%, transparent 80%)`,
+          filter: 'blur(4px)',
+        }}
+      />
+      
+      {/* AI Rocket Guide */}
+      <div
+        className="absolute pointer-events-none transition-all duration-75 ease-out"
+        style={{
+          left: position.x + 8,
+          top: position.y + 8,
         }}
       >
         <div className="relative">
-          {/* Robot container with glow */}
+          {/* Rocket container with glow */}
           <div 
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-primary to-cyan-400 shadow-lg animate-pulse"
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-primary via-cyan-400 to-primary shadow-xl"
             style={{
-              boxShadow: `0 0 15px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--primary) / 0.3)`,
+              boxShadow: `0 0 20px hsl(var(--primary) / 0.7), 0 0 40px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.2)`,
+              transform: 'rotate(-45deg)',
             }}
           >
-            <Bot className="w-4 h-4 text-background" />
+            <Rocket className="w-5 h-5 text-background" style={{ transform: 'rotate(45deg)' }} />
           </div>
           
-          {/* Orbiting particles */}
+          {/* Sparkle particles */}
           <div 
-            className="absolute w-2 h-2 rounded-full bg-cyan-400/80 animate-spin"
+            className="absolute w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"
             style={{
-              top: -4,
-              left: 12,
-              animationDuration: '2s',
-              boxShadow: '0 0 6px hsl(var(--primary) / 0.8)',
+              top: 24,
+              left: 20,
+              animationDuration: '1s',
             }}
           />
           <div 
-            className="absolute w-1.5 h-1.5 rounded-full bg-primary/80 animate-spin"
+            className="absolute w-1 h-1 rounded-full bg-orange-400 animate-ping"
             style={{
-              bottom: -2,
-              right: -2,
-              animationDuration: '3s',
-              animationDirection: 'reverse',
-              boxShadow: '0 0 4px hsl(var(--primary) / 0.6)',
+              top: 28,
+              left: 14,
+              animationDuration: '1.5s',
+            }}
+          />
+          <div 
+            className="absolute w-1 h-1 rounded-full bg-cyan-400 animate-ping"
+            style={{
+              top: 30,
+              left: 22,
+              animationDuration: '0.8s',
             }}
           />
         </div>
