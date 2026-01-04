@@ -59,7 +59,7 @@ export function ServicesSection() {
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full aspect-square object-cover"
+                className="w-full h-auto object-contain"
               />
             </div>
           ))}
