@@ -3,7 +3,6 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Linkedin, ExternalLink } from "lucide-react";
-import logoImage from "@/assets/logo.png";
 
 export function ContactSection() {
   const { data, updateData } = usePortfolio();
@@ -113,11 +112,9 @@ export function ContactSection() {
 
           {/* Footer */}
           <div className="mt-16 pt-8 border-t border-border text-center space-y-4">
-            <img 
-              src={logoImage} 
-              alt="Dawn Solomon Logo" 
-              className="h-12 w-auto mx-auto object-contain"
-            />
+            <span className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+              Dawn Solomon
+            </span>
             <p className="text-muted-foreground text-sm">
               Copyright © {new Date().getFullYear()} {about.name}. All rights
               reserved.
