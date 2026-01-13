@@ -118,11 +118,9 @@ export function ContactSection() {
                 <span className="text-2xl lg:text-3xl font-bold text-cyan-400">
                   Dawn Solomon
                 </span>
-                {/* Orbiting rocket on the border */}
-                <div className="absolute inset-0 animate-[spin_6s_linear_infinite]">
-                  <Rocket className="absolute w-4 h-4 text-cyan-400 -top-2 left-1/2 -translate-x-1/2 rotate-90" />
-                </div>
               </div>
+              {/* Orbiting rocket on the border */}
+              <Rocket className="absolute w-4 h-4 text-cyan-400 animate-orbit-pill" />
             </div>
             <p className="text-muted-foreground text-sm">
               Copyright © {new Date().getFullYear()} {about.name}. All rights
