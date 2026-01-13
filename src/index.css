@@ -354,3 +354,56 @@
   animation: flip-out 0.4s ease-in forwards;
   transform-origin: center top;
 }
+
+/* Rocket orbit animation around pill shape */
+@keyframes orbit-pill {
+  0% {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+  15% {
+    top: 0;
+    left: calc(100% - 12px);
+    transform: translateX(0) rotate(135deg);
+  }
+  25% {
+    top: 50%;
+    left: calc(100% + 2px);
+    transform: translateY(-50%) rotate(180deg);
+  }
+  35% {
+    top: calc(100% - 6px);
+    left: calc(100% - 12px);
+    transform: translateX(0) rotate(225deg);
+  }
+  50% {
+    top: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%) rotate(270deg);
+  }
+  65% {
+    top: calc(100% - 6px);
+    left: 12px;
+    transform: translateX(0) rotate(315deg);
+  }
+  75% {
+    top: 50%;
+    left: -6px;
+    transform: translateY(-50%) rotate(0deg);
+  }
+  85% {
+    top: 0;
+    left: 12px;
+    transform: translateX(0) rotate(45deg);
+  }
+  100% {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+}
+
+.animate-orbit-pill {
+  animation: orbit-pill 4s linear infinite;
+}

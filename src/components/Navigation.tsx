@@ -46,11 +46,9 @@ export function Navigation() {
                 <span className="text-lg lg:text-xl font-bold text-cyan-400">
                   Dawn Solomon
                 </span>
-                {/* Orbiting rocket on the border */}
-                <div className="absolute inset-0 animate-[spin_6s_linear_infinite]">
-                  <Rocket className="absolute w-3 h-3 text-cyan-400 -top-1.5 left-1/2 -translate-x-1/2 rotate-90" />
-                </div>
               </div>
+              {/* Orbiting rocket on the border */}
+              <Rocket className="absolute w-3 h-3 text-cyan-400 animate-orbit-pill" />
             </div>
           </a>
 
