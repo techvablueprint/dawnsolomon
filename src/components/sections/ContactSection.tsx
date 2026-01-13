@@ -2,7 +2,7 @@ import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Linkedin, ExternalLink, Rocket } from "lucide-react";
 
 export function ContactSection() {
   const { data, updateData } = usePortfolio();
@@ -112,9 +112,20 @@ export function ContactSection() {
 
           {/* Footer */}
           <div className="mt-16 pt-8 border-t border-border text-center space-y-4">
-            <span className="text-2xl lg:text-3xl font-bold text-[#0d4a4a]">
-              Dawn Solomon
-            </span>
+            <div className="relative inline-block">
+              {/* Glow border container */}
+              <div className="relative px-6 py-3 rounded-full border border-cyan-500/50 bg-background/80 backdrop-blur-sm shadow-[0_0_20px_rgba(0,217,255,0.3),inset_0_0_20px_rgba(0,217,255,0.1)]">
+                <span className="text-2xl lg:text-3xl font-bold text-cyan-400">
+                  Dawn Solomon
+                </span>
+              </div>
+              {/* Orbiting rocket */}
+              <div className="absolute inset-0 animate-[spin_8s_linear_infinite]">
+                <div className="absolute -right-3 top-1/2 -translate-y-1/2">
+                  <Rocket className="w-5 h-5 text-cyan-400 rotate-90" />
+                </div>
+              </div>
+            </div>
             <p className="text-muted-foreground text-sm">
               Copyright © {new Date().getFullYear()} {about.name}. All rights
               reserved.
