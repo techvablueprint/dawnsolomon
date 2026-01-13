@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -40,9 +40,20 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center">
-            <span className="text-xl lg:text-2xl font-bold text-[#0d4a4a]">
-              Dawn Solomon
-            </span>
+            <div className="relative">
+              {/* Glow border container */}
+              <div className="relative px-4 py-2 rounded-full border border-cyan-500/50 bg-background/80 backdrop-blur-sm shadow-[0_0_15px_rgba(0,217,255,0.3),inset_0_0_15px_rgba(0,217,255,0.1)]">
+                <span className="text-lg lg:text-xl font-bold text-cyan-400">
+                  Dawn Solomon
+                </span>
+              </div>
+              {/* Orbiting rocket */}
+              <div className="absolute inset-0 animate-[spin_8s_linear_infinite]">
+                <div className="absolute -right-2 top-1/2 -translate-y-1/2">
+                  <Rocket className="w-4 h-4 text-cyan-400 rotate-90" />
+                </div>
+              </div>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
