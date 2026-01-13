@@ -40,7 +40,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center">
-            <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="text-xl lg:text-2xl font-bold text-[#0d4a4a]">
               Dawn Solomon
             </span>
           </a>

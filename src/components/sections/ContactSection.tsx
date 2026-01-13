@@ -112,7 +112,7 @@ export function ContactSection() {
 
           {/* Footer */}
           <div className="mt-16 pt-8 border-t border-border text-center space-y-4">
-            <span className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="text-2xl lg:text-3xl font-bold text-[#0d4a4a]">
               Dawn Solomon
             </span>
             <p className="text-muted-foreground text-sm">
