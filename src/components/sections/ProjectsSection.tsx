@@ -51,6 +51,7 @@ interface ProjectCardProps {
   tags: string[];
   stats: Array<{ label: string; value: string }>;
   link?: string;
+  image?: string;
   index: number;
   onTitleChange: (v: string) => void;
   onDescriptionChange: (v: string) => void;
@@ -63,6 +64,7 @@ function ProjectCard({
   tags,
   stats,
   link,
+  image,
   index,
   onTitleChange,
   onDescriptionChange,
@@ -87,11 +89,23 @@ function ProjectCard({
         colors[index % colors.length]
       )}
     >
+      {/* Feature Image */}
+      {image && (
+        <div className="relative w-full h-48 overflow-hidden">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+        </div>
+      )}
+
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-background/50 to-transparent rounded-bl-full" />
 
       {/* Header with category */}
-      <div className="relative p-8 pb-4">
+      <div className={cn("relative p-8 pb-4", image && "pt-4")}>
         <Badge
           variant="outline"
           className={cn(

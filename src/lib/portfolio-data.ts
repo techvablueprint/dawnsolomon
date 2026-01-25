@@ -195,15 +195,16 @@ export const defaultPortfolioData: PortfolioData = {
       },
       {
         id: "project-4",
-        title: "AI Content Repurposing",
+        title: "4 Quote Follow up Automation",
         description:
-          "AI-powered workflow that transforms long-form content into multiple social media formats.",
-        category: "AI",
-        tags: ["n8n", "AI", "Content"],
+          "Zapier automation that handles task tracking and email follow-ups across multiple workflow stages.",
+        category: "Automation",
+        tags: ["Zapier", "Asana", "Gmail"],
         stats: [
-          { label: "Content Output", value: "5x" },
-          { label: "Time Saved", value: "-80%" },
+          { label: "Workflow Stages", value: "5+" },
+          { label: "Auto Emails", value: "20+" },
         ],
+        image: "/projects/quote-followup-automation.png",
       },
       {
         id: "project-5",
