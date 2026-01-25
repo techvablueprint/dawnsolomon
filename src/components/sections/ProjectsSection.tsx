@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { ExternalLink, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Brand logos
@@ -55,6 +56,7 @@ interface ProjectCardProps {
   index: number;
   onTitleChange: (v: string) => void;
   onDescriptionChange: (v: string) => void;
+  onImageClick?: () => void;
 }
 
 function ProjectCard({
@@ -68,6 +70,7 @@ function ProjectCard({
   index,
   onTitleChange,
   onDescriptionChange,
+  onImageClick,
 }: ProjectCardProps) {
   const categoryColors: Record<string, string> = {
     Automation: "bg-secondary/10 text-secondary border-secondary/20",
@@ -91,13 +94,19 @@ function ProjectCard({
     >
       {/* Feature Image */}
       {image && (
-        <div className="relative w-full h-48 overflow-hidden">
+        <div 
+          className="relative w-full h-48 overflow-hidden cursor-pointer"
+          onClick={onImageClick}
+        >
           <img 
             src={image} 
             alt={title}
             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-background/20">
+            <span className="text-xs bg-background/80 px-3 py-1 rounded-full text-foreground">Click to view full image</span>
+          </div>
         </div>
       )}
 
@@ -173,6 +182,7 @@ function ProjectCard({
 export function ProjectsSection() {
   const { data, updateData } = usePortfolio();
   const { projects } = data;
+  const [selectedImage, setSelectedImage] = useState<{ url: string; title: string } | null>(null);
 
   const updateProjectItem = (
     id: string,
@@ -194,7 +204,7 @@ export function ProjectsSection() {
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-[3px] bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up rounded-full"
+            className="absolute w-[3px] bg-gradient-to-t from-transparent via-primary/40 to-transparent animate-line-up rounded-full"
             style={{
               left: `${8 + i * 8}%`,
               height: '150px',
@@ -228,6 +238,7 @@ export function ProjectsSection() {
               onDescriptionChange={(v) =>
                 updateProjectItem(project.id, "description", v)
               }
+              onImageClick={project.image ? () => setSelectedImage({ url: project.image!, title: project.title }) : undefined}
             />
           ))}
         </div>
@@ -248,6 +259,32 @@ export function ProjectsSection() {
           </div>
         </div>
       </div>
+
+      {/* Full Image Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-sm border-primary/20">
+          <div className="relative w-full h-full flex flex-col">
+            <div className="flex items-center justify-between p-4 border-b border-border/30">
+              <h3 className="text-lg font-semibold text-foreground">{selectedImage?.title}</h3>
+              <button 
+                onClick={() => setSelectedImage(null)}
+                className="p-2 rounded-full hover:bg-muted transition-colors"
+              >
+                <X className="w-5 h-5 text-muted-foreground" />
+              </button>
+            </div>
+            <div className="flex-1 overflow-auto p-4">
+              {selectedImage && (
+                <img 
+                  src={selectedImage.url} 
+                  alt={selectedImage.title}
+                  className="w-full h-auto object-contain rounded-lg"
+                />
+              )}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
