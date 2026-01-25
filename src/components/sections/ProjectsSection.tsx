@@ -105,7 +105,16 @@ function ProjectCard({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-background/20">
-            <span className="text-xs bg-background/80 px-3 py-1 rounded-full text-foreground">Click to view full image</span>
+            <span className="text-xs bg-background/80 px-3 py-1 rounded-full text-foreground flex items-center gap-1">
+              {link ? (
+                <>
+                  <ExternalLink className="w-3 h-3" />
+                  Click to visit live site
+                </>
+              ) : (
+                "Click to view full image"
+              )}
+            </span>
           </div>
         </div>
       )}
@@ -238,7 +247,13 @@ export function ProjectsSection() {
               onDescriptionChange={(v) =>
                 updateProjectItem(project.id, "description", v)
               }
-              onImageClick={project.image ? () => setSelectedImage({ url: project.image!, title: project.title }) : undefined}
+              onImageClick={project.image ? () => {
+                if (project.link) {
+                  window.open(project.link, '_blank', 'noopener,noreferrer');
+                } else {
+                  setSelectedImage({ url: project.image!, title: project.title });
+                }
+              } : undefined}
             />
           ))}
         </div>

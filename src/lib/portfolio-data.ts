@@ -168,6 +168,8 @@ export const defaultPortfolioData: PortfolioData = {
           { label: "Load Time", value: "-40%" },
           { label: "Conversions", value: "+25%" },
         ],
+        link: "https://dawnfitness.lovable.app",
+        image: "/projects/fitness-website.png",
       },
       {
         id: "project-2",
