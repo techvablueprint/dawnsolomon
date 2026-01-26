@@ -2,7 +2,7 @@ import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin, Facebook, ExternalLink, Rocket } from "lucide-react";
+import { Mail, MapPin, Linkedin, ExternalLink, Rocket } from "lucide-react";
 
 export function ContactSection() {
   const { data, updateData } = usePortfolio();
@@ -105,14 +105,6 @@ export function ContactSection() {
                       <Linkedin className="w-6 h-6" />
                     </a>
                   )}
-                  <a
-                    href="https://www.facebook.com/DawnSolomon.AutomationEngineer/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 transition-colors"
-                  >
-                    <Facebook className="w-6 h-6" />
-                  </a>
                 </div>
               </div>
             </div>
