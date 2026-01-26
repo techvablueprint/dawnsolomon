@@ -213,15 +213,17 @@ export const defaultPortfolioData: PortfolioData = {
       },
       {
         id: "project-5",
-        title: "Automated WordPress Posts",
+        title: "Medspa Dashboard",
         description:
-          "Scheduling and publishing automation for WordPress blogs with SEO optimization.",
+          "Build a dashboard that connects to your website so you can track sales and website traffic in real time.",
         category: "Automation",
-        tags: ["WordPress", "Zapier", "SEO"],
+        tags: ["Dashboard", "Analytics", "Real-time"],
         stats: [
-          { label: "Posts/Week", value: "Auto" },
-          { label: "SEO Score", value: "+30%" },
+          { label: "Real-time", value: "Live" },
+          { label: "Tracking", value: "24/7" },
         ],
+        link: "https://aistudio.google.com/apps/drive/1sZpkc5kMtZQLgwt5fFwpi6xw3xIT1TPd?showAssistant=true&showPreview=true&fullscreenApplet=true",
+        image: "/projects/medspa-dashboard.png",
       },
       {
         id: "project-6",
