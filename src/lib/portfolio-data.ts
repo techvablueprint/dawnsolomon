@@ -191,11 +191,12 @@ export const defaultPortfolioData: PortfolioData = {
         description:
           "Automated workflow that sorts and organizes Gmail attachments into Google Drive folders.",
         category: "Automation",
-        tags: ["n8n", "Gmail", "Google Drive"],
+        tags: ["Make", "Gmail", "Google Drive"],
         stats: [
           { label: "Time Saved", value: "5 Hrs/Wk" },
           { label: "Accuracy", value: "100%" },
         ],
+        image: "/projects/auto-sort-gmail-attachments.png",
       },
       {
         id: "project-4",
