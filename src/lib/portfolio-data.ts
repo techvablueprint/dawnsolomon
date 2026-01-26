@@ -222,7 +222,7 @@ export const defaultPortfolioData: PortfolioData = {
           { label: "Real-time", value: "Live" },
           { label: "Tracking", value: "24/7" },
         ],
-        link: "https://aistudio.google.com/apps/drive/1sZpkc5kMtZQLgwt5fFwpi6xw3xIT1TPd?showAssistant=true&showPreview=true&fullscreenApplet=true",
+        link: "/projects/medspa-dashboard-video.mp4",
         image: "/projects/medspa-dashboard.png",
       },
       {
