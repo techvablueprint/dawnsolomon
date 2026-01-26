@@ -182,6 +182,8 @@ export const defaultPortfolioData: PortfolioData = {
           { label: "Lead Response", value: "Instant" },
           { label: "Manual Ops", value: "Zero" },
         ],
+        link: "/projects/ghl-hvac-video.mp4",
+        image: "/projects/ghl-hvac-website.png",
       },
       {
         id: "project-3",
