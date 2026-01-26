@@ -256,7 +256,28 @@ export function getPortfolioData(): PortfolioData {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored) {
     try {
-      return JSON.parse(stored);
+      const parsed = JSON.parse(stored) as PortfolioData;
+      // Merge project images/links from default data if missing in stored data
+      const mergedProjects = parsed.projects.items.map((item) => {
+        const defaultItem = defaultPortfolioData.projects.items.find(
+          (d) => d.id === item.id
+        );
+        if (defaultItem) {
+          return {
+            ...item,
+            image: item.image || defaultItem.image,
+            link: item.link || defaultItem.link,
+          };
+        }
+        return item;
+      });
+      return {
+        ...parsed,
+        projects: {
+          ...parsed.projects,
+          items: mergedProjects,
+        },
+      };
     } catch {
       return defaultPortfolioData;
     }
