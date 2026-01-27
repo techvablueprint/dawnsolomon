@@ -7,10 +7,9 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ToolsSection } from "@/components/sections/ToolsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
-
 import { CalendlySection } from "@/components/sections/CalendlySection";
 import { ContactSection } from "@/components/sections/ContactSection";
-
+import { Chatbot } from "@/components/Chatbot";
 
 const Index = () => {
   return (
@@ -47,7 +46,7 @@ const Index = () => {
           <CalendlySection />
           <ContactSection />
         </main>
-        
+        <Chatbot />
       </div>
     </PortfolioProvider>
   );
