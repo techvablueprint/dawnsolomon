@@ -38,7 +38,11 @@ Key information about Dawn:
 - Helps brands scale faster, work smarter, and operate seamlessly
 - Based in the Philippines
 
-Be helpful, professional, and concise. If visitors want to contact Dawn, direct them to use the contact form or email at dawnsolomon482@gmail.com.` 
+Contact options:
+- WhatsApp: +63 963 859 9771 (Click here to message: https://wa.me/639638599771)
+- Email: dawnsolomon482@gmail.com
+
+Be helpful, professional, and concise. If visitors want to contact Dawn, offer both WhatsApp and email options. For quick responses, recommend WhatsApp.` 
           },
           ...messages,
         ],
