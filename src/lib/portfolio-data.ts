@@ -233,7 +233,7 @@ export const defaultPortfolioData: PortfolioData = {
         category: "Automation",
         tags: ["GoHighLevel", "Workflow", "CRM"],
         stats: [
-          { label: "Project Base", value: "-4 Hrs" },
+          { label: "Project Base", value: "100%" },
           { label: "Accuracy", value: "100%" },
         ],
         image: "/projects/invoice-workflow-automation.png",
