@@ -229,13 +229,14 @@ export const defaultPortfolioData: PortfolioData = {
         id: "project-6",
         title: "Invoice Workflow Automation",
         description:
-          "End-to-end invoice generation and delivery system with payment tracking.",
+          "Lead to Booking – HVAC NPCS: A fully automated GoHighLevel workflow that captures leads and books appointments automatically, eliminating manual follow-ups and streamlining the entire sales pipeline.",
         category: "Automation",
-        tags: ["Zapier", "Xero", "Email"],
+        tags: ["GoHighLevel", "Workflow", "CRM"],
         stats: [
           { label: "Admin Time", value: "-4 Hrs" },
           { label: "Accuracy", value: "100%" },
         ],
+        image: "/projects/invoice-workflow-automation.png",
       },
     ],
   },
