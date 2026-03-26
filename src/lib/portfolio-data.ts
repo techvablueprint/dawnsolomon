@@ -227,7 +227,7 @@ export const defaultPortfolioData: PortfolioData = {
       },
       {
         id: "project-6",
-        title: "Invoice Workflow Automation",
+        title: "Lead to Booking – HVAC NPCS",
         description:
           "Lead to Booking – HVAC NPCS: A fully automated GoHighLevel workflow that captures leads and books appointments automatically, eliminating manual follow-ups and streamlining the entire sales pipeline.",
         category: "Automation",
