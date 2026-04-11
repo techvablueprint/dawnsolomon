@@ -114,13 +114,13 @@ export function ContactSection() {
           <div className="mt-16 pt-8 border-t border-border text-center space-y-4">
             <div className="relative inline-block">
               {/* Glow border container */}
-              <div className="relative px-6 py-3 rounded-full border border-cyan-500/50 bg-background/80 backdrop-blur-sm shadow-[0_0_20px_rgba(0,217,255,0.3),inset_0_0_20px_rgba(0,217,255,0.1)]">
-                <span className="text-2xl lg:text-3xl font-bold text-cyan-400">
+              <div className="relative px-6 py-3 rounded-full border border-primary/40 bg-background/80 backdrop-blur-sm shadow-lg">
+                <span className="text-2xl lg:text-3xl font-bold text-primary">
                   Dawn Solomon
                 </span>
               </div>
               {/* Orbiting rocket on the border */}
-              <Rocket className="absolute w-4 h-4 text-cyan-400 animate-orbit-pill" />
+              <Rocket className="absolute w-4 h-4 text-primary animate-orbit-pill" />
             </div>
             <p className="text-muted-foreground text-sm">
               Copyright © {new Date().getFullYear()} {about.name}. All rights
