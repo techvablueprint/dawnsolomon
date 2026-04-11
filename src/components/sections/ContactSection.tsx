@@ -10,6 +10,8 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="relative py-20 lg:py-32 text-foreground overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
       {/* Animated vertical lines moving upward */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(12)].map((_, i) => (
