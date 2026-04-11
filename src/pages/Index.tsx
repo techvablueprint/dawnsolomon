@@ -33,7 +33,19 @@ const Index = () => {
         <link rel="canonical" href="https://dawnsolomon.com" />
       </Helmet>
 
-      <div className="min-h-screen">
+      <div className="min-h-screen relative">
+        {/* Global Video Background */}
+        <div className="fixed inset-0 -z-10 pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            src="/videos/background.mp4"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/70" />
+        </div>
         <Navigation />
         <main>
           <HeroSection />
