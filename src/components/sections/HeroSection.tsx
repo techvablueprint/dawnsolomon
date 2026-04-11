@@ -118,19 +118,19 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden" style={{ backgroundImage: "url('/images/background.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section id="home" className="relative min-h-screen overflow-hidden">
       
-      {/* AI Handshake Background Image */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-        <img 
-          src={aiHandshake} 
-          alt="AI Human Collaboration" 
-          className="w-[900px] h-auto opacity-30"
-          style={{
-            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)'
-          }}
+      {/* Video Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
         />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-background/70" />
       </div>
 
       {/* Animated vertical lines moving upward */}
