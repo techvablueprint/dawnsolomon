@@ -8,7 +8,7 @@ export function AboutSection() {
   const { about } = data;
 
   return (
-    <section id="about" className="relative py-20 lg:py-32 bg-muted/30 overflow-hidden">
+    <section id="about" className="relative py-20 lg:py-32 overflow-hidden">
       {/* Animated vertical lines moving upward */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(12)].map((_, i) => (
