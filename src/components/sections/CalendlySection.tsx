@@ -33,7 +33,7 @@ export const CalendlySection = () => {
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-[3px] bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up rounded-full"
+            className="absolute w-[3px] bg-gradient-to-t from-transparent via-primary/25 to-transparent animate-line-up rounded-full"
             style={{
               left: `${8 + i * 8}%`,
               height: '150px',
