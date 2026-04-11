@@ -127,6 +127,7 @@ export function HeroSection() {
           loop
           muted
           playsInline
+          src="/videos/background.mp4"
           className="w-full h-full object-cover"
         />
         {/* Dark overlay for readability */}
