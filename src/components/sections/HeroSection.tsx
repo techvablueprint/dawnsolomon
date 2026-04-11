@@ -3,7 +3,7 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Code, Globe, Timer, GitBranch, FileSpreadsheet, Play, Braces } from "lucide-react";
-import aiHandshake from "@/assets/ai-handshake.png";
+
 import profilePhoto from "@/assets/profile-photo.png";
 import n8nWorkflow from "@/assets/n8n-workflow.png";
 
