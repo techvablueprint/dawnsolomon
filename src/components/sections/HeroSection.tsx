@@ -94,10 +94,10 @@ const DashedConnector = ({ from, to }: { from: string; to: string }) => (
 
 // Color cycling styles for Time and Money
 const colorStyles = [
-  'text-primary', // Cyan - current
-  'text-yellow-400', // Yellow
-  'text-gradient', // Gradient
-  'text-blue-400', // Neon blue
+  'text-primary',
+  'text-teal-300',
+  'text-gradient',
+  'text-emerald-400',
 ];
 
 export function HeroSection() {
