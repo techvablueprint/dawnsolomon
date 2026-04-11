@@ -19,35 +19,35 @@
     --popover: 215 45% 12%;
     --popover-foreground: 200 100% 95%;
 
-    /* Cyan/teal accent like the reference */
-    --primary: 180 100% 50%;
-    --primary-foreground: 215 50% 8%;
+    /* Teal accent - softer, on-brand */
+    --primary: 180 60% 38%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Soft cyan secondary */
-    --secondary: 195 80% 45%;
+    /* Soft teal secondary */
+    --secondary: 185 50% 42%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 215 40% 18%;
-    --muted-foreground: 200 30% 65%;
+    --muted-foreground: 200 20% 65%;
 
-    --accent: 180 100% 50%;
-    --accent-foreground: 215 50% 8%;
+    --accent: 180 55% 35%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 215 40% 20%;
     --input: 215 40% 20%;
-    --ring: 180 100% 50%;
+    --ring: 180 55% 38%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
     --gradient-hero: linear-gradient(135deg, hsl(215 50% 6%), hsl(215 60% 12%), hsl(220 50% 8%));
     --gradient-card: linear-gradient(180deg, hsl(215 45% 14%), hsl(215 45% 10%));
-    --shadow-card: 0 4px 24px -4px hsl(180 100% 50% / 0.15);
-    --shadow-card-hover: 0 12px 32px -8px hsl(180 100% 50% / 0.25);
-    --shadow-button: 0 4px 16px -4px hsl(180 100% 50% / 0.5);
+    --shadow-card: 0 4px 24px -4px hsl(180 60% 38% / 0.12);
+    --shadow-card-hover: 0 12px 32px -8px hsl(180 60% 38% / 0.2);
+    --shadow-button: 0 4px 16px -4px hsl(180 60% 38% / 0.35);
 
     /* Typography */
     --font-heading: 'Sora', system-ui, sans-serif;
@@ -77,29 +77,29 @@
     --popover: 215 45% 10%;
     --popover-foreground: 200 100% 95%;
 
-    --primary: 180 100% 50%;
-    --primary-foreground: 215 50% 8%;
+    --primary: 180 60% 38%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 195 80% 45%;
+    --secondary: 185 50% 42%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 215 40% 15%;
-    --muted-foreground: 200 30% 60%;
+    --muted-foreground: 200 20% 60%;
 
-    --accent: 180 100% 50%;
-    --accent-foreground: 215 50% 8%;
+    --accent: 180 55% 35%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 215 40% 18%;
     --input: 215 40% 18%;
-    --ring: 180 100% 50%;
+    --ring: 180 55% 38%;
 
     --gradient-hero: linear-gradient(135deg, hsl(215 50% 5%), hsl(215 60% 10%), hsl(220 50% 6%));
     --gradient-card: linear-gradient(180deg, hsl(215 45% 12%), hsl(215 45% 8%));
-    --shadow-card: 0 4px 24px -4px hsl(180 100% 50% / 0.2);
-    --shadow-card-hover: 0 12px 32px -8px hsl(180 100% 50% / 0.3);
+    --shadow-card: 0 4px 24px -4px hsl(180 60% 38% / 0.15);
+    --shadow-card-hover: 0 12px 32px -8px hsl(180 60% 38% / 0.25);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
