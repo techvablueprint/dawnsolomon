@@ -68,7 +68,7 @@ const FloatingCard = ({
     <div 
       className={`bg-slate-800/90 rounded-2xl shadow-lg p-4 flex flex-col items-center gap-2 min-w-[100px] border border-slate-700/50 
         transition-all duration-300 cursor-pointer
-        hover:scale-110 hover:border-cyan-400/50 ${glowColor}`}
+        hover:scale-110 hover:border-primary/30 ${glowColor}`}
     >
       <div className={`w-10 h-10 rounded-full flex items-center justify-center ${color} transition-all duration-300 group-hover:scale-110`}>
         <Icon className="w-5 h-5" />
@@ -94,10 +94,10 @@ const DashedConnector = ({ from, to }: { from: string; to: string }) => (
 
 // Color cycling styles for Time and Money
 const colorStyles = [
-  'text-primary', // Cyan - current
-  'text-yellow-400', // Yellow
-  'text-gradient', // Gradient
-  'text-blue-400', // Neon blue
+  'text-primary',
+  'text-teal-300',
+  'text-gradient',
+  'text-emerald-400',
 ];
 
 export function HeroSection() {
@@ -125,7 +125,7 @@ export function HeroSection() {
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-[3px] bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up rounded-full"
+            className="absolute w-[3px] bg-gradient-to-t from-transparent via-primary/25 to-transparent animate-line-up rounded-full"
             style={{
               left: `${8 + i * 8}%`,
               height: '150px',
@@ -145,7 +145,7 @@ export function HeroSection() {
             <div className="lg:hidden relative w-40 h-40 mb-4">
               {/* Rotating glow ring */}
               <div className="absolute inset-0 rounded-full animate-spin-slow">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-transparent to-cyan-400 opacity-60 blur-sm" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/40 via-transparent to-primary/40 opacity-40 blur-sm" />
               </div>
               <div className="absolute inset-1 rounded-full bg-background" />
               <div className="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full overflow-hidden border-3 border-primary/50 shadow-2xl">
@@ -171,11 +171,11 @@ export function HeroSection() {
             <div className="relative">
               {/* Static glow ring */}
               <div className="absolute -inset-1 rounded-full">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-cyan-400/50 to-cyan-400 opacity-70 blur-sm" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 opacity-50 blur-sm" />
               </div>
               
               {/* Badge content */}
-              <div className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 border border-cyan-400/50 backdrop-blur-sm">
+              <div className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 border border-primary/30 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
                 <EditableText
                   value={hero.badge}
@@ -257,7 +257,7 @@ export function HeroSection() {
             <div className="relative w-72 h-72 xl:w-80 xl:h-80">
               {/* Rotating glow ring around profile */}
               <div className="absolute inset-0 rounded-full animate-spin-slow" style={{ animationDuration: '8s' }}>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-transparent to-cyan-400 opacity-60 blur-sm" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/40 via-transparent to-primary/40 opacity-40 blur-sm" />
               </div>
               <div className="absolute inset-1 rounded-full bg-background" />
               
@@ -290,7 +290,7 @@ export function HeroSection() {
             {[...Array(12)].map((_, i) => (
               <div
                 key={i}
-                className="absolute w-[3px] bg-gradient-to-t from-transparent via-cyan-400/40 to-transparent animate-line-up rounded-full"
+                className="absolute w-[3px] bg-gradient-to-t from-transparent via-primary/25 to-transparent animate-line-up rounded-full"
                 style={{
                   left: `${8 + i * 8}%`,
                   height: '150px',
