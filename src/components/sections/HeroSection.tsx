@@ -119,20 +119,6 @@ export function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      
-      {/* Video Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          src="/videos/background.mp4"
-          className="w-full h-full object-cover"
-        />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-background/70" />
-      </div>
 
       {/* Animated vertical lines moving upward */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
