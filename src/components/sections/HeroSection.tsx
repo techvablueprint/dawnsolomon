@@ -119,6 +119,8 @@ export function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
 
       {/* Animated vertical lines moving upward */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
