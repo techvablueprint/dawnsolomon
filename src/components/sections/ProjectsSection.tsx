@@ -156,7 +156,7 @@ export function ProjectsSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            <span className="text-primary">Featured</span> Projects
+            <span className="text-primary">Workflow</span> Automation
           </h2>
           <EditableText
             value={projects.subtitle}

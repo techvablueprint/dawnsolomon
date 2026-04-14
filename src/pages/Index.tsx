@@ -8,6 +8,7 @@ import { ToolsSection } from "@/components/sections/ToolsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { LiveWebsitesSection } from "@/components/sections/LiveWebsitesSection";
+import { LiveDashboardSection } from "@/components/sections/LiveDashboardSection";
 import { CalendlySection } from "@/components/sections/CalendlySection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Chatbot } from "@/components/Chatbot";
@@ -56,6 +57,7 @@ const Index = () => {
           <ServicesSection />
           <ProjectsSection />
           <LiveWebsitesSection />
+          <LiveDashboardSection />
           
           <CalendlySection />
           <ContactSection />
