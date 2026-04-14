@@ -82,8 +82,8 @@ export function LiveWebsitesSection() {
               <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border/30">
                 <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-accent/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary/60" />
                 </div>
                 <div className="flex-1 flex items-center gap-2 px-3 py-1 rounded-md bg-background/50 text-xs text-muted-foreground truncate">
                   <Globe className="w-3 h-3 shrink-0" />
