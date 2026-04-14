@@ -158,34 +158,6 @@ export const defaultPortfolioData: PortfolioData = {
       "Real-world scenarios solved with precision. These projects showcase my automation expertise.",
     items: [
       {
-        id: "project-1",
-        title: "Fitness Website Design",
-        description:
-          "Complete website design and development for a fitness brand with optimized user experience.",
-        category: "Web Design",
-        tags: ["WordPress", "SEO", "UI/UX"],
-        stats: [
-          { label: "Load Time", value: "-40%" },
-          { label: "Conversions", value: "+25%" },
-        ],
-        link: "https://dawnfitness.lovable.app",
-        image: "/projects/fitness-website.png",
-      },
-      {
-        id: "project-2",
-        title: "GHL HVAC Website",
-        description:
-          "GoHighLevel website build for an HVAC company with automated lead capture and follow-up.",
-        category: "Automation",
-        tags: ["GoHighLevel", "CRM", "Automation"],
-        stats: [
-          { label: "Lead Response", value: "Instant" },
-          { label: "Manual Ops", value: "Zero" },
-        ],
-        link: "/projects/ghl-hvac-video.mp4",
-        image: "/projects/ghl-hvac-website.png",
-      },
-      {
         id: "project-3",
         title: "Auto Sort Gmail Attachments",
         description:
@@ -210,20 +182,6 @@ export const defaultPortfolioData: PortfolioData = {
           { label: "Auto Emails", value: "20+" },
         ],
         image: "/projects/quote-followup-automation.png",
-      },
-      {
-        id: "project-5",
-        title: "Medspa Dashboard",
-        description:
-          "Build a dashboard that connects to your website so you can track sales and website traffic in real time.",
-        category: "Automation",
-        tags: ["Dashboard", "Analytics", "Real-time"],
-        stats: [
-          { label: "Real-time", value: "Live" },
-          { label: "Tracking", value: "24/7" },
-        ],
-        link: "/projects/medspa-dashboard-video.mp4",
-        image: "/projects/medspa-dashboard.png",
       },
       {
         id: "project-6",
