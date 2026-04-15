@@ -1,16 +1,49 @@
 import React, { useState } from "react";
-import { ExternalLink, BarChart3, Monitor, TrendingUp } from "lucide-react";
+import { ExternalLink, BarChart3, Monitor, TrendingUp, Mail, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const liveDashboards = [
   {
     id: "dash-1",
-    title: "Medspa Dashboard",
-    description: "Real-time analytics dashboard tracking sales, appointments, and website traffic for medspa businesses.",
-    url: "https://dawnsolomon-automation.lovable.app",
-    image: "/projects/medspa-dashboard.png",
+    title: "FuelFit Dashboard",
+    description: "Real-time analytics dashboard tracking sales, appointments, and website traffic for fitness businesses.",
+    url: "https://fuelfit-dashboard.vercel.app",
     tags: ["Analytics", "Real-time", "Sales Tracking"],
+    credentials: {
+      email: "admin@fuelfit.com",
+      password: "FuelFit2025",
+    },
+    metrics: [
+      { label: "Live Data", value: "24/7" },
+      { label: "Tracking", value: "Real-time" },
+    ],
+  },
+  {
+    id: "dash-2",
+    title: "Prestige Realty Dashboard",
+    description: "Real estate analytics dashboard monitoring property leads, bookings, and client engagement metrics.",
+    url: "https://prestige-realty-dashboard.vercel.app",
+    tags: ["Real Estate", "Lead Tracking", "Analytics"],
+    credentials: {
+      email: "admin@prestigerealty.com",
+      password: "Prestige2025",
+    },
+    metrics: [
+      { label: "Live Data", value: "24/7" },
+      { label: "Tracking", value: "Real-time" },
+    ],
+  },
+  {
+    id: "dash-3",
+    title: "Apex Media Dashboard",
+    description: "Media agency dashboard tracking campaign performance, client metrics, and marketing ROI in real-time.",
+    url: "https://apex-media-dashboard.vercel.app/sign-in",
+    tags: ["Agency", "Campaign Tracking", "Marketing"],
+    credentials: {
+      email: "admin@apexmedia.com",
+      password: "ApexMedia2025",
+    },
     metrics: [
       { label: "Live Data", value: "24/7" },
       { label: "Tracking", value: "Real-time" },
@@ -48,12 +81,12 @@ export function LiveDashboardSection() {
             <span className="text-primary">Live</span> Dashboards
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore real-time dashboards I've built — interactive analytics that track business performance and deliver actionable insights.
+            Explore real-time dashboards I've built — use the login credentials below to test and interact with each dashboard.
           </p>
         </div>
 
         {/* Dashboard Cards */}
-        <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {liveDashboards.map((dash) => (
             <div
               key={dash.id}
@@ -62,7 +95,7 @@ export function LiveDashboardSection() {
               onMouseLeave={() => setHoveredId(null)}
             >
               {/* Dashboard mockup header */}
-              <div className="flex items-center justify-between px-6 py-4 bg-muted/50 border-b border-border/30">
+              <div className="flex items-center justify-between px-4 py-3 bg-muted/50 border-b border-border/30">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
@@ -71,24 +104,22 @@ export function LiveDashboardSection() {
                   </div>
                   <span className="text-sm font-medium text-foreground">{dash.title}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-primary/10 border border-primary/20">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                    <span className="text-xs text-primary font-medium">LIVE</span>
-                  </div>
+                <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-primary/10 border border-primary/20">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  <span className="text-xs text-primary font-medium">LIVE</span>
                 </div>
               </div>
 
-              {/* Dashboard Screenshot */}
-              <div className="relative w-full h-64 md:h-80 overflow-hidden">
-                <img
-                  src={dash.image}
-                  alt={dash.title}
-                  className={cn(
-                    "w-full h-full object-cover object-top transition-transform duration-700",
-                    hoveredId === dash.id && "scale-105"
-                  )}
-                />
+              {/* Dashboard Preview Area */}
+              <div className="relative w-full h-48 overflow-hidden bg-muted/30">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-3 text-center px-4">
+                    <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
+                      <BarChart3 className="w-8 h-8 text-primary" />
+                    </div>
+                    <p className="text-sm text-muted-foreground">Click to explore this dashboard</p>
+                  </div>
+                </div>
                 {/* Hover overlay */}
                 <div
                   className={cn(
@@ -96,69 +127,71 @@ export function LiveDashboardSection() {
                     hoveredId === dash.id ? "opacity-100" : "opacity-0"
                   )}
                 >
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="flex gap-4">
-                      <div className="p-3 rounded-xl bg-primary/20 border border-primary/30">
-                        <Monitor className="w-6 h-6 text-primary" />
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="flex gap-3">
+                      <div className="p-2 rounded-lg bg-primary/20 border border-primary/30">
+                        <Monitor className="w-5 h-5 text-primary" />
                       </div>
-                      <div className="p-3 rounded-xl bg-primary/20 border border-primary/30">
-                        <TrendingUp className="w-6 h-6 text-primary" />
+                      <div className="p-2 rounded-lg bg-primary/20 border border-primary/30">
+                        <TrendingUp className="w-5 h-5 text-primary" />
                       </div>
                     </div>
-                    <span className="text-base font-semibold text-foreground">Click to explore dashboard</span>
+                    <span className="text-sm font-medium text-foreground">Open Dashboard</span>
                   </div>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 md:p-8">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                      {dash.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed max-w-lg">
-                      {dash.description}
-                    </p>
+              <div className="p-6">
+                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                  {dash.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                  {dash.description}
+                </p>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {dash.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="text-xs px-3 py-1 rounded-md bg-primary/10 text-primary/80 border border-primary/10"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Metrics + CTA */}
-                  <div className="flex flex-col items-end gap-4">
-                    <div className="flex gap-6">
-                      {dash.metrics.map((metric, i) => (
-                        <div key={i} className="text-center">
-                          <p className="text-lg font-bold text-foreground">{metric.value}</p>
-                          <p className="text-xs text-muted-foreground">{metric.label}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <a
-                      href={dash.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {dash.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-2 py-1 rounded-md bg-primary/10 text-primary/80 border border-primary/10"
                     >
-                      <Button
-                        variant="outline"
-                        className="border-primary/20 hover:bg-primary/10 hover:border-primary/40 gap-2"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Explore Dashboard
-                      </Button>
-                    </a>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Login Credentials */}
+                <div className="rounded-xl bg-muted/40 border border-border/40 p-4 mb-4 space-y-2">
+                  <p className="text-xs font-semibold text-foreground/80 uppercase tracking-wider mb-2">Demo Login</p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Mail className="w-3.5 h-3.5 text-primary/70 shrink-0" />
+                    <span className="text-muted-foreground text-xs">Email:</span>
+                    <span className="text-foreground text-xs font-mono select-all">{dash.credentials.email}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Lock className="w-3.5 h-3.5 text-primary/70 shrink-0" />
+                    <span className="text-muted-foreground text-xs">Password:</span>
+                    <span className="text-foreground text-xs font-mono select-all">{dash.credentials.password}</span>
                   </div>
                 </div>
+
+                {/* CTA */}
+                <a
+                  href={dash.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full relative z-20"
+                >
+                  <Button
+                    variant="outline"
+                    className="w-full border-primary/20 hover:bg-primary/10 hover:border-primary/40 gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Explore Dashboard
+                  </Button>
+                </a>
               </div>
 
               {/* Full card link overlay */}
