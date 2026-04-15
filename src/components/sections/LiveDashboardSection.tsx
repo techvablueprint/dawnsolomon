@@ -114,15 +114,18 @@ export function LiveDashboardSection() {
               </div>
 
               {/* Dashboard Preview Area */}
-              <div className="relative w-full h-48 overflow-hidden bg-muted/30">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="flex flex-col items-center gap-3 text-center px-4">
-                    <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
-                      <BarChart3 className="w-8 h-8 text-primary" />
-                    </div>
-                    <p className="text-sm text-muted-foreground">Click to explore this dashboard</p>
-                  </div>
-                </div>
+              <div className="relative w-full h-48 overflow-hidden">
+                <img
+                  src={dash.image}
+                  alt={dash.title}
+                  loading="lazy"
+                  width={1280}
+                  height={720}
+                  className={cn(
+                    "w-full h-full object-cover object-top transition-transform duration-700",
+                    hoveredId === dash.id && "scale-105"
+                  )}
+                />
                 {/* Hover overlay */}
                 <div
                   className={cn(
