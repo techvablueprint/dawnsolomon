@@ -153,6 +153,17 @@ export function ProjectsSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* n8n Workflow Strip */}
+        <div className="mb-16 hidden md:block relative">
+          <div className="relative rounded-3xl border border-white/10 p-6 z-10">
+            <img 
+              src={n8nWorkflow} 
+              alt="n8n Automation Workflow" 
+              className="w-full h-auto object-contain opacity-60 mix-blend-lighten"
+            />
+          </div>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
