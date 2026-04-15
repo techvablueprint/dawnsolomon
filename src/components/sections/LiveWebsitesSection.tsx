@@ -91,15 +91,13 @@ export function LiveWebsitesSection() {
                 </div>
               </div>
 
-              {/* Screenshot */}
+              {/* Live Preview */}
               <div className="relative w-full h-48 overflow-hidden">
-                <img
-                  src={site.image}
-                  alt={site.title}
-                  className={cn(
-                    "w-full h-full object-cover object-top transition-transform duration-700",
-                    hoveredId === site.id && "scale-110"
-                  )}
+                <iframe
+                  src={site.url}
+                  title={site.title}
+                  className="w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none border-0"
+                  loading="lazy"
                 />
                 {/* Hover overlay */}
                 <div className={cn(
