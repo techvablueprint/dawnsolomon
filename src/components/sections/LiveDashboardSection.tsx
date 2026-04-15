@@ -9,6 +9,7 @@ const liveDashboards = [
     title: "FuelFit Dashboard",
     description: "Real-time analytics dashboard tracking sales, appointments, and website traffic for fitness businesses.",
     url: "https://fuelfit-dashboard.vercel.app",
+    image: "/projects/fuelfit-dashboard.jpg",
     tags: ["Analytics", "Real-time", "Sales Tracking"],
     credentials: {
       email: "admin@fuelfit.com",
@@ -24,6 +25,7 @@ const liveDashboards = [
     title: "Prestige Realty Dashboard",
     description: "Real estate analytics dashboard monitoring property leads, bookings, and client engagement metrics.",
     url: "https://prestige-realty-dashboard.vercel.app",
+    image: "/projects/prestige-realty-dashboard.jpg",
     tags: ["Real Estate", "Lead Tracking", "Analytics"],
     credentials: {
       email: "admin@prestigerealty.com",
@@ -39,6 +41,7 @@ const liveDashboards = [
     title: "Apex Media Dashboard",
     description: "Media agency dashboard tracking campaign performance, client metrics, and marketing ROI in real-time.",
     url: "https://apex-media-dashboard.vercel.app/sign-in",
+    image: "/projects/apex-media-dashboard.jpg",
     tags: ["Agency", "Campaign Tracking", "Marketing"],
     credentials: {
       email: "admin@apexmedia.com",
@@ -111,15 +114,18 @@ export function LiveDashboardSection() {
               </div>
 
               {/* Dashboard Preview Area */}
-              <div className="relative w-full h-48 overflow-hidden bg-muted/30">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="flex flex-col items-center gap-3 text-center px-4">
-                    <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
-                      <BarChart3 className="w-8 h-8 text-primary" />
-                    </div>
-                    <p className="text-sm text-muted-foreground">Click to explore this dashboard</p>
-                  </div>
-                </div>
+              <div className="relative w-full h-48 overflow-hidden">
+                <img
+                  src={dash.image}
+                  alt={dash.title}
+                  loading="lazy"
+                  width={1280}
+                  height={720}
+                  className={cn(
+                    "w-full h-full object-cover object-top transition-transform duration-700",
+                    hoveredId === dash.id && "scale-105"
+                  )}
+                />
                 {/* Hover overlay */}
                 <div
                   className={cn(
