@@ -9,6 +9,7 @@ const liveDashboards = [
     title: "FuelFit Dashboard",
     description: "Real-time analytics dashboard tracking sales, appointments, and website traffic for fitness businesses.",
     url: "https://fuelfit-dashboard.vercel.app",
+    image: "/projects/fuelfit-dashboard.jpg",
     tags: ["Analytics", "Real-time", "Sales Tracking"],
     credentials: {
       email: "admin@fuelfit.com",
@@ -24,6 +25,7 @@ const liveDashboards = [
     title: "Prestige Realty Dashboard",
     description: "Real estate analytics dashboard monitoring property leads, bookings, and client engagement metrics.",
     url: "https://prestige-realty-dashboard.vercel.app",
+    image: "/projects/prestige-realty-dashboard.jpg",
     tags: ["Real Estate", "Lead Tracking", "Analytics"],
     credentials: {
       email: "admin@prestigerealty.com",
@@ -39,6 +41,7 @@ const liveDashboards = [
     title: "Apex Media Dashboard",
     description: "Media agency dashboard tracking campaign performance, client metrics, and marketing ROI in real-time.",
     url: "https://apex-media-dashboard.vercel.app/sign-in",
+    image: "/projects/apex-media-dashboard.jpg",
     tags: ["Agency", "Campaign Tracking", "Marketing"],
     credentials: {
       email: "admin@apexmedia.com",
