@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Code, Globe, Timer, GitBranch, FileSpreadsheet, Play, Braces } from "lucide-react";
 
 import profilePhoto from "@/assets/profile-photo.png";
-import n8nWorkflow from "@/assets/n8n-workflow.png";
+
 
 // Brand logos
 import clickupLogo from "@/assets/brands/clickup.ico";
@@ -285,28 +285,21 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* n8n Workflow Section */}
-        <div className="mt-16 lg:mt-24 hidden md:block relative">
-          {/* Animated vertical lines moving upward - same as About section */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(12)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-[3px] bg-gradient-to-t from-transparent via-primary/25 to-transparent animate-line-up rounded-full"
-                style={{
-                  left: `${8 + i * 8}%`,
-                  height: '150px',
-                  animationDelay: `${i * 0.5}s`,
-                  animationDuration: `${3 + (i % 3)}s`,
-                }}
-              />
-            ))}
+        {/* ROI Calculator Embed */}
+        <div className="mt-16 lg:mt-24 relative">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl lg:text-3xl font-bold">
+              <span className="text-primary">Calculate</span> Your ROI
+            </h2>
+            <p className="text-muted-foreground mt-2">See how much time and money automation can save your business.</p>
           </div>
-          <div className="relative rounded-3xl border border-white/10 p-6 z-10">
-            <img 
-              src={n8nWorkflow} 
-              alt="n8n Automation Workflow" 
-              className="w-full h-auto object-contain opacity-60 mix-blend-lighten"
+          <div className="relative rounded-3xl border border-primary/20 overflow-hidden bg-card/30 backdrop-blur-sm z-10">
+            <iframe
+              src="https://dawn-portfolio-topaz.vercel.app/roi-calculator"
+              title="ROI Calculator"
+              className="w-full border-0"
+              style={{ height: '700px' }}
+              loading="lazy"
             />
           </div>
         </div>

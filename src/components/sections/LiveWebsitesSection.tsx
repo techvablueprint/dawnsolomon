@@ -6,27 +6,27 @@ import { Button } from "@/components/ui/button";
 const liveWebsites = [
   {
     id: "site-1",
-    title: "Fitness Website",
-    description: "A modern, fully responsive fitness website with booking integration and dynamic content.",
-    url: "https://dawnfitness.lovable.app",
-    image: "/projects/fitness-website-project.png",
-    tags: ["WordPress", "SEO", "Responsive"],
+    title: "FuelFit Funnel",
+    label: "Sales Funnel",
+    description: "A high-converting sales funnel designed to drive fitness product purchases with compelling copy and seamless checkout.",
+    url: "https://fuelfit-funnel.vercel.app",
+    tags: ["Sales Funnel", "Conversion", "Landing Page"],
   },
   {
     id: "site-2",
-    title: "GHL HVAC Website",
-    description: "GoHighLevel-powered HVAC business website with lead capture and automated follow-ups.",
-    url: "https://dawnsolomon-automation.lovable.app",
-    image: "/projects/ghl-hvac-website.png",
-    tags: ["GoHighLevel", "CRM", "Automation"],
+    title: "Prestige Realty Funnel",
+    label: "Appointment Funnel",
+    description: "An appointment booking funnel for real estate businesses, capturing leads and scheduling property viewings automatically.",
+    url: "https://prestige-realty-funnel.vercel.app",
+    tags: ["Appointment Funnel", "Real Estate", "Lead Capture"],
   },
   {
     id: "site-3",
-    title: "Medspa Dashboard",
-    description: "Real-time analytics dashboard for medspa businesses tracking sales and website traffic.",
-    url: "https://dawnsolomon-automation.lovable.app",
-    image: "/projects/medspa-dashboard.png",
-    tags: ["Dashboard", "Analytics", "Real-time"],
+    title: "Apex Media Funnel",
+    label: "Lead Funnel",
+    description: "A lead generation funnel for media agencies, designed to capture and qualify prospects through strategic content.",
+    url: "https://apex-media-funnel.vercel.app",
+    tags: ["Lead Funnel", "Agency", "Marketing"],
   },
 ];
 
@@ -91,15 +91,13 @@ export function LiveWebsitesSection() {
                 </div>
               </div>
 
-              {/* Screenshot */}
+              {/* Live Preview */}
               <div className="relative w-full h-48 overflow-hidden">
-                <img
-                  src={site.image}
-                  alt={site.title}
-                  className={cn(
-                    "w-full h-full object-cover object-top transition-transform duration-700",
-                    hoveredId === site.id && "scale-110"
-                  )}
+                <iframe
+                  src={site.url}
+                  title={site.title}
+                  className="w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none border-0"
+                  loading="lazy"
                 />
                 {/* Hover overlay */}
                 <div className={cn(
@@ -122,9 +120,14 @@ export function LiveWebsitesSection() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-                  {site.title}
-                </h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-lg font-bold group-hover:text-primary transition-colors">
+                    {site.title}
+                  </h3>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-secondary/20 text-secondary border border-secondary/30 font-medium">
+                    {site.label}
+                  </span>
+                </div>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {site.description}
                 </p>
