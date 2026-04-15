@@ -120,9 +120,14 @@ export function LiveWebsitesSection() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-                  {site.title}
-                </h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-lg font-bold group-hover:text-primary transition-colors">
+                    {site.title}
+                  </h3>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-secondary/20 text-secondary border border-secondary/30 font-medium">
+                    {site.label}
+                  </span>
+                </div>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {site.description}
                 </p>
