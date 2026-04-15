@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import n8nWorkflow from "@/assets/n8n-workflow.png";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Badge } from "@/components/ui/badge";
