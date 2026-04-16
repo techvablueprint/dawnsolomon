@@ -45,10 +45,10 @@ const Index = () => {
           />
           <div className="absolute inset-0 bg-background/70" />
         </div>
+        <MouseFollower />
         <Navigation />
         <main>
           <HeroSection />
-          <SkillsSection />
           <ProjectsSection />
           <LiveWebsitesSection />
           <LiveDashboardSection />
