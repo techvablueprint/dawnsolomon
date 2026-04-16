@@ -38,17 +38,17 @@ export function LiveWebsitesSection() {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
 
-      {/* Floating dots decoration */}
+      {/* Animated vertical lines moving upward */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-primary/30 rounded-full animate-pulse"
+            className="absolute w-[3px] bg-gradient-to-t from-transparent via-primary/40 to-transparent animate-line-up rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
+              left: `${8 + i * 8}%`,
+              height: "150px",
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${3 + (i % 3)}s`,
             }}
           />
         ))}
