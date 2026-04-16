@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { PortfolioProvider } from "@/contexts/PortfolioContext";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { SkillsSection } from "@/components/sections/SkillsSection";
+import { MouseFollower } from "@/components/MouseFollower";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { LiveWebsitesSection } from "@/components/sections/LiveWebsitesSection";
 import { LiveDashboardSection } from "@/components/sections/LiveDashboardSection";
