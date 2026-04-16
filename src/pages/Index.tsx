@@ -2,10 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { PortfolioProvider } from "@/contexts/PortfolioContext";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
-import { ToolsSection } from "@/components/sections/ToolsSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { LiveWebsitesSection } from "@/components/sections/LiveWebsitesSection";
 import { LiveDashboardSection } from "@/components/sections/LiveDashboardSection";
@@ -51,10 +48,7 @@ const Index = () => {
         <Navigation />
         <main>
           <HeroSection />
-          <AboutSection />
           <SkillsSection />
-          <ToolsSection />
-          <ServicesSection />
           <ProjectsSection />
           <LiveWebsitesSection />
           <LiveDashboardSection />
