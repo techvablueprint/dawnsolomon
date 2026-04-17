@@ -322,24 +322,21 @@
   animation: line-up 4s linear infinite;
 }
 
-/* Auto-scroll preview for live website cards */
+/* Auto-scroll preview for live website cards - shows full page top to bottom */
 @keyframes scroll-preview {
-  0%, 10% {
-    transform: translateY(0) scale(0.25);
-    transform-origin: top left;
+  0%, 8% {
+    transform: scale(0.25) translateY(0);
   }
-  50%, 60% {
-    transform: translateY(-75%) scale(0.25);
-    transform-origin: top left;
+  50%, 58% {
+    transform: scale(0.25) translateY(-300%);
   }
   100% {
-    transform: translateY(0) scale(0.25);
-    transform-origin: top left;
+    transform: scale(0.25) translateY(0);
   }
 }
 
 .animate-scroll-preview {
-  animation: scroll-preview 14s ease-in-out infinite;
+  animation: scroll-preview 18s ease-in-out infinite;
   transform-origin: top left;
 }
 
