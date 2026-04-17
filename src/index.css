@@ -322,6 +322,27 @@
   animation: line-up 4s linear infinite;
 }
 
+/* Auto-scroll preview for live website cards */
+@keyframes scroll-preview {
+  0%, 10% {
+    transform: translateY(0) scale(0.25);
+    transform-origin: top left;
+  }
+  50%, 60% {
+    transform: translateY(-75%) scale(0.25);
+    transform-origin: top left;
+  }
+  100% {
+    transform: translateY(0) scale(0.25);
+    transform-origin: top left;
+  }
+}
+
+.animate-scroll-preview {
+  animation: scroll-preview 14s ease-in-out infinite;
+  transform-origin: top left;
+}
+
 /* Flip animation for color cycling text */
 @keyframes flip-in {
   0% {
