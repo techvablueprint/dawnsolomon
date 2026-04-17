@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function MouseFollower() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const dotRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      const x = e.clientX;
+      const y = e.clientY;
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${x - 6}px, ${y - 6}px, 0)`;
+      }
+      if (glowRef.current) {
+        glowRef.current.style.transform = `translate3d(${x - 150}px, ${y - 150}px, 0)`;
+      }
       if (!visible) setVisible(true);
     };
     const handleMouseLeave = () => setVisible(false);
@@ -24,24 +32,22 @@ export function MouseFollower() {
 
   return (
     <>
-      {/* Outer glow */}
+      {/* Outer glow - follows exactly with cursor */}
       <div
-        className="fixed pointer-events-none z-[9999] rounded-full mix-blend-screen transition-opacity duration-300"
+        ref={glowRef}
+        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full mix-blend-screen transition-opacity duration-300 will-change-transform"
         style={{
-          left: position.x - 150,
-          top: position.y - 150,
           width: 300,
           height: 300,
-          background: "radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, hsl(var(--primary) / 0.18) 0%, transparent 70%)",
           opacity: visible ? 1 : 0,
         }}
       />
-      {/* Inner dot */}
+      {/* Inner dot - exact cursor tracking */}
       <div
-        className="fixed pointer-events-none z-[9999] rounded-full transition-opacity duration-200"
+        ref={dotRef}
+        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full transition-opacity duration-200 will-change-transform"
         style={{
-          left: position.x - 6,
-          top: position.y - 6,
           width: 12,
           height: 12,
           background: "hsl(var(--primary))",
