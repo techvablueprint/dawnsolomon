@@ -91,20 +91,14 @@ export function LiveWebsitesSection() {
                 </div>
               </div>
 
-              {/* Live Preview - shows complete website auto-scrolling */}
-              <div className="relative w-full h-64 overflow-hidden bg-background">
-                <div className="absolute inset-0">
-                  <iframe
-                    src={site.url}
-                    title={site.title}
-                    className="pointer-events-none border-0 animate-scroll-preview origin-top-left"
-                    style={{
-                      width: "400%",
-                      height: "400%",
-                    }}
-                    loading="lazy"
-                  />
-                </div>
+              {/* Live Preview */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <iframe
+                  src={site.url}
+                  title={site.title}
+                  className="w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none border-0"
+                  loading="lazy"
+                />
                 {/* Hover overlay */}
                 <div className={cn(
                   "absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300",
