@@ -1,7 +1,39 @@
 import React, { useState } from "react";
-import { ExternalLink, BarChart3, Monitor, TrendingUp, Mail, Lock } from "lucide-react";
+import { ExternalLink, BarChart3, Monitor, TrendingUp, Mail, Lock, Copy, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+
+function CopyField({ value, icon: Icon, label }: { value: string; icon: React.ElementType; label: string }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      toast.success(`${label} copied!`);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      toast.error("Failed to copy");
+    }
+  };
+  return (
+    <div className="flex items-center gap-2 text-sm">
+      <Icon className="w-3.5 h-3.5 text-primary/70 shrink-0" />
+      <span className="text-muted-foreground text-xs">{label}:</span>
+      <span className="text-foreground text-xs font-mono select-all flex-1 truncate">{value}</span>
+      <button
+        type="button"
+        onClick={handleCopy}
+        className="relative z-30 p-1 rounded-md hover:bg-primary/10 text-primary/70 hover:text-primary transition-colors"
+        aria-label={`Copy ${label}`}
+      >
+        {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+      </button>
+    </div>
+  );
+}
 
 const liveDashboards = [
   {
@@ -174,18 +206,10 @@ export function LiveDashboardSection() {
                 </div>
 
                 {/* Login Credentials */}
-                <div className="rounded-xl bg-muted/40 border border-border/40 p-4 mb-4 space-y-2">
+                <div className="rounded-xl bg-muted/40 border border-border/40 p-4 mb-4 space-y-2 relative z-20">
                   <p className="text-xs font-semibold text-foreground/80 uppercase tracking-wider mb-2">Demo Login</p>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Mail className="w-3.5 h-3.5 text-primary/70 shrink-0" />
-                    <span className="text-muted-foreground text-xs">Email:</span>
-                    <span className="text-foreground text-xs font-mono select-all">{dash.credentials.email}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Lock className="w-3.5 h-3.5 text-primary/70 shrink-0" />
-                    <span className="text-muted-foreground text-xs">Password:</span>
-                    <span className="text-foreground text-xs font-mono select-all">{dash.credentials.password}</span>
-                  </div>
+                  <CopyField value={dash.credentials.email} icon={Mail} label="Email" />
+                  <CopyField value={dash.credentials.password} icon={Lock} label="Password" />
                 </div>
 
                 {/* CTA */}
@@ -193,7 +217,7 @@ export function LiveDashboardSection() {
                   href={dash.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full relative z-20"
+                  className="w-full relative z-20 block"
                 >
                   <Button
                     variant="outline"
@@ -204,16 +228,6 @@ export function LiveDashboardSection() {
                   </Button>
                 </a>
               </div>
-
-              {/* Full card link overlay */}
-              <a
-                href={dash.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0 z-10"
-              >
-                <span className="sr-only">Explore {dash.title}</span>
-              </a>
             </div>
           ))}
         </div>
