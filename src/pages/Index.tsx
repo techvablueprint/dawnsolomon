@@ -6,6 +6,7 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { MouseFollower } from "@/components/MouseFollower";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { LiveWebsitesSection } from "@/components/sections/LiveWebsitesSection";
+import { PlannerProjectSection } from "@/components/sections/PlannerProjectSection";
 import { LiveDashboardSection } from "@/components/sections/LiveDashboardSection";
 import { CalendlySection } from "@/components/sections/CalendlySection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -53,6 +54,7 @@ const Index = () => {
           <AboutSection />
           <ProjectsSection />
           <LiveWebsitesSection />
+          <PlannerProjectSection />
           <LiveDashboardSection />
           
           <CalendlySection />
