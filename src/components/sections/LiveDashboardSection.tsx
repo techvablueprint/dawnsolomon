@@ -3,6 +3,7 @@ import { ExternalLink, BarChart3, Monitor, TrendingUp, Mail, Lock, Copy, Check }
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useInView } from "@/hooks/useInView";
 
 function CopyField({ value, icon: Icon, label }: { value: string; icon: React.ElementType; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -88,6 +89,7 @@ const liveDashboards = [
 
 export function LiveDashboardSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const { ref: gridRef, inView } = useInView<HTMLDivElement>();
 
   return (
     <section id="live-dashboards" className="relative py-20 lg:py-32 overflow-hidden">
@@ -240,7 +242,8 @@ export function LiveDashboardSection() {
                 </a>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

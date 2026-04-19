@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ExternalLink, Globe, Monitor, Smartphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useInView } from "@/hooks/useInView";
 
 const liveWebsites = [
   {
