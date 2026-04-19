@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ExternalLink, Globe, Monitor, Smartphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useInView } from "@/hooks/useInView";
 
 const liveWebsites = [
   {
@@ -32,6 +33,7 @@ const liveWebsites = [
 
 export function LiveWebsitesSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const { ref: gridRef, inView } = useInView<HTMLDivElement>();
 
   return (
     <section id="live-websites" className="relative py-20 lg:py-32 overflow-hidden">
@@ -70,11 +72,15 @@ export function LiveWebsitesSection() {
         </div>
 
         {/* Website Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {liveWebsites.map((site) => (
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {liveWebsites.map((site, idx) => (
             <div
               key={site.id}
-              className="group relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+              className={cn(
+                "group relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 opacity-0 hover:-translate-y-2",
+                inView && "animate-rise-up"
+              )}
+              style={inView ? { animationDelay: `${idx * 150}ms` } : undefined}
               onMouseEnter={() => setHoveredId(site.id)}
               onMouseLeave={() => setHoveredId(null)}
             >

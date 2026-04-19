@@ -3,6 +3,7 @@ import { ExternalLink, BarChart3, Monitor, TrendingUp, Mail, Lock, Copy, Check }
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useInView } from "@/hooks/useInView";
 
 function CopyField({ value, icon: Icon, label }: { value: string; icon: React.ElementType; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -88,6 +89,7 @@ const liveDashboards = [
 
 export function LiveDashboardSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const { ref: gridRef, inView } = useInView<HTMLDivElement>();
 
   return (
     <section id="live-dashboards" className="relative py-20 lg:py-32 overflow-hidden">
@@ -126,11 +128,22 @@ export function LiveDashboardSection() {
         </div>
 
         {/* Dashboard Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {liveDashboards.map((dash) => (
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {liveDashboards.map((dash, idx) => {
+            const animClass =
+              idx % 3 === 0
+                ? "animate-slide-in-left"
+                : idx % 3 === 2
+                  ? "animate-slide-in-right"
+                  : "animate-zoom-fade";
+            return (
             <div
               key={dash.id}
-              className="group relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
+              className={cn(
+                "group relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 opacity-0 hover:-translate-y-2",
+                inView && animClass
+              )}
+              style={inView ? { animationDelay: `${idx * 180}ms` } : undefined}
               onMouseEnter={() => setHoveredId(dash.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
@@ -229,7 +242,8 @@ export function LiveDashboardSection() {
                 </a>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

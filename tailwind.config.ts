@@ -135,6 +135,26 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        "rise-up": {
+          "0%": { opacity: "0", transform: "translateY(60px) scale(0.95)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
+        },
+        "flip-in": {
+          "0%": { opacity: "0", transform: "perspective(1000px) rotateX(-35deg) translateY(40px)" },
+          "100%": { opacity: "1", transform: "perspective(1000px) rotateX(0deg) translateY(0)" },
+        },
+        "slide-in-left": {
+          "0%": { opacity: "0", transform: "translateX(-80px) rotate(-3deg)" },
+          "100%": { opacity: "1", transform: "translateX(0) rotate(0deg)" },
+        },
+        "slide-in-right": {
+          "0%": { opacity: "0", transform: "translateX(80px) rotate(3deg)" },
+          "100%": { opacity: "1", transform: "translateX(0) rotate(0deg)" },
+        },
+        "zoom-fade": {
+          "0%": { opacity: "0", transform: "scale(0.7)", filter: "blur(8px)" },
+          "100%": { opacity: "1", transform: "scale(1)", filter: "blur(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -148,6 +168,11 @@ export default {
         "shadow-pulse": "shadow-pulse 12s ease-in-out infinite",
         "scroll-x": "scroll-x 20s linear infinite",
         "spin-slow": "spin-slow 8s linear infinite",
+        "rise-up": "rise-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "flip-in": "flip-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "slide-in-left": "slide-in-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "slide-in-right": "slide-in-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "zoom-fade": "zoom-fade 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards",
       },
     },
   },
