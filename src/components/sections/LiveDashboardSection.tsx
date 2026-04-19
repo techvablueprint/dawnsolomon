@@ -130,20 +130,14 @@ export function LiveDashboardSection() {
         {/* Dashboard Cards */}
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {liveDashboards.map((dash, idx) => {
-            const animClass =
-              idx % 3 === 0
-                ? "animate-slide-in-left"
-                : idx % 3 === 2
-                  ? "animate-slide-in-right"
-                  : "animate-zoom-fade";
             return (
             <div
               key={dash.id}
               className={cn(
                 "group relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 opacity-0 hover:-translate-y-2",
-                inView && animClass
+                inView && "animate-dashboard-reveal"
               )}
-              style={inView ? { animationDelay: `${idx * 180}ms` } : undefined}
+              style={inView ? { animationDelay: `${idx * 200}ms` } : undefined}
               onMouseEnter={() => setHoveredId(dash.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
