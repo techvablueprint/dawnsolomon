@@ -2,6 +2,7 @@ import React from "react";
 import { LayoutGrid, Clock, ImageOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useInView } from "@/hooks/useInView";
 import plannerFeature from "@/assets/projects/fence-planner-feature.png";
 
 type Planner = {
@@ -48,6 +49,7 @@ const planners: Planner[] = [
 ];
 
 export function PlannerProjectSection() {
+  const { ref: gridRef, inView } = useInView<HTMLDivElement>();
   return (
     <section id="planner-project" className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background */}
@@ -69,11 +71,15 @@ export function PlannerProjectSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {planners.map((planner) => (
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: "1200px" }}>
+          {planners.map((planner, idx) => (
             <div
               key={planner.id}
-              className="group relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 flex flex-col"
+              className={cn(
+                "group relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 flex flex-col opacity-0 hover:-translate-y-1",
+                inView && "animate-flip-in"
+              )}
+              style={inView ? { animationDelay: `${idx * 200}ms`, transformOrigin: "center top" } : undefined}
             >
               {/* Browser mockup header */}
               <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border/30">
