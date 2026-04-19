@@ -1,29 +1,53 @@
 import React from "react";
-import { ExternalLink, LayoutGrid, Ruler, Calculator } from "lucide-react";
+import { LayoutGrid, Clock, ImageOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import plannerFeature from "@/assets/projects/fence-planner-feature.png";
 
-const PLANNER_URL = "http://localhost:8765/fence-planner-standalone";
+type Planner = {
+  id: string;
+  title: string;
+  label: string;
+  description: string;
+  image: string | null;
+  tags: string[];
+  status: "soon";
+};
+
+const planners: Planner[] = [
+  {
+    id: "fence-planner",
+    title: "Fencing Calculator & Planner",
+    label: "Fence Planner",
+    description:
+      "Custom planner that lets users design their fence section by section, with real-time material list and cost estimation.",
+    image: plannerFeature,
+    tags: ["Planner", "Calculator", "Responsive"],
+    status: "soon",
+  },
+  {
+    id: "planner-2",
+    title: "Planner Project #2",
+    label: "Coming Soon",
+    description:
+      "A second custom planner tool currently in development. Feature image and live link will be available soon.",
+    image: null,
+    tags: ["Planner", "In Progress"],
+    status: "soon",
+  },
+  {
+    id: "planner-3",
+    title: "Planner Project #3",
+    label: "Coming Soon",
+    description:
+      "A third custom planner tool currently in development. Feature image and live link will be available soon.",
+    image: null,
+    tags: ["Planner", "In Progress"],
+    status: "soon",
+  },
+];
 
 export function PlannerProjectSection() {
-  const features = [
-    {
-      icon: Ruler,
-      title: "Custom Measurements",
-      description: "Enter exact fence length in millimeters and instantly visualize the layout.",
-    },
-    {
-      icon: LayoutGrid,
-      title: "Section Configurator",
-      description: "Add panels, gates, and posts with a clear step-by-step configuration flow.",
-    },
-    {
-      icon: Calculator,
-      title: "Automatic Calculation",
-      description: "Get materials needed and total cost calculated automatically as you build.",
-    },
-  ];
-
   return (
     <section id="planner-project" className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background */}
@@ -34,78 +58,95 @@ export function PlannerProjectSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
             <LayoutGrid className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Interactive Planner Tool</span>
+            <span className="text-sm font-medium text-primary">Interactive Planner Tools</span>
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            <span className="text-primary">Fencing</span> Calculator & Planner
+            <span className="text-primary">Custom</span> Planner Projects
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A custom-built fence planning tool that lets users design their fence section by section, with real-time material calculation and cost estimation.
+            A collection of custom-built planner and calculator tools designed to streamline real-world workflows.
           </p>
         </div>
 
-        {/* Main content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Feature image */}
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm">
-              <img
-                src={plannerFeature}
-                alt="Fencing Calculator planner shown on desktop and mobile"
-                className="w-full h-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          {/* Details */}
-          <div className="space-y-6">
-            <div className="flex flex-wrap gap-2">
-              {["Planner Tool", "Calculator", "Responsive", "Custom Build"].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="space-y-4">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="flex gap-4 p-4 rounded-xl border border-primary/10 bg-card/30 backdrop-blur-sm hover:border-primary/30 transition-colors"
-                >
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <feature.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href={PLANNER_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block w-full sm:w-auto"
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {planners.map((planner) => (
+            <div
+              key={planner.id}
+              className="group relative rounded-2xl overflow-hidden border border-primary/10 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 flex flex-col"
             >
-              <Button
-                size="lg"
-                className="w-full sm:w-auto gap-2 bg-primary hover:bg-primary/90"
-              >
-                <ExternalLink className="w-4 h-4" />
-                Visit Live Planner
-              </Button>
-            </a>
-          </div>
+              {/* Browser mockup header */}
+              <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border/30">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-accent/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary/60" />
+                </div>
+                <div className="flex-1 flex items-center gap-2 px-3 py-1 rounded-md bg-background/50 text-xs text-muted-foreground truncate">
+                  <LayoutGrid className="w-3 h-3 shrink-0" />
+                  <span className="truncate">{planner.label}</span>
+                </div>
+              </div>
+
+              {/* Feature image / placeholder */}
+              <div className="relative w-full h-56 overflow-hidden bg-muted/30">
+                {planner.image ? (
+                  <img
+                    src={planner.image}
+                    alt={planner.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-muted-foreground">
+                    <div className="p-3 rounded-full bg-primary/10 border border-primary/20">
+                      <ImageOff className="w-6 h-6 text-primary/70" />
+                    </div>
+                    <span className="text-sm font-medium">Feature image coming soon</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
+                  <h3 className="text-lg font-bold group-hover:text-primary transition-colors">
+                    {planner.title}
+                  </h3>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-secondary/20 text-secondary border border-secondary/30 font-medium">
+                    {planner.label}
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
+                  {planner.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {planner.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-2 py-1 rounded-md bg-primary/10 text-primary/80 border border-primary/10"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* CTA — Soon */}
+                <Button
+                  variant="outline"
+                  disabled
+                  className={cn(
+                    "w-full gap-2 border-primary/20 opacity-80 cursor-not-allowed",
+                  )}
+                >
+                  <Clock className="w-4 h-4" />
+                  Coming Soon
+                </Button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
