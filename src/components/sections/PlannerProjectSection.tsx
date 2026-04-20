@@ -1,5 +1,5 @@
 import React from "react";
-import { LayoutGrid, Clock, ImageOff } from "lucide-react";
+import { LayoutGrid, Clock, ImageOff, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useInView } from "@/hooks/useInView";
@@ -12,19 +12,21 @@ type Planner = {
   description: string;
   image: string | null;
   tags: string[];
-  status: "soon";
+  status: "soon" | "live";
+  url?: string;
 };
 
 const planners: Planner[] = [
   {
     id: "fence-planner",
     title: "Fencing Calculator & Planner",
-    label: "Fence Planner",
+    label: "Live",
     description:
       "Custom planner that lets users design their fence section by section, with real-time material list and cost estimation.",
     image: plannerFeature,
     tags: ["Planner", "Calculator", "Responsive"],
-    status: "soon",
+    status: "live",
+    url: "https://hampton-fence-planner.vercel.app",
   },
   {
     id: "planner-2",
@@ -139,17 +141,28 @@ export function PlannerProjectSection() {
                   ))}
                 </div>
 
-                {/* CTA — Soon */}
-                <Button
-                  variant="outline"
-                  disabled
-                  className={cn(
-                    "w-full gap-2 border-primary/20 opacity-80 cursor-not-allowed",
-                  )}
-                >
-                  <Clock className="w-4 h-4" />
-                  Coming Soon
-                </Button>
+                {/* CTA */}
+                {planner.status === "live" && planner.url ? (
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full gap-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-colors"
+                  >
+                    <a href={planner.url} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4" />
+                      Visit Live Planner
+                    </a>
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outline"
+                    disabled
+                    className="w-full gap-2 border-primary/20 opacity-80 cursor-not-allowed"
+                  >
+                    <Clock className="w-4 h-4" />
+                    Coming Soon
+                  </Button>
+                )}
               </div>
             </div>
           ))}
