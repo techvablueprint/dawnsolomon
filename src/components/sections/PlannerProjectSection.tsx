@@ -33,12 +33,13 @@ const planners: Planner[] = [
   {
     id: "planner-2",
     title: "HVAC System Planner",
-    label: "Coming Soon",
+    label: "Live",
     description:
       "Interactive HVAC planner that lets users select zones, system types, and add-ons with a live estimate snapshot.",
     image: hvacPlannerFeature,
     tags: ["Planner", "HVAC", "Estimator"],
-    status: "soon",
+    status: "live",
+    url: "https://hvac-deploy-delta.vercel.app/",
   },
   {
     id: "planner-3",
