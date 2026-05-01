@@ -221,7 +221,7 @@ export function HeroSection() {
                 className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-button"
                 asChild
               >
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dawnsolomon482@gmail.com" target="_blank" rel="noopener noreferrer">
+                <a href="#booking">
                   <EditableText
                     value={hero.ctaText}
                     onChange={(v) => updateField("hero", "ctaText", v)}
