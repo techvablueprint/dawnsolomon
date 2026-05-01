@@ -54,7 +54,7 @@ export function ContactSection() {
                 className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-button"
                 asChild
               >
-                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${about.email}`} target="_blank" rel="noopener noreferrer">
+                <a href="#booking">
                   <Mail className="mr-2 w-5 h-5" />
                   <EditableText
                     value={contact.ctaText}
