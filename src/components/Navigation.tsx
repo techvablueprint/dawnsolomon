@@ -69,7 +69,7 @@ export function Navigation() {
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               asChild
             >
-              <a href="https://calendly.com/dawnsolomon482/30min" target="_blank" rel="noopener noreferrer">Hire Me</a>
+              <a href="#booking">Hire Me</a>
             </Button>
           </div>
 
@@ -105,7 +105,7 @@ export function Navigation() {
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                   asChild
                 >
-                  <a href="https://calendly.com/dawnsolomon482/30min" target="_blank" rel="noopener noreferrer">Hire Me</a>
+                  <a href="#booking" onClick={() => setIsMobileMenuOpen(false)}>Hire Me</a>
                 </Button>
               </div>
             </div>
