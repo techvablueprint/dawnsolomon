@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Code, Globe, Timer, GitBranch, FileSpreadsheet, Play, Braces } from "lucide-react";
+import { ArrowRight, CheckCircle, Code, Globe, Timer, GitBranch, FileSpreadsheet, Play, Braces, Calculator } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 import profilePhoto from "@/assets/profile-photo.png";
 
@@ -285,7 +286,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* ROI Calculator Embed */}
+        {/* ROI Calculator CTA */}
         <div className="mt-16 lg:mt-24 relative">
           <div className="text-center mb-8">
             <h2 className="text-2xl lg:text-3xl font-bold">
@@ -293,14 +294,34 @@ export function HeroSection() {
             </h2>
             <p className="text-muted-foreground mt-2">See how much time and money automation can save your business.</p>
           </div>
-          <div className="relative rounded-3xl border border-primary/20 overflow-hidden bg-card/30 backdrop-blur-sm z-10">
-            <iframe
-              src="https://dawn-portfolio-beta.vercel.app/roi-calculator"
-              title="ROI Calculator"
-              className="w-full border-0"
-              style={{ height: '700px' }}
-              loading="lazy"
-            />
+          <div className="flex justify-center">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-button"
+                >
+                  <Calculator className="mr-2 w-5 h-5" />
+                  Calculate Your ROI
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl w-[95vw] p-0 overflow-hidden">
+                <DialogHeader className="px-6 pt-6">
+                  <DialogTitle>
+                    <span className="text-primary">Calculate</span> Your ROI
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="px-2 pb-2 sm:px-4 sm:pb-4">
+                  <iframe
+                    src="https://dawn-portfolio-beta.vercel.app/roi-calculator"
+                    title="ROI Calculator"
+                    className="w-full border-0 rounded-xl"
+                    style={{ height: '70vh' }}
+                    loading="lazy"
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
 
