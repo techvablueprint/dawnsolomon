@@ -44,12 +44,13 @@ const planners: Planner[] = [
   {
     id: "planner-3",
     title: "Roofing Project Planner",
-    label: "Coming Soon",
+    label: "Live",
     description:
       "Interactive roofing planner to estimate costs, visualize roof sections, and request a free inspection & quote.",
     image: roofingPlannerFeature,
     tags: ["Planner", "Roofing", "Estimator"],
-    status: "soon",
+    status: "live",
+    url: "https://roofing-planner.vercel.app",
   },
 ];
 
