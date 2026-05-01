@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useInView } from "@/hooks/useInView";
 import plannerFeature from "@/assets/projects/fence-planner-feature.png";
+import hvacPlannerFeature from "@/assets/projects/hvac-planner-feature.png";
+import roofingPlannerFeature from "@/assets/projects/roofing-planner-feature.png";
 
 type Planner = {
   id: string;
@@ -30,22 +32,22 @@ const planners: Planner[] = [
   },
   {
     id: "planner-2",
-    title: "Planner Project #2",
+    title: "HVAC System Planner",
     label: "Coming Soon",
     description:
-      "A second custom planner tool currently in development. Feature image and live link will be available soon.",
-    image: null,
-    tags: ["Planner", "In Progress"],
+      "Interactive HVAC planner that lets users select zones, system types, and add-ons with a live estimate snapshot.",
+    image: hvacPlannerFeature,
+    tags: ["Planner", "HVAC", "Estimator"],
     status: "soon",
   },
   {
     id: "planner-3",
-    title: "Planner Project #3",
+    title: "Roofing Project Planner",
     label: "Coming Soon",
     description:
-      "A third custom planner tool currently in development. Feature image and live link will be available soon.",
-    image: null,
-    tags: ["Planner", "In Progress"],
+      "Interactive roofing planner to estimate costs, visualize roof sections, and request a free inspection & quote.",
+    image: roofingPlannerFeature,
+    tags: ["Planner", "Roofing", "Estimator"],
     status: "soon",
   },
 ];
