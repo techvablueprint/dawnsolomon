@@ -44,7 +44,7 @@ export const CalendlySection = () => {
             style={{ minWidth: "320px", height: "700px" }}
           >
             <iframe
-              src="https://cal.com/dawn-solomon-gseqme/30min"
+              src="https://cal.com/dawn-solomon-gseqme/15min"
               title="Book a meeting with Dawn Solomon"
               className="w-full h-full border-0"
               allow="camera; microphone; autoplay; encrypted-media; fullscreen"
