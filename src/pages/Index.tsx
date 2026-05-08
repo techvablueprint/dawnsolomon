@@ -16,10 +16,10 @@ const Index = () => {
   return (
     <PortfolioProvider>
       <Helmet>
-        <title>Dawn Solomon | Automation Engineer & WordPress SEO Specialist</title>
+        <title>Dawn Solomon | GHL Automation Specialist</title>
         <meta
           name="description"
-          content="I'm an Automation Engineer focused on building AI-driven workflows and business automation systems that help brands scale faster, work smarter, and operate seamlessly."
+          content="Dawn Solomon — GoHighLevel Automation Specialist & AI Engineer. Helping businesses build self-running systems through GHL, Make.com, Zapier, and n8n."
         />
         <meta
           name="keywords"
