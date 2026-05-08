@@ -25,10 +25,10 @@ const Index = () => {
           name="keywords"
           content="automation engineer, wordpress seo, ai automation, workflow automation, virtual assistant, philippines freelancer"
         />
-        <meta property="og:title" content="Dawn Solomon | Automation Engineer" />
+        <meta property="og:title" content="Dawn Solomon | GHL Automation Specialist" />
         <meta
           property="og:description"
-          content="Building AI-driven workflows and business automation systems that help brands scale faster."
+          content="Helping businesses build self-running systems through GHL, Make.com, Zapier, and n8n."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://dawnsolomon.com" />
