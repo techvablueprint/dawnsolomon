@@ -1,31 +1,7 @@
 import { useEffect } from "react";
 import { Calendar } from "lucide-react";
 
-declare global {
-  interface Window {
-    Calendly: any;
-  }
-}
-
 export const CalendlySection = () => {
-  useEffect(() => {
-    // Load Calendly widget script
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector(
-        'script[src="https://assets.calendly.com/assets/external/widget.js"]'
-      );
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
-
   return (
     <section id="booking" className="py-20 md:py-32 relative overflow-hidden">
       {/* Animated vertical lines moving upward */}
@@ -62,13 +38,20 @@ export const CalendlySection = () => {
           </p>
         </div>
 
-        {/* Calendly inline widget */}
+        {/* Cal.com inline embed */}
         <div className="max-w-4xl mx-auto">
           <div 
-            className="calendly-inline-widget rounded-2xl overflow-hidden border border-border shadow-lg"
-            data-url="https://calendly.com/dawnsolomon482?hide_gdpr_banner=1&background_color=0a1628&text_color=e0f7fa&primary_color=00ffff"
+            className="rounded-2xl overflow-hidden border border-border shadow-lg"
             style={{ minWidth: "320px", height: "700px" }}
-          />
+          >
+            <iframe
+              src="https://cal.com/dawn-solomon-gseqme/30min"
+              title="Book a meeting with Dawn Solomon"
+              className="w-full h-full border-0"
+              allow="camera; microphone; autoplay; encrypted-media; fullscreen"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
