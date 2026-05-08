@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Calendar } from "lucide-react";
 
 export const CalendlySection = () => {
