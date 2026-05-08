@@ -154,7 +154,7 @@ export function HeroSection() {
               <div className="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full overflow-hidden border-3 border-primary/50 shadow-2xl">
                 <img
                   src={profilePhoto}
-                  alt="Dawn Solomon"
+                  alt="Dawn Solomon - GHL Automation Specialist and AI Engineer"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -267,7 +267,7 @@ export function HeroSection() {
               <div className="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl">
                 <img
                   src={profilePhoto}
-                  alt="Dawn Solomon"
+                  alt="Dawn Solomon - GHL Automation Specialist and AI Engineer"
                   className="w-full h-full object-cover"
                 />
               </div>
