@@ -129,6 +129,11 @@ export function LiveDashboardSection() {
         </div>
 
         {/* Dashboard Cards */}
+        <FolderReveal
+          label="Live Dashboards"
+          count={liveDashboards.length}
+          previews={liveDashboards.map((d) => d.image)}
+        >
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {liveDashboards.map((dash, idx) => {
             return (
