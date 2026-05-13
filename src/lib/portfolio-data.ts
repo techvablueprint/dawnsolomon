@@ -76,7 +76,7 @@ export const defaultPortfolioData: PortfolioData = {
     headlineSuffix: "and Focus.",
     description:
       "Your Partner in AI & Business Automation.",
-    ctaText: "Hire Me",
+    ctaText: "Book a Call",
     ctaLink: "https://mail.google.com/mail/?view=cm&fs=1&to=dawnsolomon482@gmail.com",
     secondaryCtaText: "View My Work",
     ctaNote: "Let's transform your manual workflows into smart systems.",
@@ -201,7 +201,7 @@ export const defaultPortfolioData: PortfolioData = {
   contact: {
     title: "Let's Work Together!",
     subtitle: "I am available for freelance projects.",
-    ctaText: "Hire Me",
+    ctaText: "Book a Call",
   },
   social: {
     email: "dawnsolomon482@gmail.com",
