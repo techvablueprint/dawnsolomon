@@ -69,7 +69,7 @@ export function Navigation() {
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               asChild
             >
-              <a href="#booking">Hire Me</a>
+              <a href="#booking">Book a Call</a>
             </Button>
           </div>
 
@@ -105,7 +105,7 @@ export function Navigation() {
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                   asChild
                 >
-                  <a href="#booking" onClick={() => setIsMobileMenuOpen(false)}>Hire Me</a>
+                  <a href="#booking" onClick={() => setIsMobileMenuOpen(false)}>Book a Call</a>
                 </Button>
               </div>
             </div>
