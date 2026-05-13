@@ -78,6 +78,11 @@ export function PlannerProjectSection() {
         </div>
 
         {/* Cards */}
+        <FolderReveal
+          label="Custom Planner Projects"
+          count={planners.length}
+          previews={planners.map((p) => p.image).filter((i): i is string => !!i)}
+        >
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: "1200px" }}>
           {planners.map((planner, idx) => (
             <div
