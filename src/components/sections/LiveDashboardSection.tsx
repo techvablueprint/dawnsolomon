@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useInView } from "@/hooks/useInView";
-import { FolderReveal } from "@/components/FolderReveal";
 
 function CopyField({ value, icon: Icon, label }: { value: string; icon: React.ElementType; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -129,11 +128,6 @@ export function LiveDashboardSection() {
         </div>
 
         {/* Dashboard Cards */}
-        <FolderReveal
-          label="Live Dashboards"
-          count={liveDashboards.length}
-          previews={liveDashboards.map((d) => d.image)}
-        >
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {liveDashboards.map((dash, idx) => {
             return (
@@ -245,7 +239,6 @@ export function LiveDashboardSection() {
             );
           })}
         </div>
-        </FolderReveal>
       </div>
     </section>
   );
