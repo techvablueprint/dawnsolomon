@@ -3,6 +3,7 @@ import { LayoutGrid, Clock, ImageOff, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useInView } from "@/hooks/useInView";
+import { FolderReveal } from "@/components/FolderReveal";
 import plannerFeature from "@/assets/projects/fence-planner-feature.png";
 import hvacPlannerFeature from "@/assets/projects/hvac-planner-feature.png";
 import roofingPlannerFeature from "@/assets/projects/roofing-planner-feature.png";
@@ -77,6 +78,11 @@ export function PlannerProjectSection() {
         </div>
 
         {/* Cards */}
+        <FolderReveal
+          label="Custom Planner Projects"
+          count={planners.length}
+          previews={planners.map((p) => p.image).filter((i): i is string => !!i)}
+        >
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: "1200px" }}>
           {planners.map((planner, idx) => (
             <div
@@ -171,6 +177,7 @@ export function PlannerProjectSection() {
             </div>
           ))}
         </div>
+        </FolderReveal>
       </div>
     </section>
   );

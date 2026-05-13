@@ -3,6 +3,7 @@ import { ExternalLink, Globe, Monitor, Smartphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/useInView";
+import { FolderReveal } from "@/components/FolderReveal";
 
 const liveWebsites = [
   {
@@ -72,6 +73,7 @@ export function LiveWebsitesSection() {
         </div>
 
         {/* Website Cards */}
+        <FolderReveal label="Explore Live Websites" count={liveWebsites.length}>
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {liveWebsites.map((site, idx) => (
             <div
@@ -179,6 +181,7 @@ export function LiveWebsitesSection() {
             </div>
           ))}
         </div>
+        </FolderReveal>
       </div>
     </section>
   );
