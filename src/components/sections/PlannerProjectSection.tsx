@@ -3,6 +3,7 @@ import { LayoutGrid, Clock, ImageOff, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useInView } from "@/hooks/useInView";
+import { FolderReveal } from "@/components/FolderReveal";
 import plannerFeature from "@/assets/projects/fence-planner-feature.png";
 import hvacPlannerFeature from "@/assets/projects/hvac-planner-feature.png";
 import roofingPlannerFeature from "@/assets/projects/roofing-planner-feature.png";
