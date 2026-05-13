@@ -181,6 +181,7 @@ export function LiveWebsitesSection() {
             </div>
           ))}
         </div>
+        </FolderReveal>
       </div>
     </section>
   );
