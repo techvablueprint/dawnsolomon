@@ -177,6 +177,7 @@ export function PlannerProjectSection() {
             </div>
           ))}
         </div>
+        </FolderReveal>
       </div>
     </section>
   );
