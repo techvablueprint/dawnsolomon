@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useInView } from "@/hooks/useInView";
+import { FolderReveal } from "@/components/FolderReveal";
 
 function CopyField({ value, icon: Icon, label }: { value: string; icon: React.ElementType; label: string }) {
   const [copied, setCopied] = useState(false);
