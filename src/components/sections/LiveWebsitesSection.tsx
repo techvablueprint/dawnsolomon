@@ -3,6 +3,7 @@ import { ExternalLink, Globe, Monitor, Smartphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/useInView";
+import { FolderReveal } from "@/components/FolderReveal";
 
 const liveWebsites = [
   {
