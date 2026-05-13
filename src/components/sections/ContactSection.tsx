@@ -121,8 +121,6 @@ export function ContactSection() {
                   Dawn Solomon
                 </span>
               </div>
-              {/* Orbiting rocket on the border */}
-              <Rocket className="absolute w-4 h-4 text-primary animate-orbit-pill" />
             </div>
             <p className="text-muted-foreground text-sm">
               Copyright © {new Date().getFullYear()} {about.name}. All rights

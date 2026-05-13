@@ -45,8 +45,6 @@ export function Navigation() {
                   Dawn Solomon
                 </span>
               </div>
-              {/* Orbiting rocket on the border */}
-              <Rocket className="absolute w-3 h-3 text-cyan-400 animate-orbit-pill" />
             </div>
           </a>
 
