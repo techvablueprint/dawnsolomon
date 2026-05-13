@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -45,8 +45,6 @@ export function Navigation() {
                   Dawn Solomon
                 </span>
               </div>
-              {/* Orbiting rocket on the border */}
-              <Rocket className="absolute w-3 h-3 text-cyan-400 animate-orbit-pill" />
             </div>
           </a>
 

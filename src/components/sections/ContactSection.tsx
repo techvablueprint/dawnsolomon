@@ -2,7 +2,7 @@ import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin, ExternalLink, Rocket } from "lucide-react";
+import { Mail, MapPin, Linkedin } from "lucide-react";
 
 export function ContactSection() {
   const { data, updateData } = usePortfolio();
@@ -121,8 +121,6 @@ export function ContactSection() {
                   Dawn Solomon
                 </span>
               </div>
-              {/* Orbiting rocket on the border */}
-              <Rocket className="absolute w-4 h-4 text-primary animate-orbit-pill" />
             </div>
             <p className="text-muted-foreground text-sm">
               Copyright © {new Date().getFullYear()} {about.name}. All rights
