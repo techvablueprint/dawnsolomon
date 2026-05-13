@@ -245,6 +245,7 @@ export function LiveDashboardSection() {
             );
           })}
         </div>
+        </FolderReveal>
       </div>
     </section>
   );
