@@ -73,6 +73,7 @@ export function LiveWebsitesSection() {
         </div>
 
         {/* Website Cards */}
+        <FolderReveal label="Explore Live Websites" count={liveWebsites.length}>
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {liveWebsites.map((site, idx) => (
             <div
