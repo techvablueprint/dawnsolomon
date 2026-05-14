@@ -81,21 +81,6 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-primary mt-0.5" />
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <a
-                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=${about.email}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {about.email}
-                    </a>
-                  </div>
-                </div>
-
                 <div className="flex items-center gap-4">
                   {social.linkedin && (
                     <a
