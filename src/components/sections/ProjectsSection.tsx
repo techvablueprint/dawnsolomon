@@ -4,8 +4,48 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, X, ChevronLeft, ChevronRight, Sparkles, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+// Per-project benefits + outcomes for the details modal
+const projectInsights: Record<string, { benefits: string[]; outcomes: string[] }> = {
+  "project-3": {
+    benefits: [
+      "Eliminates hours of manually sorting Gmail attachments every week.",
+      "Keeps client files organized in the right Google Drive folders automatically.",
+      "Removes the risk of lost or misplaced documents in a busy inbox.",
+    ],
+    outcomes: [
+      "A tidy, audit-ready Drive structure with zero manual effort.",
+      "Faster file retrieval for the team and clients.",
+      "More time spent on revenue work instead of inbox cleanup.",
+    ],
+  },
+  "project-4": {
+    benefits: [
+      "Follows up on every quote automatically — no lead goes cold.",
+      "Coordinates Asana tasks and Gmail messages across the full sales pipeline.",
+      "Keeps the team aligned without endless status-check meetings.",
+    ],
+    outcomes: [
+      "Higher quote-to-close rate from consistent, timely follow-ups.",
+      "A predictable sales pipeline the owner can actually trust.",
+      "Hours saved each week on manual task and email management.",
+    ],
+  },
+  "project-6": {
+    benefits: [
+      "Captures leads and books appointments automatically inside GoHighLevel.",
+      "Removes manual follow-up steps that usually slow HVAC sales teams.",
+      "Standardizes the entire pipeline from first contact to booked job.",
+    ],
+    outcomes: [
+      "More confirmed jobs each week with zero extra admin work.",
+      "Shorter time from inquiry to booked appointment.",
+      "A repeatable system the business can scale with paid ads.",
+    ],
+  },
+};
 
 // Brand logos
 import clickupLogo from "@/assets/brands/clickup.ico";
