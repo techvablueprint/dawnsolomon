@@ -235,15 +235,8 @@ export function ProjectsSection() {
                 onClick={() => {
                   if (!isActive) {
                     setActiveIndex(index);
-                  } else if (project.image) {
-                    if (project.link) {
-                      window.open(project.link, "_blank", "noopener,noreferrer");
-                    } else {
-                      setSelectedImage({
-                        url: project.image,
-                        title: project.title,
-                      });
-                    }
+                  } else {
+                    setSelectedProject(project);
                   }
                 }}
               >
