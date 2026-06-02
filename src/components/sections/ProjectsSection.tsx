@@ -4,8 +4,48 @@ import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, X, ChevronLeft, ChevronRight, Sparkles, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+// Per-project benefits + outcomes for the details modal
+const projectInsights: Record<string, { benefits: string[]; outcomes: string[] }> = {
+  "project-3": {
+    benefits: [
+      "Eliminates hours of manually sorting Gmail attachments every week.",
+      "Keeps client files organized in the right Google Drive folders automatically.",
+      "Removes the risk of lost or misplaced documents in a busy inbox.",
+    ],
+    outcomes: [
+      "A tidy, audit-ready Drive structure with zero manual effort.",
+      "Faster file retrieval for the team and clients.",
+      "More time spent on revenue work instead of inbox cleanup.",
+    ],
+  },
+  "project-4": {
+    benefits: [
+      "Follows up on every quote automatically — no lead goes cold.",
+      "Coordinates Asana tasks and Gmail messages across the full sales pipeline.",
+      "Keeps the team aligned without endless status-check meetings.",
+    ],
+    outcomes: [
+      "Higher quote-to-close rate from consistent, timely follow-ups.",
+      "A predictable sales pipeline the owner can actually trust.",
+      "Hours saved each week on manual task and email management.",
+    ],
+  },
+  "project-6": {
+    benefits: [
+      "Captures leads and books appointments automatically inside GoHighLevel.",
+      "Removes manual follow-up steps that usually slow HVAC sales teams.",
+      "Standardizes the entire pipeline from first contact to booked job.",
+    ],
+    outcomes: [
+      "More confirmed jobs each week with zero extra admin work.",
+      "Shorter time from inquiry to booked appointment.",
+      "A repeatable system the business can scale with paid ads.",
+    ],
+  },
+};
 
 // Brand logos
 import clickupLogo from "@/assets/brands/clickup.ico";
@@ -50,7 +90,7 @@ export function ProjectsSection() {
   const { data, updateData } = usePortfolio();
   const { projects } = data;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [selectedImage, setSelectedImage] = useState<{ url: string; title: string } | null>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof projects.items[number] | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const totalItems = projects.items.length;
@@ -195,15 +235,8 @@ export function ProjectsSection() {
                 onClick={() => {
                   if (!isActive) {
                     setActiveIndex(index);
-                  } else if (project.image) {
-                    if (project.link) {
-                      window.open(project.link, "_blank", "noopener,noreferrer");
-                    } else {
-                      setSelectedImage({
-                        url: project.image,
-                        title: project.title,
-                      });
-                    }
+                  } else {
+                    setSelectedProject(project);
                   }
                 }}
               >
@@ -363,31 +396,82 @@ export function ProjectsSection() {
         </div>
       </div>
 
-      {/* Full Image Modal */}
-      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-sm border-primary/20">
-          <div className="relative w-full h-full flex flex-col">
-            <div className="flex items-center justify-between p-4 border-b border-border/30">
-              <h3 className="text-lg font-semibold text-foreground">
-                {selectedImage?.title}
-              </h3>
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="p-2 rounded-full hover:bg-muted transition-colors"
-              >
-                <X className="w-5 h-5 text-muted-foreground" />
-              </button>
-            </div>
-            <div className="flex-1 overflow-auto p-4">
-              {selectedImage && (
-                <img
-                  src={selectedImage.url}
-                  alt={selectedImage.title}
-                  className="w-full h-auto object-contain rounded-lg"
-                />
+      {/* Project Details Modal */}
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 gap-0 bg-background/95 backdrop-blur-sm border-primary/20">
+          {selectedProject && (
+            <>
+              <div className="flex items-center justify-between p-4 border-b border-border/30">
+                <h3 className="text-lg font-semibold text-foreground">
+                  {selectedProject.title}
+                </h3>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="p-2 rounded-full hover:bg-muted transition-colors"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5 text-muted-foreground" />
+                </button>
+              </div>
+
+              {selectedProject.image && (
+                <div className="relative w-full max-h-[420px] overflow-hidden bg-muted border-b border-border/40">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
               )}
-            </div>
-          </div>
+
+              <div className="p-6 md:p-8">
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                  {selectedProject.description}
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="rounded-xl border border-primary/15 bg-primary/5 p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Sparkles className="w-5 h-5 text-primary" />
+                      <h4 className="font-semibold">How it helps the business owner</h4>
+                    </div>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {(projectInsights[selectedProject.id]?.benefits ?? []).map((b, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-xl border border-secondary/20 bg-secondary/5 p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <TrendingUp className="w-5 h-5 text-secondary" />
+                      <h4 className="font-semibold">The output for their website</h4>
+                    </div>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {(projectInsights[selectedProject.id]?.outcomes ?? []).map((o, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-secondary mt-1">•</span>
+                          <span>{o}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {selectedProject.link && (
+                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
+                    <button className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium">
+                      <ExternalLink className="w-4 h-4" />
+                      Visit Live Project
+                    </button>
+                  </a>
+                )}
+              </div>
+            </>
+          )}
         </DialogContent>
       </Dialog>
     </section>

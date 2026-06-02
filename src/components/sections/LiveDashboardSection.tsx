@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { ExternalLink, BarChart3, Monitor, TrendingUp, Mail, Lock, Copy, Check } from "lucide-react";
+import { ExternalLink, BarChart3, Monitor, TrendingUp, Mail, Lock, Copy, Check, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { useInView } from "@/hooks/useInView";
 
@@ -36,7 +37,20 @@ function CopyField({ value, icon: Icon, label }: { value: string; icon: React.El
   );
 }
 
-const liveDashboards = [
+type Dashboard = {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+  tags: string[];
+  credentials: { email: string; password: string };
+  metrics: { label: string; value: string }[];
+  benefits: string[];
+  outcomes: string[];
+};
+
+const liveDashboards: Dashboard[] = [
   {
     id: "dash-1",
     title: "FuelFit Dashboard",
@@ -44,13 +58,20 @@ const liveDashboards = [
     url: "https://fuelfit-dashboard.vercel.app",
     image: "/projects/fuelfit-dashboard.jpg",
     tags: ["Analytics", "Real-time", "Sales Tracking"],
-    credentials: {
-      email: "admin@fuelfit.com",
-      password: "FuelFit2025",
-    },
+    credentials: { email: "admin@fuelfit.com", password: "FuelFit2025" },
     metrics: [
       { label: "Live Data", value: "24/7" },
       { label: "Tracking", value: "Real-time" },
+    ],
+    benefits: [
+      "Gives fitness owners one screen to see sales, bookings, and traffic.",
+      "Spots underperforming products and offers before they cost revenue.",
+      "Replaces messy spreadsheets with a clean, live performance view.",
+    ],
+    outcomes: [
+      "Smarter decisions backed by real-time numbers, not gut feel.",
+      "Faster response to trends — promote what's working immediately.",
+      "A professional command center that scales with the business.",
     ],
   },
   {
@@ -60,13 +81,20 @@ const liveDashboards = [
     url: "https://prestige-realty-dashboard.vercel.app",
     image: "/projects/prestige-realty-dashboard.jpg",
     tags: ["Real Estate", "Lead Tracking", "Analytics"],
-    credentials: {
-      email: "admin@prestigerealty.com",
-      password: "Prestige2025",
-    },
+    credentials: { email: "admin@prestigerealty.com", password: "Prestige2025" },
     metrics: [
       { label: "Live Data", value: "24/7" },
       { label: "Tracking", value: "Real-time" },
+    ],
+    benefits: [
+      "Tracks every lead source so you know which channels truly convert.",
+      "Surfaces hot prospects automatically based on engagement.",
+      "Keeps agents accountable with clear booking and follow-up metrics.",
+    ],
+    outcomes: [
+      "More closed deals because no lead falls through the cracks.",
+      "Higher ROI on marketing spend with channel-level visibility.",
+      "A scalable real-estate operation, not a chaotic inbox.",
     ],
   },
   {
@@ -76,19 +104,27 @@ const liveDashboards = [
     url: "https://apex-media-dashboard.vercel.app/sign-in",
     image: "/projects/apex-media-dashboard.jpg",
     tags: ["Agency", "Campaign Tracking", "Marketing"],
-    credentials: {
-      email: "admin@apexmedia.com",
-      password: "ApexMedia2025",
-    },
+    credentials: { email: "admin@apexmedia.com", password: "ApexMedia2025" },
     metrics: [
       { label: "Live Data", value: "24/7" },
       { label: "Tracking", value: "Real-time" },
+    ],
+    benefits: [
+      "Shows every campaign's ROI in one branded client-ready view.",
+      "Cuts reporting time from hours to minutes for agency teams.",
+      "Builds client trust with transparent, always-on performance data.",
+    ],
+    outcomes: [
+      "Longer client retention — they can see the value you deliver.",
+      "Faster optimization cycles, more revenue per campaign.",
+      "A premium agency offering that justifies higher retainers.",
     ],
   },
 ];
 
 export function LiveDashboardSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [activeDash, setActiveDash] = useState<Dashboard | null>(null);
   const { ref: gridRef, inView } = useInView<HTMLDivElement>();
 
   return (
@@ -123,14 +159,13 @@ export function LiveDashboardSection() {
             <span className="text-primary">Live</span> Dashboards
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore real-time dashboards I've built — use the login credentials below to test and interact with each dashboard.
+            Click any dashboard preview to see how it helps the business owner, or use the demo login to explore it live.
           </p>
         </div>
 
         {/* Dashboard Cards */}
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {liveDashboards.map((dash, idx) => {
-            return (
+          {liveDashboards.map((dash, idx) => (
             <div
               key={dash.id}
               className={cn(
@@ -157,8 +192,13 @@ export function LiveDashboardSection() {
                 </div>
               </div>
 
-              {/* Dashboard Preview Area */}
-              <div className="relative w-full h-48 overflow-hidden">
+              {/* Dashboard Preview Area — clickable */}
+              <button
+                type="button"
+                onClick={() => setActiveDash(dash)}
+                className="relative w-full h-48 overflow-hidden block text-left focus:outline-none focus:ring-2 focus:ring-primary/40"
+                aria-label={`View details for ${dash.title}`}
+              >
                 <img
                   src={dash.image}
                   alt={dash.title}
@@ -170,7 +210,6 @@ export function LiveDashboardSection() {
                     hoveredId === dash.id && "scale-105"
                   )}
                 />
-                {/* Hover overlay */}
                 <div
                   className={cn(
                     "absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300",
@@ -186,10 +225,10 @@ export function LiveDashboardSection() {
                         <TrendingUp className="w-5 h-5 text-primary" />
                       </div>
                     </div>
-                    <span className="text-sm font-medium text-foreground">Open Dashboard</span>
+                    <span className="text-sm font-medium text-foreground">Click to view details</span>
                   </div>
                 </div>
-              </div>
+              </button>
 
               {/* Content */}
               <div className="p-6">
@@ -236,10 +275,74 @@ export function LiveDashboardSection() {
                 </a>
               </div>
             </div>
-            );
-          })}
+          ))}
         </div>
       </div>
+
+      {/* Details Modal */}
+      <Dialog open={!!activeDash} onOpenChange={(open) => !open && setActiveDash(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 gap-0">
+          {activeDash && (
+            <>
+              <div className="relative w-full h-[280px] md:h-[400px] overflow-hidden bg-muted border-b border-border/40">
+                <img
+                  src={activeDash.image}
+                  alt={activeDash.title}
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+
+              <div className="p-6 md:p-8">
+                <DialogHeader className="text-left mb-6">
+                  <DialogTitle className="text-2xl mb-2">{activeDash.title}</DialogTitle>
+                  <DialogDescription className="text-base">
+                    {activeDash.description}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="rounded-xl border border-primary/15 bg-primary/5 p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Sparkles className="w-5 h-5 text-primary" />
+                      <h4 className="font-semibold">How it helps the business owner</h4>
+                    </div>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {activeDash.benefits.map((b, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-xl border border-secondary/20 bg-secondary/5 p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <TrendingUp className="w-5 h-5 text-secondary" />
+                      <h4 className="font-semibold">The output for their website</h4>
+                    </div>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {activeDash.outcomes.map((o, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-secondary mt-1">•</span>
+                          <span>{o}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <a href={activeDash.url} target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full gap-2">
+                    <ExternalLink className="w-4 h-4" />
+                    Explore Dashboard
+                  </Button>
+                </a>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
