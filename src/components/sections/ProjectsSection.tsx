@@ -90,7 +90,7 @@ export function ProjectsSection() {
   const { data, updateData } = usePortfolio();
   const { projects } = data;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [selectedImage, setSelectedImage] = useState<{ url: string; title: string } | null>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof projects.items[number] | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const totalItems = projects.items.length;
