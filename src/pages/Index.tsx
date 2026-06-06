@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { MouseFollower } from "@/components/MouseFollower";
+import { ClickSound } from "@/components/ClickSound";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { LiveWebsitesSection } from "@/components/sections/LiveWebsitesSection";
 import { PlannerProjectSection } from "@/components/sections/PlannerProjectSection";
@@ -48,6 +49,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-background/70" />
         </div>
         <MouseFollower />
+        <ClickSound />
         <Navigation />
         <main>
           <HeroSection />
