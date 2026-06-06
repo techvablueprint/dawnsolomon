@@ -81,18 +81,6 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  {social.linkedin && (
-                    <a
-                      href={social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 transition-colors"
-                    >
-                      <Linkedin className="w-6 h-6" />
-                    </a>
-                  )}
-                </div>
               </div>
             </div>
           </div>
