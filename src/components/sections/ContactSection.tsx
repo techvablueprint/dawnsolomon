@@ -2,7 +2,7 @@ import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export function ContactSection() {
   const { data, updateData } = usePortfolio();
