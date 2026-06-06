@@ -1,7 +1,7 @@
 import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
-import { MapPin, Mail, Briefcase, Target, Eye } from "lucide-react";
+import { MapPin, Briefcase, Target, Eye } from "lucide-react";
 
 export function AboutSection() {
   const { data, updateField } = usePortfolio();
