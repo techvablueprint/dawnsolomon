@@ -71,14 +71,6 @@ export function AboutSection() {
                 />
               </div>
               <div className="flex items-center gap-2 text-sm">
-                <Mail className="w-4 h-4 text-primary" />
-                <EditableText
-                  value={about.email}
-                  onChange={(v) => updateField("about", "email", v)}
-                  className="text-muted-foreground"
-                />
-              </div>
-              <div className="flex items-center gap-2 text-sm">
                 <Briefcase className="w-4 h-4 text-primary" />
                 <span className="text-muted-foreground">Freelancer</span>
               </div>
