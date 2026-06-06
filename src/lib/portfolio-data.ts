@@ -91,7 +91,7 @@ export const defaultPortfolioData: PortfolioData = {
     vision:
       "A world where founders and teams focus purely on creative, high-impact work, while robots handle 100% of the repetitive admin.",
     goal:
-      "To transform manual workflows into smart, self-running systems that multiply your time, productivity, and revenue.",
+      "To transform manual workflows into smart, self-running systems that multiply your time, productivity, and revenue — making your business easy to run and completely stress-free.",
     location: "Laguna, Philippines",
     email: "dawnsolomon482@gmail.com",
   },
