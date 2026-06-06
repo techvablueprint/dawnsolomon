@@ -2,7 +2,7 @@ import React from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { EditableText } from "@/components/EditableText";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export function ContactSection() {
   const { data, updateData } = usePortfolio();
@@ -81,18 +81,6 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  {social.linkedin && (
-                    <a
-                      href={social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 transition-colors"
-                    >
-                      <Linkedin className="w-6 h-6" />
-                    </a>
-                  )}
-                </div>
               </div>
             </div>
           </div>
