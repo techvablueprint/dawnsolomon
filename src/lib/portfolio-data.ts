@@ -87,7 +87,7 @@ export const defaultPortfolioData: PortfolioData = {
     name: "Dawn Solomon",
     title: "GoHighLevel & AI Automation | CRM, Workflows, WordPress SEO",
     description:
-      "I design end-to-end automation solutions using tools like GoHighLevel, Zapier (Integromat), and n8n, seamlessly connecting marketing, CRM, and operations into one intelligent ecosystem that runs on autopilot. With a solid foundation in WordPress SEO and LLMS visibility, I understand how systems, data, and strategy work together to create sustainable digital growth.",
+      "I help businesses scale with GoHighLevel & AI automation — building powerful CRM systems, smart workflows, and SEO-optimized WordPress sites that run on autopilot. By connecting marketing, sales, and operations into one intelligent ecosystem, I turn manual tasks into self-running processes that save time, cut costs, and drive sustainable growth.",
     vision:
       "A world where founders and teams focus purely on creative, high-impact work, while robots handle 100% of the repetitive admin.",
     goal:
