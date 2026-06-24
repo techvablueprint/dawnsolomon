@@ -238,6 +238,7 @@ export function getPortfolioData(): PortfolioData {
         about: {
           ...parsed.about,
           title: defaultPortfolioData.about.title,
+          description: defaultPortfolioData.about.description,
         },
         projects: {
           ...parsed.projects,
