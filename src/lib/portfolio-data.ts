@@ -235,9 +235,14 @@ export function getPortfolioData(): PortfolioData {
       });
       return {
         ...parsed,
+        about: {
+          ...parsed.about,
+          title: defaultPortfolioData.about.title,
+        },
         projects: {
           ...parsed.projects,
           items: mergedProjects,
+
         },
       };
     } catch {
