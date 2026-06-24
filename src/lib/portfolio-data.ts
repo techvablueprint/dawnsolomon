@@ -85,7 +85,7 @@ export const defaultPortfolioData: PortfolioData = {
   about: {
     sectionLabel: "THE ARCHITECT BEHIND THE AUTOMATION",
     name: "Dawn Solomon",
-    title: "Automation Engineer | WordPress SEO | AI Visibility",
+    title: "GoHighLevel & AI Automation | CRM, Workflows, WordPress SEO",
     description:
       "I design end-to-end automation solutions using tools like GoHighLevel, Zapier (Integromat), and n8n, seamlessly connecting marketing, CRM, and operations into one intelligent ecosystem that runs on autopilot. With a solid foundation in WordPress SEO and LLMS visibility, I understand how systems, data, and strategy work together to create sustainable digital growth.",
     vision:
@@ -235,9 +235,14 @@ export function getPortfolioData(): PortfolioData {
       });
       return {
         ...parsed,
+        about: {
+          ...parsed.about,
+          title: defaultPortfolioData.about.title,
+        },
         projects: {
           ...parsed.projects,
           items: mergedProjects,
+
         },
       };
     } catch {
