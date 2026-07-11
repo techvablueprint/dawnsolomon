@@ -198,11 +198,15 @@ export function WordpressSeoSection() {
                 <Button
                   variant="outline"
                   className="w-full border-primary/20 hover:bg-primary/10 hover:border-primary/40 gap-2"
-                  disabled={project.comingSoon}
-                  onClick={() => project.url && window.open(project.url, "_blank")}
+                  disabled={project.comingSoon || (!project.reportUrl && !project.url)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const target = project.reportUrl || project.url;
+                    if (target) window.open(target, "_blank", "noopener,noreferrer");
+                  }}
                 >
                   <ExternalLink className="w-4 h-4" />
-                  {project.comingSoon ? "Coming Soon" : "Visit Live Site"}
+                  {project.comingSoon ? "Coming Soon" : project.reportUrl ? "View SEO Report" : "Visit Live Site"}
                 </Button>
               </div>
             </div>
