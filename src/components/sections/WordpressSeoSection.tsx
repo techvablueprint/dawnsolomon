@@ -14,6 +14,7 @@ type SeoProject = {
   label: string;
   description: string;
   url?: string;
+  reportUrl?: string;
   image?: string;
   tags: string[];
   benefits: string[];
