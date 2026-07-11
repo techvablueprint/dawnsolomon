@@ -142,12 +142,21 @@ export function WordpressSeoSection() {
                 className="relative w-full h-48 overflow-hidden block text-left focus:outline-none focus:ring-2 focus:ring-primary/40 bg-gradient-to-br from-primary/10 via-muted/40 to-secondary/10"
                 aria-label={`View details for ${project.title}`}
               >
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-muted-foreground">
-                  <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
-                    <Globe className="w-8 h-8 text-primary" />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={`${project.title} — WordPress SEO case study feature image`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-muted-foreground">
+                    <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
+                      <Globe className="w-8 h-8 text-primary" />
+                    </div>
+                    <span className="text-sm font-medium">Feature image coming soon</span>
                   </div>
-                  <span className="text-sm font-medium">Feature image coming soon</span>
-                </div>
+                )}
                 {/* Hover overlay */}
                 <div className={cn(
                   "absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300",
