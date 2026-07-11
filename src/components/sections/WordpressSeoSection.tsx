@@ -273,19 +273,30 @@ export function WordpressSeoSection() {
                 </div>
               </div>
 
-              {activeProject.url ? (
-                <a href={activeProject.url} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full gap-2">
+              <div className="flex flex-col sm:flex-row gap-3">
+                {activeProject.reportUrl && (
+                  <a href={activeProject.reportUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <Button className="w-full gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      View SEO Report
+                    </Button>
+                  </a>
+                )}
+                {activeProject.url && (
+                  <a href={activeProject.url} target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <Button variant="outline" className="w-full gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      Visit Live Site
+                    </Button>
+                  </a>
+                )}
+                {!activeProject.url && !activeProject.reportUrl && (
+                  <Button className="w-full gap-2" disabled>
                     <ExternalLink className="w-4 h-4" />
-                    Visit Live Site
+                    Coming Soon
                   </Button>
-                </a>
-              ) : (
-                <Button className="w-full gap-2" disabled>
-                  <ExternalLink className="w-4 h-4" />
-                  Coming Soon
-                </Button>
-              )}
+                )}
+              </div>
             </div>
           )}
         </DialogContent>
