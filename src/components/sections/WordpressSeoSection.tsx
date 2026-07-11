@@ -7,17 +7,6 @@ import { useInView } from "@/hooks/useInView";
 import firstCallGarageDoors from "@/assets/projects/first-call-garage-doors.png";
 
 
-type SeoProject = {
-  id: string;
-  title: string;
-  label: string;
-  description: string;
-  url?: string;
-  tags: string[];
-  benefits: string[];
-  outcomes: string[];
-  comingSoon?: boolean;
-};
 
 type SeoProject = {
   id: string;
