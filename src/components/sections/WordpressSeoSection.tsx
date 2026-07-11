@@ -225,6 +225,16 @@ export function WordpressSeoSection() {
                 </DialogDescription>
               </DialogHeader>
 
+              {activeProject.image && (
+                <div className="mb-6 rounded-xl overflow-hidden border border-primary/15">
+                  <img
+                    src={activeProject.image}
+                    alt={`${activeProject.title} — feature image`}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              )}
+
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div className="rounded-xl border border-primary/15 bg-primary/5 p-5">
                   <div className="flex items-center gap-2 mb-3">
