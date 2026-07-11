@@ -14,6 +14,7 @@ type SeoProject = {
   label: string;
   description: string;
   url?: string;
+  reportUrl?: string;
   image?: string;
   tags: string[];
   benefits: string[];
@@ -29,6 +30,7 @@ const seoProjects: SeoProject[] = [
     description:
       "WordPress SEO overhaul for First Call Garage Doors — rebuilt content, on-page SEO, and site structure to grow trust flow, keywords, and organic traffic.",
     url: "https://www.firstcallgaragedoors.com/",
+    reportUrl: "https://docs.google.com/spreadsheets/d/1fSMufoORztXBdWkSiiuE8FobVc_SsDqdJffTV3tqRJI/edit?usp=sharing",
     image: firstCallGarageDoors,
     tags: ["WordPress", "Local SEO", "On-Page SEO"],
     benefits: [
@@ -196,11 +198,15 @@ export function WordpressSeoSection() {
                 <Button
                   variant="outline"
                   className="w-full border-primary/20 hover:bg-primary/10 hover:border-primary/40 gap-2"
-                  disabled={project.comingSoon}
-                  onClick={() => project.url && window.open(project.url, "_blank")}
+                  disabled={project.comingSoon || (!project.reportUrl && !project.url)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const target = project.reportUrl || project.url;
+                    if (target) window.open(target, "_blank", "noopener,noreferrer");
+                  }}
                 >
                   <ExternalLink className="w-4 h-4" />
-                  {project.comingSoon ? "Coming Soon" : "Visit Live Site"}
+                  {project.comingSoon ? "Coming Soon" : project.reportUrl ? "View SEO Report" : "Visit Live Site"}
                 </Button>
               </div>
             </div>
@@ -267,19 +273,30 @@ export function WordpressSeoSection() {
                 </div>
               </div>
 
-              {activeProject.url ? (
-                <a href={activeProject.url} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full gap-2">
+              <div className="flex flex-col sm:flex-row gap-3">
+                {activeProject.reportUrl && (
+                  <a href={activeProject.reportUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <Button className="w-full gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      View SEO Report
+                    </Button>
+                  </a>
+                )}
+                {activeProject.url && (
+                  <a href={activeProject.url} target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <Button variant="outline" className="w-full gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      Visit Live Site
+                    </Button>
+                  </a>
+                )}
+                {!activeProject.url && !activeProject.reportUrl && (
+                  <Button className="w-full gap-2" disabled>
                     <ExternalLink className="w-4 h-4" />
-                    Visit Live Site
+                    Coming Soon
                   </Button>
-                </a>
-              ) : (
-                <Button className="w-full gap-2" disabled>
-                  <ExternalLink className="w-4 h-4" />
-                  Coming Soon
-                </Button>
-              )}
+                )}
+              </div>
             </div>
           )}
         </DialogContent>
