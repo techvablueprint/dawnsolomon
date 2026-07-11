@@ -19,25 +19,41 @@ type SeoProject = {
   comingSoon?: boolean;
 };
 
+type SeoProject = {
+  id: string;
+  title: string;
+  label: string;
+  description: string;
+  url?: string;
+  image?: string;
+  tags: string[];
+  benefits: string[];
+  outcomes: string[];
+  comingSoon?: boolean;
+};
+
 const seoProjects: SeoProject[] = [
   {
     id: "seo-1",
-    title: "WordPress SEO Project",
-    label: "Coming Soon",
-    description: "A WordPress site fully optimized for on-page SEO, speed, and Core Web Vitals — built to rank and convert.",
-    tags: ["WordPress", "On-Page SEO", "Core Web Vitals"],
+    title: "First Call Garage Doors",
+    label: "Live SEO Case Study",
+    description:
+      "WordPress SEO overhaul for First Call Garage Doors — rebuilt content, on-page SEO, and site structure to grow trust flow, keywords, and organic traffic.",
+    url: "https://www.firstcallgaragedoors.com/",
+    image: firstCallGarageDoors,
+    tags: ["WordPress", "Local SEO", "On-Page SEO"],
     benefits: [
-      "Higher Google rankings through technical + on-page SEO best practices.",
-      "Faster site speed and better user experience with optimized performance.",
-      "Structured content that search engines and readers both love.",
+      "Homepage rewritten from 419 to 3,024 words with keyword-focused, conversion-driven copy.",
+      "Expanded from 10 to 26 pages including 11 service pages and 12 service-area pages for local reach.",
+      "Improved authority signals — Trust Flow 21 → 25, Citation Flow 0 → 10, referring domains 31 → 42.",
     ],
     outcomes: [
-      "More organic traffic without paying for ads.",
-      "Better conversion rates from qualified search visitors.",
-      "A long-term SEO asset that keeps compounding results.",
+      "Organic traffic grew 3× and keywords ranked jumped from 50 to 86.",
+      "Stronger local presence across Richmond, Houston, and Katy TX service areas.",
+      "A scalable SEO foundation the business can keep growing on.",
     ],
-    comingSoon: true,
   },
+
   {
     id: "seo-2",
     title: "WordPress SEO Project",
