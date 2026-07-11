@@ -30,6 +30,7 @@ const seoProjects: SeoProject[] = [
     description:
       "WordPress SEO overhaul for First Call Garage Doors — rebuilt content, on-page SEO, and site structure to grow trust flow, keywords, and organic traffic.",
     url: "https://www.firstcallgaragedoors.com/",
+    reportUrl: "https://docs.google.com/spreadsheets/d/1fSMufoORztXBdWkSiiuE8FobVc_SsDqdJffTV3tqRJI/edit?usp=sharing",
     image: firstCallGarageDoors,
     tags: ["WordPress", "Local SEO", "On-Page SEO"],
     benefits: [
