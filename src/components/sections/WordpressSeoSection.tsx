@@ -69,21 +69,22 @@ const seoProjects: SeoProject[] = [
   },
   {
     id: "seo-3",
-    title: "WordPress SEO Project",
-    label: "Coming Soon",
-    description: "Placeholder for an upcoming WordPress SEO project — case study and live link will be added soon.",
-    tags: ["WordPress", "Technical SEO", "Content"],
+    title: "Website Performance & AI Visibility Optimization",
+    label: "Performance + GEO / AEO Case Study",
+    description:
+      "WordPress performance SEO plus GEO / AEO optimization — improving Core Web Vitals, GTmetrix and PageSpeed scores, and making the site properly readable by AI agents and LLM-powered search.",
+    reportUrl: "https://docs.google.com/document/d/1Us5Y66rCqr1I6O2Svfj_EANokew-7obS4Rs9mUxdX_A/edit?usp=sharing",
+    tags: ["WordPress", "Core Web Vitals", "GEO / AEO", "AI Visibility"],
     benefits: [
-      "Full technical SEO cleanup — sitemap, robots, redirects, indexing.",
-      "Content strategy aligned with real search demand.",
-      "Trust-building design and copy that converts visitors.",
+      "Full WordPress performance tune-up — caching, image optimization, script cleanup, and Core Web Vitals fixes.",
+      "GEO / AEO optimization so the site is properly understood by ChatGPT, Gemini, Perplexity, and other AI search engines.",
+      "Agentic-browsing readiness — clean structure, schema, and content that LLM agents can crawl and quote accurately.",
     ],
     outcomes: [
-      "Stronger domain authority and search presence.",
-      "Consistent organic pipeline of new customers.",
-      "A site the business owner is proud to share.",
+      "Major GTmetrix and PageSpeed improvements from the Oct 2025 baseline to the 2026 update.",
+      "Faster, more stable site that ranks better on Google and gets surfaced inside AI answers.",
+      "A future-proof SEO foundation built for both classic search and AI-driven discovery.",
     ],
-    comingSoon: true,
   },
 ];
 
