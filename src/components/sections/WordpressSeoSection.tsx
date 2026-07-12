@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useInView } from "@/hooks/useInView";
 import firstCallGarageDoors from "@/assets/projects/first-call-garage-doors.png";
+import poshDeluxe from "@/assets/projects/posh-deluxe.png";
 
 
 
@@ -47,21 +48,24 @@ const seoProjects: SeoProject[] = [
 
   {
     id: "seo-2",
-    title: "WordPress SEO Project",
-    label: "Coming Soon",
-    description: "Placeholder for an upcoming WordPress SEO project — case study and live link will be added soon.",
-    tags: ["WordPress", "SEO", "Optimization"],
+    title: "Posh Deluxe",
+    label: "Live Shopify SEO Case Study",
+    description:
+      "Shopify SEO for Posh Deluxe — a lash & brow supply store in Australia. Monthly SEO work focused on keyword rankings, organic traffic growth, and product/collection visibility on Google.",
+    url: "https://poshdeluxe.com.au/",
+    reportUrl: "https://docs.google.com/document/d/11qifHB4GSIpLv-TlnOtMZUNL5LtgtUxZgkVwEqBroyM/edit?usp=sharing",
+    image: poshDeluxe,
+    tags: ["Shopify", "eCommerce SEO", "Keyword Rankings"],
     benefits: [
-      "Site audit + keyword mapping for the client's niche.",
-      "Schema markup, meta tags, and internal linking done right.",
-      "Ongoing SEO tracking with clear reporting.",
+      "587 organic visitors from Google in Nov 2025 — a 100.34% increase vs. the same period last year.",
+      "Ranking #1 for high-intent brand and product terms like 'lash tray organiser', 'dd curl lashes', and 'russian volume lashes australia'.",
+      "Optimized homepage, top collections (Tweezers, Volume, Organisers), and lash-care blog content for real search demand.",
     ],
     outcomes: [
-      "Improved search visibility across target keywords.",
-      "More qualified leads reaching out through the site.",
-      "A scalable SEO foundation the business can grow on.",
+      "Consistent top-of-page rankings across dozens of lash-supply keywords.",
+      "Stronger organic pipeline of buyers landing directly on product & collection pages.",
+      "Clear monthly SEO reporting the business owner can actually understand and act on.",
     ],
-    comingSoon: true,
   },
   {
     id: "seo-3",
