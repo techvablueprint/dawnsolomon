@@ -56,10 +56,11 @@ const Index = () => {
           <HeroSection />
           <AboutSection />
           <ProjectsSection />
-          <WordpressSeoSection />
           <LiveWebsitesSection />
           <PlannerProjectSection />
           <LiveDashboardSection />
+          <WordpressSeoSection />
+          
           
           <CalendlySection />
           <ContactSection />
