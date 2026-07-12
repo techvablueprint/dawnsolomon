@@ -75,6 +75,7 @@ const seoProjects: SeoProject[] = [
     description:
       "WordPress performance SEO plus GEO / AEO optimization — improving Core Web Vitals, GTmetrix and PageSpeed scores, and making the site properly readable by AI agents and LLM-powered search.",
     reportUrl: "https://docs.google.com/document/d/1Us5Y66rCqr1I6O2Svfj_EANokew-7obS4Rs9mUxdX_A/edit?usp=sharing",
+    image: websitePerformanceSeo,
     tags: ["WordPress", "Core Web Vitals", "GEO / AEO", "AI Visibility"],
     benefits: [
       "Full WordPress performance tune-up — caching, image optimization, script cleanup, and Core Web Vitals fixes.",
