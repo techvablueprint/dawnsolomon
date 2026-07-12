@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useInView } from "@/hooks/useInView";
 import firstCallGarageDoors from "@/assets/projects/first-call-garage-doors.png";
+import poshDeluxe from "@/assets/projects/posh-deluxe.png";
 
 
 
