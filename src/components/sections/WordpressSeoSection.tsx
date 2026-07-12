@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { useInView } from "@/hooks/useInView";
 import firstCallGarageDoors from "@/assets/projects/first-call-garage-doors.png";
 import poshDeluxe from "@/assets/projects/posh-deluxe.png";
+import websitePerformanceSeo from "@/assets/projects/website-performance-seo.png";
 
 
 
