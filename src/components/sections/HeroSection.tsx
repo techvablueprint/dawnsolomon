@@ -26,6 +26,12 @@ import canvaLogo from "@/assets/brands/canva.ico";
 import shopifyLogo from "@/assets/tools/shopify.svg";
 import zapierLogo from "@/assets/tools/zapier.svg";
 import airtableLogo from "@/assets/tools/airtable.svg";
+import screamingfrogLogo from "@/assets/tools/screamingfrog.png";
+import semrushLogo from "@/assets/tools/semrush.svg";
+import ahrefsLogo from "@/assets/tools/ahrefs.png";
+import gscLogo from "@/assets/tools/googlesearchconsole.svg";
+import gaLogo from "@/assets/tools/googleanalytics.svg";
+import mozLogo from "@/assets/tools/moz.png";
 
 const brandLogos = [
   { name: "ClickUp", logo: clickupLogo },
@@ -45,6 +51,12 @@ const brandLogos = [
   { name: "Shopify", logo: shopifyLogo },
   { name: "Zapier", logo: zapierLogo },
   { name: "Airtable", logo: airtableLogo },
+  { name: "Screaming Frog", logo: screamingfrogLogo },
+  { name: "Semrush", logo: semrushLogo },
+  { name: "Ahrefs", logo: ahrefsLogo },
+  { name: "Google Search Console", logo: gscLogo },
+  { name: "Google Analytics", logo: gaLogo },
+  { name: "Moz", logo: mozLogo },
 ];
 
 const FloatingCard = ({
