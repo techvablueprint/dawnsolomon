@@ -196,6 +196,58 @@ export const defaultPortfolioData: PortfolioData = {
         ],
         image: "/projects/invoice-workflow-automation.png",
       },
+      {
+        id: "project-7",
+        title: "HVAC Outreach 15-Touch",
+        description:
+          "GoHighLevel cold outreach sequence with 15 timed emails over 29 days to turn cold HVAC prospects into booked calls.",
+        category: "Automation",
+        tags: ["GoHighLevel", "Email Outreach", "HVAC"],
+        stats: [
+          { label: "Touchpoints", value: "15" },
+          { label: "Duration", value: "29 Days" },
+        ],
+        image: "/projects/hvac-outreach-15-touch.png",
+      },
+      {
+        id: "project-8",
+        title: "HVAC Reactivation Workflow",
+        description:
+          "15-touch, 30-day GoHighLevel reactivation workflow with reply-based branching to win back past HVAC customers.",
+        category: "Automation",
+        tags: ["GoHighLevel", "Reactivation", "Branching"],
+        stats: [
+          { label: "Touchpoints", value: "15" },
+          { label: "Duration", value: "30 Days" },
+        ],
+        image: "/projects/hvac-reactivation-workflow.png",
+      },
+      {
+        id: "project-9",
+        title: "Automated Cold Follow-Up (Quotation Sent)",
+        description:
+          "Automated follow-up sequence triggered after a quote is sent, with condition checks at each step to close more deals.",
+        category: "Automation",
+        tags: ["GoHighLevel", "Quotes", "Follow-Up"],
+        stats: [
+          { label: "Follow-Ups", value: "14+" },
+          { label: "Manual Work", value: "0" },
+        ],
+        image: "/projects/cold-followup-quotation.png",
+      },
+      {
+        id: "project-10",
+        title: "HVAC Automated Booking Update",
+        description:
+          "Booking confirmation and reminder workflow: SMS + email confirmations, 24h/3h/2h/30-min reminders, and reply-based tagging with team alerts.",
+        category: "Automation",
+        tags: ["GoHighLevel", "SMS", "Reminders"],
+        stats: [
+          { label: "Reminders", value: "8+" },
+          { label: "No-Shows", value: "↓" },
+        ],
+        image: "/projects/hvac-booking-update.png",
+      },
     ],
   },
   contact: {
@@ -232,6 +284,9 @@ export function getPortfolioData(): PortfolioData {
           };
         }
         return item;
+      });
+      defaultPortfolioData.projects.items.forEach((d) => {
+        if (!mergedProjects.some((m) => m.id === d.id)) mergedProjects.push(d);
       });
       return {
         ...parsed,
