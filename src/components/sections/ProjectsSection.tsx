@@ -9,6 +9,54 @@ import { cn } from "@/lib/utils";
 
 // Per-project benefits + outcomes for the details modal
 const projectInsights: Record<string, { benefits: string[]; outcomes: string[] }> = {
+  "project-7": {
+    benefits: [
+      "Follows up with every cold prospect automatically — no one is forgotten.",
+      "Spaces 15 emails over a month so outreach feels natural, not spammy.",
+      "Frees the owner from writing and sending follow-ups by hand.",
+    ],
+    outcomes: [
+      "More replies and booked calls from the same lead list.",
+      "A steady, predictable pipeline of new HVAC jobs.",
+      "Consistent outreach that runs 24/7 without extra staff.",
+    ],
+  },
+  "project-8": {
+    benefits: [
+      "Wakes up old customers who haven't booked in a while.",
+      "Changes the next message based on how the customer replies.",
+      "Turns an existing contact list into new revenue without ad spend.",
+    ],
+    outcomes: [
+      "Repeat bookings from past customers within 30 days.",
+      "Lower marketing cost per job.",
+      "Hot leads flagged instantly so the team can call right away.",
+    ],
+  },
+  "project-9": {
+    benefits: [
+      "Automatically chases every quote that was sent but not yet accepted.",
+      "Checks at each step if the customer replied, so no awkward double messages.",
+      "Removes the stress of remembering who to follow up with.",
+    ],
+    outcomes: [
+      "Higher quote-to-job close rate.",
+      "Less money left on the table from forgotten quotes.",
+      "A sales process that runs itself.",
+    ],
+  },
+  "project-10": {
+    benefits: [
+      "Sends instant booking confirmations by SMS and email.",
+      "Reminds customers 24h, 3h, 2h and 30 minutes before the visit.",
+      "Tags replies and alerts the team when a customer needs attention.",
+    ],
+    outcomes: [
+      "Far fewer no-shows and missed appointments.",
+      "A professional experience customers trust.",
+      "Technicians' schedules stay full and on time.",
+    ],
+  },
   "project-3": {
     benefits: [
       "Eliminates hours of manually sorting Gmail attachments every week.",
