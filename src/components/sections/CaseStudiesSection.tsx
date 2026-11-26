@@ -1,3 +1,10 @@
+import faqSectionImage from "@/assets/projects/portfolio-faq-section.png.asset.json";
+import quickAnswerImage from "@/assets/projects/portfolio-quick-answer.png.asset.json";
+
+const assetBaseUrl = import.meta.env.DEV
+  ? "https://id-preview--f2d73e63-d1e7-42df-960c-04f787d3205c.lovable.app"
+  : "";
+
 export function CaseStudiesSection() {
   return (
     <section id="case-studies" className="relative overflow-hidden py-20 lg:py-32">
@@ -38,6 +45,23 @@ export function CaseStudiesSection() {
               <li>Optimized 24 articles with quick answers, FAQs, internal links, metadata and image alt text</li>
               <li>Addressed keyword cannibalization in priority topic clusters through keyphrase differentiation and 301 redirects</li>
             </ul>
+
+            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <figure>
+                <img
+                  src={`${assetBaseUrl}${faqSectionImage.url}`}
+                  alt="Frequently asked questions section example"
+                  className="h-auto w-full rounded-md border border-border/60"
+                />
+              </figure>
+              <figure>
+                <img
+                  src={`${assetBaseUrl}${quickAnswerImage.url}`}
+                  alt="Quick answer content example"
+                  className="h-auto w-full rounded-md border border-border/60"
+                />
+              </figure>
+            </div>
           </section>
 
           <div className="mt-8 grid gap-6 border-t border-border/60 pt-6 sm:grid-cols-2">
