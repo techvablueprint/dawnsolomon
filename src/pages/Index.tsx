@@ -8,6 +8,7 @@ import { ClickSound } from "@/components/ClickSound";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { LiveWebsitesSection } from "@/components/sections/LiveWebsitesSection";
 import { WordpressSeoSection } from "@/components/sections/WordpressSeoSection";
+import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { PlannerProjectSection } from "@/components/sections/PlannerProjectSection";
 import { LiveDashboardSection } from "@/components/sections/LiveDashboardSection";
 import { CalendlySection } from "@/components/sections/CalendlySection";
@@ -60,6 +61,7 @@ const Index = () => {
           <PlannerProjectSection />
           <LiveDashboardSection />
           <WordpressSeoSection />
+          <CaseStudiesSection />
           
           
           <CalendlySection />
