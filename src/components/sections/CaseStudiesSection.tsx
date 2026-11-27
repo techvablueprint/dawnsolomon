@@ -1,5 +1,7 @@
 import faqSectionImage from "@/assets/projects/portfolio-faq-section.png.asset.json";
 import quickAnswerImage from "@/assets/projects/portfolio-quick-answer.png.asset.json";
+import yoastImage from "@/assets/projects/portfolio-yoast-green.png.asset.json";
+import redirectsImage from "@/assets/projects/portfolio-301-redirects.png.asset.json";
 
 const assetBaseUrl = import.meta.env.DEV
   ? "https://id-preview--f2d73e63-d1e7-42df-960c-04f787d3205c.lovable.app"
@@ -44,6 +46,7 @@ export function CaseStudiesSection() {
               <li>Corrected 17 off-site canonical tags in a library of 770 articles</li>
               <li>Optimized 24 articles with quick answers, FAQs, internal links, metadata and image alt text</li>
               <li>Addressed keyword cannibalization in priority topic clusters through keyphrase differentiation and 301 redirects</li>
+              <li>Analyzed Google Search Console data to find high-impression, low-click pages, then improved their titles and meta descriptions</li>
             </ul>
 
             <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -53,6 +56,9 @@ export function CaseStudiesSection() {
                   alt="Frequently asked questions section example"
                   className="h-auto w-full rounded-md border border-border/60"
                 />
+                <figcaption className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  FAQ section built from the article's own content (client details blurred)
+                </figcaption>
               </figure>
               <figure>
                 <img
@@ -60,6 +66,29 @@ export function CaseStudiesSection() {
                   alt="Quick answer content example"
                   className="h-auto w-full rounded-md border border-border/60"
                 />
+                <figcaption className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Answer-first summary added for readers and AI search (client details blurred)
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${assetBaseUrl}${yoastImage.url}`}
+                  alt="Yoast SEO and readability rated Good"
+                  className="h-auto w-full rounded-md border border-border/60"
+                />
+                <figcaption className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Yoast SEO and readability both rated Good on an optimized article (client details blurred)
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${assetBaseUrl}${redirectsImage.url}`}
+                  alt="301 redirects list"
+                  className="h-auto w-full rounded-md border border-border/60"
+                />
+                <figcaption className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  301 redirects set up to consolidate overlapping pages and fix old URLs (client details blurred)
+                </figcaption>
               </figure>
             </div>
           </section>
@@ -67,7 +96,7 @@ export function CaseStudiesSection() {
           <div className="mt-8 grid gap-6 border-t border-border/60 pt-6 sm:grid-cols-2">
             <section>
               <h4 className="mb-2 text-sm font-semibold uppercase text-primary">Tools</h4>
-              <p className="text-muted-foreground">WordPress, Yoast SEO</p>
+              <p className="text-muted-foreground">WordPress, Yoast SEO, Redirection, Google Search Console</p>
             </section>
             <section>
               <h4 className="mb-2 text-sm font-semibold uppercase text-primary">Status</h4>
